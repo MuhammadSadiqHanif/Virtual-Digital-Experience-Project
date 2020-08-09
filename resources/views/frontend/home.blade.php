@@ -12,4 +12,6 @@
     <img id="image7"  class="image7" src="{{ asset('frontend/images/Asset 1@2x.png') }}" alt="">
 </div>
 
+
+
 @endsection

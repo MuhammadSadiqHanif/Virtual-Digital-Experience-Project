@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Digital Experience</title>
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
 </head>
 <body>
     <nav>
