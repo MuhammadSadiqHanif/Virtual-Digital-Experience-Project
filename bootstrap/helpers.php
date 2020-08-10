@@ -24,7 +24,7 @@ function getToken()
 */
 function replaceHttps($host)
 {
-	$domain = config('app.url');
+	$domain = env('APP_DOMAIN');
 	$test = str_replace(['http://', 'https://'],'',$domain);
 	return $host .'.'.$test;
 }

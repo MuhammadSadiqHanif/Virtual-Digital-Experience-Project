@@ -277,7 +277,7 @@
 
 <script>
 	$(document).ready(function(){
-		var url = "{{ config('app.url') }}";
+		var url = "{{ env('APP_DOMAIN') }}";
 
 		$('#domain').keyup(function(){
 	       $('#domain_prepend').text($(this).val() + '.' + url.replace(/(^\w+:|^)\/\//, ''));
