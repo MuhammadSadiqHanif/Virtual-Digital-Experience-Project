@@ -64,9 +64,14 @@
                                 <td>
                                     <div class="btn-group btn-group-example mb-3" role="group">
                                         <a href="{{ route('clients.edit',$user->id) }}" class="btn btn-primary w-xs btn-sm"><i class="bx bx-pencil font-size-16"></i></a>
-                                        <a href="{{ route('clients.destroy',$user->id) }}" class="btn btn-danger w-xs btn-sm"><i class="bx bxs-trash d-block font-size-16"></i></a>
+                                        <a href="#" onclick="event.preventDefault(); document.getElementById('user-del-{{ $user->id }}').submit();" class="btn btn-danger w-xs btn-sm"><i class="bx bxs-trash d-block font-size-16"></i></a>
                                     </div>
                                 </td>
+
+                                <form action="{{ route('clients.destroy',$user->id) }}" id="user-del-{{ $user->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             </tr> 
                             @empty
 
