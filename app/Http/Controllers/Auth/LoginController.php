@@ -64,7 +64,7 @@ class LoginController extends Controller
         {
             if (explode('.',request()->getHost())[0] == $request->user()->domain) 
             {
-                    return redirect()->to('/admin/dashboard');
+                    return redirect()->to('/admin/home');
             }
             else
             {

@@ -16,7 +16,7 @@
 Route::domain('{domain}.'.env('APP_DOMAIN'))->group(function () {
 	Route::group(['prefix' => 'admin','namespace' => 'Subdomain'],function(){
    		Route::get('/login','SubLoginController@showLoginForm');
-   		Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
+   		Route::get('/home','AdminDashboardController@index')->name('admin.dashboard');
    	});
 });
 
