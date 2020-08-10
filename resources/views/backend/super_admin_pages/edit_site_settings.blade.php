@@ -93,7 +93,10 @@
 	                               <label>Domain</label>
 	                               <input class="form-control" type="text" name="domain" 
                                    value="{{ old('domain',$client->domain) }}" id="domain">
-	                               <span class="card-title-desc" id="domain_prepend"></span>
+	                               <span class="card-title-desc" {{-- id="domain_prepend" --}}>
+                                    Dont Change the Domain   
+                                   </span>
+
 	                               	@error('domain')
                                     <div class="invalid-feedback" style="display: block;">
                                         <strong>{{ $message }}</strong>
