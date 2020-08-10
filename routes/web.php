@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // admin routes
-Route::group(['prefix' => 'admin','namespace' => 'SuperAdmin'],function(){
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperAdmin'],function(){
 	
 	Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
 
