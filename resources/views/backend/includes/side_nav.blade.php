@@ -43,6 +43,26 @@
                 </li>
 
                 @endif
+
+                @if (auth()->user()->role == 1)
+                    <li class="menu-title">Topics</li>
+
+                    @forelse($topics as $topic)
+                    <li>
+                        <a href="#" class="waves-effect">
+                            <i class="bx bxs-flag"></i>
+                            <span>{{ $topic->title }}</span>
+                        </a>
+                    </li>
+                    @empty
+                        <li>
+                            <a href="javascript:" class="waves-effect">
+                                <i class="bx bx-user-circle"></i>
+                                <span>No Topics Yet</span>
+                            </a>
+                        </li>
+                    @endforelse
+                @endif
             </ul>
         </div>
         <!-- Sidebar -->

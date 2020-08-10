@@ -13,17 +13,17 @@
 
 /**** Sub Domain Routing *****/
 
-Route::domain('{account}.'.env('APP_DOMAIN'))->group(function () {
-   Route::get('foobar',function(){
-   	echo "foobar";
-   });
+Route::domain('{domain}.'.env('APP_DOMAIN'))->group(function () {
+	Route::group(['prefix' => 'admin','namespace' => 'Subdomain'],function(){
+   		Route::get('/login','SubLoginController@showLoginForm');
+   		Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
+   	});
 });
-
 
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');	
 
 
 // admin routes
