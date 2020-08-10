@@ -36,7 +36,7 @@
                 <li class="menu-title">Topics</li>
 
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="{{ route('topics.index') }}" class="waves-effect">
                         <i class="bx bx-user-circle"></i>
                         <span>Add Topics</span>
                     </a>

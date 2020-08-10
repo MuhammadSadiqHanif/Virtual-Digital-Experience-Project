@@ -37,6 +37,8 @@
         <div class="card">
             <div class="card-body">
 
+               @include('backend.includes.alert')
+                
                 <h4 class="card-title">Client Info</h4>
                
                 <form method="POST" action="{{ route('site-setting.store') }}" enctype="multipart/form-data">
@@ -285,28 +287,6 @@
 		    tags: true,
 		    tokenSeparators: [',', ' ']
 		})
-
-		@if(session()->has('success'))
-			Command: toastr["success"]("{{ session()->get('success') }}")
-
-			toastr.options = {
-			  "closeButton": false,
-			  "debug": true,
-			  "newestOnTop": true,
-			  "progressBar": true,
-			  "positionClass": "toast-top-right",
-			  "preventDuplicates": false,
-			  "onclick": null,
-			  "showDuration": 300,
-			  "hideDuration": 1000,
-			  "timeOut": 5000,
-			  "extendedTimeOut": 1000,
-			  "showEasing": "swing",
-			  "hideEasing": "linear",
-			  "showMethod": "fadeIn",
-			  "hideMethod": "fadeOut"
-			}
-		@endif
 	});
 </script>	
 @endpush

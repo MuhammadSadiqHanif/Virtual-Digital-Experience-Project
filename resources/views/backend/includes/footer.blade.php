@@ -35,7 +35,33 @@
     <!-- App js -->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
+
     @stack('js')
+
+    <script>
+        @if(session()->has('success'))
+            Command: toastr["success"]("{{ session()->get('success') }}")
+
+            toastr.options = {
+              "closeButton": false,
+              "debug": true,
+              "newestOnTop": true,
+              "progressBar": true,
+              "positionClass": "toast-top-right",
+              "preventDuplicates": false,
+              "onclick": null,
+              "showDuration": 300,
+              "hideDuration": 1000,
+              "timeOut": 5000,
+              "extendedTimeOut": 1000,
+              "showEasing": "swing",
+              "hideEasing": "linear",
+              "showMethod": "fadeIn",
+              "hideMethod": "fadeOut"
+            }
+        @endif
+    </script>
+    
     </body>
 
 </html>

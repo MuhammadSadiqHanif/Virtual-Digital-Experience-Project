@@ -10,7 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/lottie',function(){ return view('lottie');});
+
+/**** Sub Domain Routing *****/
+
+Route::domain('{account}.'.env('APP_DOMAIN'))->group(function () {
+   Route::get('foobar',function(){
+   	echo "foobar";
+   });
+});
+
+
+
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -24,6 +34,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
 	Route::group([],function(){
 		Route::resource('/site-setting','SiteSettingController');
 		Route::resource('/clients','ClientController');
+		Route::resource('/topics','TopicController');
 	});
 
 });

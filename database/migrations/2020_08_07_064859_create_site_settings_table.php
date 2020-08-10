@@ -23,6 +23,7 @@ class CreateSiteSettingsTable extends Migration
             $table->string('icon_color')->nullable();
             $table->string('domain')->nullable();
             $table->string('allowed_domain')->nullable();
+            $table->boolean('domain_verified')->default(false);
             $table->timestamps();
         });
     }
