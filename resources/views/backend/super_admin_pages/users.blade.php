@@ -63,8 +63,8 @@
                                 <td>{{ $user->company_url }}</td>
                                 <td>
                                     <div class="btn-group btn-group-example mb-3" role="group">
-                                        <a href="{{ route('clients.edit',$user->id) }}" class="btn btn-primary w-xs btn-sm"><i class="mdi mdi-pencil font-size-16"></i></a>
-                                        <a href="{{ route('clients.destroy',$user->id) }}" class="btn btn-danger w-xs btn-sm"><i class="mdi mdi-trash-can d-block font-size-16"></i></a>
+                                        <a href="{{ route('clients.edit',$user->id) }}" class="btn btn-primary w-xs btn-sm"><i class="bx bx-pencil font-size-16"></i></a>
+                                        <a href="{{ route('clients.destroy',$user->id) }}" class="btn btn-danger w-xs btn-sm"><i class="bx bxs-trash d-block font-size-16"></i></a>
                                     </div>
                                 </td>
                             </tr> 
