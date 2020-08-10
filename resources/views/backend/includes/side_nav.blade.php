@@ -21,7 +21,7 @@
                 <li>
                     <a href="{{ route('site-setting.index') }}" class=" waves-effect">
                         <i class="bx bx-key"></i>
-                        <span>Site Settings</span>
+                        <span>Add New Site</span>
                     </a>
                 </li>
 
