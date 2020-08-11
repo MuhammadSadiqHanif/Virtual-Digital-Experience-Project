@@ -60,11 +60,27 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if (preg_match('!^([a-z]{2})?\.?vdx\.test$!', request()->getHost()) == 0) 
+        if (preg_match('!^([a-z]{2})?\.?vdx\.test$!', request()->domain) == 0) 
         {
-            if (explode('.',request()->getHost())[0] == $request->user()->domain) 
+            $subDomain = explode('.',request()->getHost())[0];
+            
+            if (in_array($subDomain,$request->user()->userDomains('domain'))) 
             {
+                if ($request->user()->role == 1) {
                     return redirect()->to('/admin/dashboard');
+                }
+                else
+                {
+                    // confirm user
+                    $email_domain = explode('@',$request->user()->email)[1];
+                    if (in_array($email_domain,json_decode(request()->user()->userDomains('allowed_domain')[0]))) {
+                        return redirect()->to('/admin/dashboard');
+                    }
+                    else
+                    {
+                        return $this->customlogout($request);
+                    }
+                }
             }
             else
             {

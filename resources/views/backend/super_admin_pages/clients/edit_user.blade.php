@@ -56,14 +56,31 @@
                             </div>
 
                             <div class="form-group">
-                               <label>Company Url</label>
-                                <input class="form-control" type="text" name="company_url" value="{{ $client->company_url }}">
-                                @error('company_url')
+                               <label>Name</label>
+                                <input class="form-control" type="text" name="name" value="{{ $client->name }}">
+                                @error('name')
                                     <div class="invalid-feedback" style="display: block;">
                                         <strong>{{ $message }}</strong>
                                     </div>
                                 @enderror
                             </div>
+
+                             <div class="form-group">
+                               <label>Role</label>
+                                <select class="custom-select" name="role" id="role">
+                                    <option value="">Select Role</option>
+                                    <option {{ $client->role == 1 ? 'selected' : '' }} value="1">Admin</option>
+                                    <option {{ $client->role == 2 ? 'selected' : '' }} value="2">User</option>
+                                </select>
+                                @error('role')
+                                    <div class="invalid-feedback" style="display: block;">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                            </div>
+
+
+                           
                         </div>
 
                         <div class="col-lg-6">
@@ -77,10 +94,31 @@
                                 @enderror
                             </div>
 
+                           
+
+                             <div class="form-group">
+                               <label>Company Url</label>
+                                <input class="form-control" type="text" name="company_url" value="{{ $client->company_url }}">
+                                @error('company_url')
+                                    <div class="invalid-feedback" style="display: block;">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                            </div>
+
                               <div class="form-group">
                                <label>Domain</label>
-                                <input class="form-control" type="text" name="domain" value="{{ $client->domain }}">
-                                <span class="text-secondary">If you change the domain this user will be moved to different Tenant</span>
+                               <select class="custom-select" name="sites[]" id="sites">
+                                    <option value="">Select Site</option>
+                                    @forelse($sites as $site)
+                                    <option
+                                        {{ in_array($site->id,$client->userDomains('id')) ? 'selected' : '' }}
+                                        value="{{ $site->id }}">
+                                        <strong>{{ replaceHttps($site->domain) }}</strong>
+                                    </option>
+                                    @empty
+                                    @endforelse
+                                </select>
                                 @error('domain')
                                     <div class="invalid-feedback" style="display: block;">
                                         <strong>{{ $message }}</strong>
@@ -110,3 +148,19 @@
 
 </div>
 @endsection
+@push('js')
+<script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $("#sites").select2({
+            tags: true,
+            tokenSeparators: [',', ' ']
+        });
+
+        $("#role").select2({
+            tags: true,
+            tokenSeparators: [',', ' ']
+        });
+    });
+</script>
+@endpush

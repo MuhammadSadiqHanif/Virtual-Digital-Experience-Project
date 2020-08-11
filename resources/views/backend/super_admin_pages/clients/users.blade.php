@@ -49,7 +49,6 @@
                                 <th data-priority="1">Email</th>
                                 <th data-priority="2">Domain</th>
                                 <th data-priority="3">Role</th>
-                                <th data-priority="4">Type</th>
                                 <th data-priority="5">Company url</th>
                                 <th data-priority="6">Action</th>
                             </tr>
@@ -61,7 +60,6 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->domain }}</td>
                                 <td>{{ $user->role == 1 ? 'Admin' : "User"  }}</td>
-                                <td><span style="font-size: 14px;" class="badge badge-{{ $user->sole_propertier == 1 ? 'success' : "danger"  }}">{{ $user->sole_propertier == 1 ? 'Owner' : "User"  }}</span></td>
                                 <td>{{ $user->company_url }}</td>
                                 <td>
                                     <div class="btn-group btn-group-example mb-3" role="group">

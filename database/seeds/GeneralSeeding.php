@@ -17,7 +17,6 @@ class GeneralSeeding extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678'),
             'role' => 0,
-            'domain' => '',
             'company_url' => '',
         ]);
     }

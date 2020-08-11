@@ -68,8 +68,8 @@ class SiteController extends Controller
 	public function edit($id)
 	{
 		$site = SiteSetting::findOrFail($id);
-
-        return view('backend.super_admin_pages.sites.edit_site',compact('site'));
+		$clients = User::where('role',1)->get();
+        return view('backend.super_admin_pages.sites.edit_site',compact('site','clients'));
 	}
 
 	/**
@@ -88,6 +88,9 @@ class SiteController extends Controller
             'font_family' => 'required',
             'font_family_css' => 'required',
             'allowed_domains' => 'required',
+            'company_name' => 'required',
+            'admins' => 'required',
+            'company_url' => 'required',
         ]);
 
         if ($request->hasfile('logo'))
@@ -105,11 +108,13 @@ class SiteController extends Controller
         $siteSetting->font_family = $request->font_family;
         $siteSetting->font_family_css = $request->font_family_css;
         $siteSetting->icon_color = $request->icon_color;
-        $siteSetting->domain = $request->domain ?? $siteSetting->domain;
         $siteSetting->allowed_domain = json_encode($request->allowed_domains);
+        $siteSetting->company_name = $request->company_name;
+        $siteSetting->company_url = $request->company_url;
 
         $siteSetting->update();
 
+        $siteSetting->users()->sync($request->admins);
         //site-setting end here
 
         return redirect()->to('/admin/sites')->with('success', 'Site Settings Updated Successfully!');
@@ -140,10 +145,11 @@ class SiteController extends Controller
         catch (\Exception $e)
         {
             $exception = $e->getMessage();
-            // return back()->with('error', $exception);
         }
 
-        User::where('domain',$siteSetting->domain)->delete();
+        // User::where('domain',$siteSetting->domain)->delete();
+
+        $siteSetting->users()->detach();
 
         Topic::where('domain',$siteSetting->domain)->delete();
 

@@ -15,6 +15,8 @@ class CreateSiteSettingsTable extends Migration
     {
         Schema::create('site_settings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('company_url')->nullable();
+            $table->string('company_name')->nullable();
             $table->string('logo')->nullable();
             $table->string('primary_color')->nullable();
             $table->string('secondary_color')->nullable();

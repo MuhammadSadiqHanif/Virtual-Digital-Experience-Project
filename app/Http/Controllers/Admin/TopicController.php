@@ -26,7 +26,7 @@ class TopicController extends Controller
      */
     public function index(Request $request)
     {
-        $clients = User::where('role',1)->where('domain','!=',null)->where('sole_propertier',1)->get();
+        $clients = User::where('role',1)->where('domain','!=',null)->get();
 
         if ($request->has('client') && $request->client != '') {
 

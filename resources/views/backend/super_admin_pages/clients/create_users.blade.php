@@ -66,7 +66,7 @@
 
                             <div class="form-group">
                                <label>Role</label>
-                                <select class="custom-select" name="role">
+                                <select class="custom-select" name="role" id="role">
                                     <option value="">Select Role</option>
                                     <option value="1">Admin</option>
                                     <option value="2">User</option>
@@ -103,18 +103,17 @@
 
                               <div class="form-group">
                                <label>Domain</label>
-                                <select class="custom-select" name="client" id="client">
+                                <select class="custom-select" name="sites[]" id="sites">
                                     <option value="">Select Site</option>
-                                    @forelse($clients as $client)
-                                    <option {{ request()->has('client') && request()->client == $client->id ? 'selected' : '' }} 
-                                        value="{{ $client->domain }}">
-                                        <strong>{{ $client->name }}</strong>
-                                        <span class="card-title-desc">({{ replaceHttps($client->domain) }})</span>
+                                    @forelse($sites as $site)
+                                    <option
+                                        value="{{ $site->id }}">
+                                        <strong>{{ replaceHttps($site->domain) }}</strong>
                                     </option>
                                     @empty
                                     @endforelse
                                 </select>
-                                @error('client')
+                                @error('sites')
                                     <div class="invalid-feedback" style="display: block;">
                                         <strong>{{ $message }}</strong>
                                     </div>
@@ -143,3 +142,23 @@
 
 </div>
 @endsection
+
+@push('js')
+<script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $("#sites").select2({
+            tags: true,
+            tokenSeparators: [',', ' ']
+        });
+
+        $("#role").select2({
+            tags: true,
+            tokenSeparators: [',', ' ']
+        });
+    });
+</script>
+@endpush
+
+
+

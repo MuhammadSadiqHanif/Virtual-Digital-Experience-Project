@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\SiteSetting;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $clients = User::where('role',1)->where('sole_propertier',1)->latest()->paginate();
+        $sites = SiteSetting::select(['id','domain'])->latest()->get();
         return view('backend.super_admin_pages.clients.create_users',get_defined_vars());
     }
 
@@ -53,7 +54,6 @@ class ClientController extends Controller
             'name' => 'required',
             'email' => 'required|unique:users,email',
             'role' => 'required',
-            'client' => 'required',
             'password' => 'required|min:8',
         ]);
 
@@ -62,10 +62,13 @@ class ClientController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'role' => $request->role,
-            'domain' => $request->client,
             'company_url' => $request->company_url,
-            'sole_propertier' => 0
         ]);
+
+        if (is_array($request->sites)) 
+        {
+            $response->sites()->sync($request->sites);
+        }
 
         if($response)
         {
@@ -92,9 +95,10 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $client = User::with('site_settings')->find($id);
+        $client = User::findOrFail($id);
+        $sites = SiteSetting::select(['id','domain'])->latest()->get();
 
-        return view('backend.super_admin_pages.clients.edit_user',compact('client'));
+        return view('backend.super_admin_pages.clients.edit_user',compact('client','sites'));
     }
 
     /**
@@ -109,14 +113,16 @@ class ClientController extends Controller
         $request->validate([
             'company_url' => 'required',
             'email' => 'required|unique:users,email,' . $id,
-            'domain' => 'required',
+            'name' => 'required',
+            'role' => 'required',
         ]);
 
         $client = User::find($id);
 
         $client->email = $request->email;
+        $client->name = $request->name;
+        $client->role = $request->role;
         $client->password = isset($request->password) ? bcrypt($request->password) : $client->password;
-        $client->domain = $request->domain;
         $client->company_url = $request->company_url;
 
         if($client->update())

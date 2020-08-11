@@ -37,7 +37,8 @@
         <div class="card">
             <div class="card-body">
 
-               @include('backend.includes.alert')
+
+                @include('backend.includes.alert')
                 
                 <h4 class="card-title">Client Info</h4>
                
@@ -48,8 +49,8 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                <label>Company Name</label>
-                                <input class="form-control" type="text" name="name" value="{{ old('name') }}">
-                                @error('name')
+                                <input class="form-control" type="text" name="company_name" value="{{ old('company_name') }}">
+                                @error('company_name')
                                     <div class="invalid-feedback" style="display: block;">
                                         <strong>{{ $message }}</strong>
                                     </div>
@@ -59,12 +60,14 @@
 
                             <div class="form-group">
                                 <label>Admins</label>
-                                <select class="custom-select" name="role">
-                                    <option selected>Open this select menu</option>
-                                   
+                                <select class="custom-select" name="admins[]" multiple id="admins">
+                                    @forelse($clients as $client)
+                                        <option value="{{ $client->id }}">{{ $client->name }}</option>
+                                    @empty
+                                    @endforelse
                                 </select>
 
-                                @error('role')
+                                @error('admins')
                                     <div class="invalid-feedback" style="display: block;">
                                         <strong>{{ $message }}</strong>
                                     </div>
@@ -270,6 +273,12 @@
 		    tags: true,
 		    tokenSeparators: [',', ' ']
 		})
+
+        $("#admins").select2({
+            tags: true,
+            placeholder:'Select Admins',
+            tokenSeparators: [',', ' ']
+        })
 	});
 </script>	
 @endpush

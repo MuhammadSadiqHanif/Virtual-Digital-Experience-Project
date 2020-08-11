@@ -1,6 +1,7 @@
 <?php
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,11 @@ Auth::routes(['register' => false]);
 
 // Route::get('/home', 'HomeController@index')->name('home');	
 
-
+Route::get('/test',function(){
+	Auth::loginUsingId(2);
+	dd(json_decode(request()->user()->userDomains('allowed_domain')[0]));
+	Auth::logout();
+});
 
 // admin routes
 Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperAdmin'],function(){

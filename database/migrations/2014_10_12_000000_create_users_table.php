@@ -20,9 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->nullable()->comment('0=SuperAdmin,1=Admin,2=User');
-            $table->string('domain')->nullable();
             $table->string('company_url')->nullable();
-            $table->boolean('sole_propertier')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -51,8 +51,78 @@
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <input type="hidden" name="client_id" value="{{ $site->id }}">
+                     <input type="hidden" name="client_id" value="{{ $site->id }}">
 
+                        @csrf
+                    <div class="row">
+                       
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                               <label>Company Name</label>
+                                <input class="form-control" type="text" name="company_name" value="{{ $site->company_name }}">
+                                @error('company_name')
+                                    <div class="invalid-feedback" style="display: block;">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Admins</label>
+                                <select class="custom-select" name="admins[]" multiple id="admins">
+                                    @forelse($clients as $client)
+                                        <option 
+                                        {{ in_array($client->id,$site->usersName('id')) ? 'selected' : '' }}
+                                        value="{{ $client->id }}">{{ $client->name }}</option>
+                                    @empty
+                                    @endforelse
+                                </select>
+
+                                @error('admins')
+                                    <div class="invalid-feedback" style="display: block;">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                               <div class="form-group">
+                                   <label>Domain</label>
+                                   <input class="form-control" type="text" disabled="disabled" name="domain" value="{{ $site->domain }}" id="domain">
+                                   <span class="card-title-desc" id="domain_prepend"></span>
+                                    @error('domain')
+                                    <div class="invalid-feedback" style="display: block;">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                   <label>Company Url</label>
+                                    <input class="form-control" type="text" name="company_url" 
+                                    value="{{ $site->company_url }}">
+                                    @error('company_url')
+                                        <div class="invalid-feedback" style="display: block;">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div> 
+
+                                   
+                            </div>
+                       
+                    </div>  
+
+            </div>
+        </div>
+        <!-- end client -->
+
+    </div>
+
+
+</div>
+<!-- end row -->
             <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -216,7 +286,12 @@
 		$(".allowed_domains").select2({
 		    tags: true,
 		    tokenSeparators: [',', ' ']
-		})
+		});
+        $("#admins").select2({
+            tags: true,
+            placeholder:'Select Admin',
+            tokenSeparators: [',', ' ']
+        })
 	});
 </script>	
 @endpush

@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role','domain','company_url','sole_propertier'
+        'name', 'email', 'password','role','company_url'
     ];
 
     /**
@@ -41,5 +41,15 @@ class User extends Authenticatable
     public function site_settings()
     {
         return $this->hasOne(SiteSetting::class,'domain','domain');
+    }
+
+    public function sites()
+    {
+        return $this->belongsToMany(SiteSetting::class,'user_sites','user_id','site_id');
+    }
+
+    public function userDomains($param)
+    {
+        return $this->sites()->pluck('site_settings.'.$param)->toArray();
     }
 }
