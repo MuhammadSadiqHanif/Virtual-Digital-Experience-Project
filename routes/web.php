@@ -1,5 +1,7 @@
 <?php
 
+use GuzzleHttp\Client;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,7 @@ Auth::routes(['register' => false]);
 // Route::get('/home', 'HomeController@index')->name('home');	
 
 
+
 // admin routes
 Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperAdmin'],function(){
 	
@@ -35,6 +38,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperA
 		Route::resource('/site-setting','SiteSettingController');
 		Route::resource('/clients','ClientController');
 		Route::resource('/topics','TopicController');
+		Route::resource('sites','SiteController');
 	});
 
 });

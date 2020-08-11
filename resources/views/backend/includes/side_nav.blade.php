@@ -16,12 +16,28 @@
                     </a>
                 </li>
 
-                <li class="menu-title">Super Admin Area</li>
+                <li class="menu-title">Quick Shortcut</li>
 
                 <li>
                     <a href="{{ route('site-setting.index') }}" class=" waves-effect">
                         <i class="bx bx-key"></i>
                         <span>Add New Site</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('clients.create') }}" class=" waves-effect">
+                        <i class="bx bx-user-plus"></i>
+                        <span>Add New User</span>
+                    </a>
+                </li>
+
+                <li class="menu-title">Super Admin Area</li>
+
+                 <li>
+                    <a href="{{ route('sites.index') }}" class=" waves-effect">
+                        <i class="bx bx-home-circle"></i>
+                        <span>Site's</span>
                     </a>
                 </li>
 

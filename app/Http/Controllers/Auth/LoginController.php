@@ -68,11 +68,20 @@ class LoginController extends Controller
             }
             else
             {
-                $this->logout($request);
+                return $this->customlogout($request);
             }
-            
         }
-        return redirect()->to('/admin/dashboard');
+        else
+        {
+            if ($request->user()->role == 0) 
+            {
+                return redirect()->to('/admin/dashboard');
+            }
+            else
+            {
+                return $this->customlogout($request);
+            }
+        }
     }
 
      /**
@@ -91,7 +100,7 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function logout(Request $request)
+    public function customlogout(Request $request)
     {
         $this->guard()->logout();
 
@@ -99,6 +108,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return $this->loggedOut($request) ?: redirect('/');
+        return redirect('/login')->with('error','You are not authoized to login on this domain');
     }
 }

@@ -19,12 +19,12 @@
 <div class="row">
     <div class="col-12">
         <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0 font-size-18">Clients</h4>
+            <h4 class="mb-0 font-size-18">Sites</h4>
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
                     <li class="breadcrumb-item"><a href="javascript: void(0);">Site</a></li>
-                    <li class="breadcrumb-item active">Clients</li>
+                    <li class="breadcrumb-item active">Sites</li>
                 </ol>
             </div>
 
@@ -37,7 +37,16 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                
+
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <i class="bx bx-info-circle mr-2"></i>
+                    <strong>If You Delete any site we will automatically cleared all the users/topics linked to that
+                    domain and also delete it from  Cloudflare.</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+
                 @include('backend.includes.alert')
                 
                 <div class="table-rep-plugin">
@@ -45,30 +54,26 @@
                         <table id="tech-companies-1" class="table table-striped">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th data-priority="1">Email</th>
-                                <th data-priority="3">Domain</th>
-                                <th data-priority="3">Role</th>
-                                <th data-priority="3">Company url</th>
+                                <th>Logo</th>
+                                <th data-priority="1">Domain</th>
+                                <th data-priority="3">Allowed Domain</th>
                                 <th data-priority="6">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($users as $user)
+                            @forelse($sites as $site)
                             <tr>
-                                <th>{{ $user->name }}</th>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->domain }}</td>
-                                <td>{{ $user->role == 1 ? 'Admin' : "Un-known"  }}</td>
-                                <td>{{ $user->company_url }}</td>
+                                <th><img class="rounded-circle avatar-sm" src="{{ asset('clients/logos/'.$site->logo) }}" alt=""></th>
+                                <td>{{ replaceHttps($site->domain) }}</td>
+                                <td>{{ $site->allowed_domain }}</td>
                                 <td>
                                     <div class="btn-group btn-group-example mb-3" role="group">
-                                        <a href="{{ route('clients.edit',$user->id) }}" class="btn btn-primary w-xs btn-sm"><i class="bx bx-pencil font-size-16"></i></a>
-                                        <a href="#" onclick="event.preventDefault(); document.getElementById('user-del-{{ $user->id }}').submit();" class="btn btn-danger w-xs btn-sm"><i class="bx bxs-trash d-block font-size-16"></i></a>
+                                        <a href="{{ route('sites.edit',$site->id) }}" class="btn btn-primary w-xs btn-sm"><i class="bx bx-pencil font-size-16"></i></a>
+                                        <a href="#" onclick="event.preventDefault(); document.getElementById('user-del-{{ $site->id }}').submit();" class="btn btn-danger w-xs btn-sm"><i class="bx bxs-trash d-block font-size-16"></i></a>
                                     </div>
                                 </td>
 
-                                <form action="{{ route('clients.destroy',$user->id) }}" id="user-del-{{ $user->id }}" method="POST">
+                                <form action="{{ route('sites.destroy',$site->id) }}" id="user-del-{{ $site->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                 </form>
@@ -79,7 +84,7 @@
                             </tbody>
                         </table>
 
-                        {{ $users->links() }}
+                        {{ $sites->links() }}
                     </div>
 
                 </div>

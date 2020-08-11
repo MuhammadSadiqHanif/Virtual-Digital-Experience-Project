@@ -27,7 +27,7 @@ class SiteSettingController extends Controller
 	 */
 	public function index()
 	{
-		return view('backend.super_admin_pages.site_settings');
+		return view('backend.super_admin_pages.sites.site_settings');
 	}
 
 	/**
@@ -83,6 +83,8 @@ class SiteSettingController extends Controller
             ];
             $client = new Client();
             $response = $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/8292a0227ee704c15c6760456f605c7e/dns_records', $params);
+            $result = json_decode($response->getBody()->getContents());
+			
         }
         catch (\Exception $e)
         {
@@ -97,6 +99,7 @@ class SiteSettingController extends Controller
 			'role' => $request->role,
 			'domain' => $request->domain,
 			'company_url' => $request->company_url,
+			'sole_propertier' => 1
 		]);
 
 		if ($request->has('logo'))
@@ -115,7 +118,8 @@ class SiteSettingController extends Controller
 			'icon_color' => $request->icon_color,
 			'domain' => $request->domain,
 			'allowed_domain' => json_encode($request->allowed_domains),
-            'domain_verified' => true
+            'domain_verified' => true,
+            'cloudflare_id' => isset($result) ? $result->result->id : null,
 		]);
 
 		return redirect()->to('/admin/clients')->with('success', 'New Client Added Successfully you can test it @
