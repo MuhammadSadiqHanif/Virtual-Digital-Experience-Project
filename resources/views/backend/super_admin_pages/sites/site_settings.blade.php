@@ -47,7 +47,7 @@
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                               <label>Name</label>
+                               <label>Company Name</label>
                                 <input class="form-control" type="text" name="name" value="{{ old('name') }}">
                                 @error('name')
                                     <div class="invalid-feedback" style="display: block;">
@@ -55,19 +55,16 @@
                                     </div>
                                 @enderror
                             </div>
+
+
                             <div class="form-group">
-                               <label>Email</label>
-                                <input class="form-control" type="text" value="{{ old('email') }}" name="email" id="example-text-input">
-                                @error('email')
-                                    <div class="invalid-feedback" style="display: block;">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                               <label>Password</label>
-                                <input class="form-control" type="password" name="password" value="">
-                                @error('password')
+                                <label>Admins</label>
+                                <select class="custom-select" name="role">
+                                    <option selected>Open this select menu</option>
+                                   
+                                </select>
+
+                                @error('role')
                                     <div class="invalid-feedback" style="display: block;">
                                         <strong>{{ $message }}</strong>
                                     </div>
@@ -98,20 +95,6 @@
 	                                @enderror
 	                            </div> 
 
-                                <div class="form-group">
-                                	<label>Roles</label>
-                                    <select class="custom-select" name="role">
-                                        <option selected>Open this select menu</option>
-                                        <option value="0" {{ old('role') == 0 ? 'selected' : '' }}>Super Admin</option>
-                                        <option value="1" {{ old('role') == 1 ? 'selected' : '' }}>Admin</option>
-                                    </select>
-
-                                    @error('role')
-	                                    <div class="invalid-feedback" style="display: block;">
-	                                        <strong>{{ $message }}</strong>
-	                                    </div>
-	                                @enderror
-                                </div>
                                    
                             </div>
                        
