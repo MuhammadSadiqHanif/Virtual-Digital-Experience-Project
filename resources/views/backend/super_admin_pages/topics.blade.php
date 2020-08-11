@@ -44,12 +44,12 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <select class="custom-select" name="client" id="client">
-                                    <option value="">Select Client</option>
-                                    @forelse($clients as $client)
-                                    <option {{ request()->has('client') && request()->client == $client->id ? 'selected' : '' }} 
-                                        value="{{ $client->id }}">
-                                        <strong>{{ $client->name }}</strong>
-                                        <span class="card-title-desc">({{ replaceHttps($client->domain) }})</span>
+                                    <option value="">Select Site</option>
+                                    @forelse($sites as $site)
+                                    <option {{ request()->has('client') && request()->client == $site->id ? 'selected' : '' }} 
+                                        value="{{ $site->id }}">
+                                        <strong>{{ $site->name }}</strong>
+                                        <span class="card-title-desc">({{ replaceHttps($site->domain) }})</span>
                                     </option>
                                     @empty
                                     @endforelse

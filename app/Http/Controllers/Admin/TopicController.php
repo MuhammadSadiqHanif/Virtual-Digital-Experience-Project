@@ -26,17 +26,17 @@ class TopicController extends Controller
      */
     public function index(Request $request)
     {
-        $clients = User::where('role',1)->where('domain','!=',null)->get();
+        $sites = SiteSetting::all();
 
         if ($request->has('client') && $request->client != '') {
 
-            $topics = Topic::where('domain',User::select('domain')
+            $topics = Topic::where('domain',SiteSetting::select('domain')
                 ->where('id',$request->client)->first()->domain)->get();
 
-            return view('backend.super_admin_pages.topics',compact('clients','topics'));
+            return view('backend.super_admin_pages.topics',compact('sites','topics'));
         }
    
-        return view('backend.super_admin_pages.topics',compact('clients'));
+        return view('backend.super_admin_pages.topics',compact('sites'));
     }
 
     /**
