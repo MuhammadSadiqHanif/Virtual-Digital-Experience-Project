@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\SiteSetting;
 use App\Topic;
 use App\User;
 use Illuminate\Http\Request;
@@ -30,8 +31,7 @@ class TopicController extends Controller
 
         if ($request->has('client') && $request->client != '') {
 
-            $topics = Topic::where('domain',SiteSetting::select('domain')
-                ->where('id',$request->client)->first()->domain)->get();
+            $topics = Topic::where('domain',SiteSetting::where('domain',$request->client)->first()->domain)->get();
 
             return view('backend.super_admin_pages.topics',compact('sites','topics'));
         }

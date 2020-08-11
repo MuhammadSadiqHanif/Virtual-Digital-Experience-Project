@@ -47,7 +47,7 @@
                                     <option value="">Select Site</option>
                                     @forelse($sites as $site)
                                     <option {{ request()->has('client') && request()->client == $site->id ? 'selected' : '' }} 
-                                        value="{{ $site->id }}">
+                                        value="{{ $site->domain }}">
                                         <strong>{{ $site->name }}</strong>
                                         <span class="card-title-desc">({{ replaceHttps($site->domain) }})</span>
                                     </option>
@@ -85,7 +85,7 @@
 
                 <form method="POST" action="{{ route('topics.store') }}">
                 @csrf
-                <input type="hidden" name="domain" value="{{ $client->domain }}">
+                <input type="hidden" name="domain" value="{{ request()->client }}">
                 <table class="table table-striped table-bordered" id="user_table">
                   <thead>
                     <tr>
@@ -121,10 +121,6 @@
                         <button  onclick="event.preventDefault();document.getElementById('del-form-{{ $topic->id }}').submit()" class="btn btn-danger waves-effect waves-light" type="button">Delete</button>
                       </td>
 
-                      <form method="POST" action="{{ route('topics.destroy',$topic->id) }}" id="del-form-{{ $topic->id }}">
-                        @csrf
-                        @method('DELETE')
-                      </form>
                     </tr>
                     @endforeach
                     @endif
@@ -144,10 +140,16 @@
 @endif
 
 
+@if (isset($topics))
+@foreach ($topics as $topic)
 
+<form method="POST" action="{{ route('topics.destroy',$topic->id) }}" id="del-form-{{ $topic->id }}">
+  @csrf
+  @method('DELETE')
+</form>
 
-
-
+@endforeach
+@endif
 
 </div>
 
