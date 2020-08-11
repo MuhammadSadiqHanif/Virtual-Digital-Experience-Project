@@ -60,7 +60,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if (preg_match('!^([a-z]{2})?\.?vdx\.test$!', request()->domain) == 0) 
+        if (preg_match('!^([a-z]{2})?\.?benefitstour\.com$!', request()->domain) == 0) 
         {
             $subDomain = explode('.',request()->getHost())[0];
             
