@@ -29,9 +29,7 @@ Auth::routes(['register' => false]);
 // Route::get('/home', 'HomeController@index')->name('home');	
 
 Route::get('/test',function(){
-	Auth::loginUsingId(2);
-	dd(json_decode(request()->user()->userDomains('allowed_domain')[0]));
-	Auth::logout();
+	dd(preg_match('!^([a-z]{2})?\.?vdx\.test$!', request()->getHost()) == 0);
 });
 
 // admin routes
