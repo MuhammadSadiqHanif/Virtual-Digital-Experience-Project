@@ -63,7 +63,6 @@ class LoginController extends Controller
         if (preg_match('!^([a-z]{2})?\.?benefitstour\.com$!', request()->getHost()) == 0)
         {
             $subDomain = explode('.',request()->getHost())[0];
-            // $previousUrl = str_replace(url('/',url()->previous()));
         
             if (in_array($subDomain,$request->user()->userDomains('domain'))) 
             {

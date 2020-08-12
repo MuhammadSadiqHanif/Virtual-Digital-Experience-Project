@@ -85,7 +85,7 @@
                     <li>
                         <a href="https://{{ replaceHttps($site) }}/login" class="waves-effect">
                             <i class="bx bxs-flag"></i>
-                            <span>{{ replaceHttps($site) }}</span>
+                            <span>{{ $site }}</span>
                         </a>
                     </li>
                     @empty
