@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DnsProvider\Cloudflare;
 use App\Http\Controllers\Controller;
 use App\SiteSetting;
 use App\Topic;
@@ -126,31 +127,19 @@ class SiteController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id)
+	public function destroy($id,Cloudflare $Cloudflare)
 	{
 		$siteSetting = SiteSetting::findOrFail($id);
 
-		 try {
-            $params = [
-
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                    'X-Auth-Email' => 'zainzulifqar21@gmail.com',
-                    'X-Auth-Key' => '7e2c9b3b98dc1c9764572ede290edb11c3285',
-                ]
-            ];
-            $client = new Client();
-            $response = $client->request('DELETE', 'https://api.cloudflare.com/client/v4/zones/8292a0227ee704c15c6760456f605c7e/dns_records/'.$siteSetting->cloudflare_id, $params);
-        }
-        catch (\Exception $e)
-        {
-            $exception = $e->getMessage();
-        }
+		// deleting site from cloudflare 
+		$Cloudflare->deleteDomain($siteSetting);
 
         // User::where('domain',$siteSetting->domain)->delete();
 
+		// removing attached user from this domain
         $siteSetting->users()->detach();
 
+        // deleting topics attached to this domain
         Topic::where('domain',$siteSetting->domain)->delete();
 
         // delete topics content too

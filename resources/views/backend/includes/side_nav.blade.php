@@ -79,6 +79,17 @@
                         </li>
                     @endforelse
                 @endif
+
+                @if (auth()->user()->role == 2)
+                    
+                    <li>
+                        <a href="{{ url('user/profile_settings') }}" class="waves-effect">
+                            <i class="bx bx-shield"></i>
+                            <span>Profile Settings</span>
+                        </a>
+                    </li>
+                   
+                @endif
             </ul>
         </div>
         <!-- Sidebar -->

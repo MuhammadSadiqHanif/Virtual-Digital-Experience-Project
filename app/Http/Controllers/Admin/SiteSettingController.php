@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DnsProvider\Cloudflare;
 use App\Http\Controllers\Controller;
 use App\SiteSetting;
 use App\User;
@@ -48,7 +49,7 @@ class SiteSettingController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request,Cloudflare $Cloudflare)
 	{
         $request->validate([
 			'company_name' => 'required',
@@ -64,34 +65,13 @@ class SiteSettingController extends Controller
 			'allowed_domains' => 'required',
 		]);
 
-        try {
-            $params = [
+       	// cloudflare register
+        $response = $Cloudflare->registerDomain($request);
 
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                    'X-Auth-Email' => 'zainzulifqar21@gmail.com',
-                    'X-Auth-Key' => '7e2c9b3b98dc1c9764572ede290edb11c3285',
-                ],
-
-                'json' => [
-                    'type' => 'A',
-                    'name' => $request->domain,
-                    'content' => '138.68.57.116',
-                    'ttl' => 120,
-                    'priority' => 10,
-                    'proxied' => true,
-                ],
-            ];
-            $client = new Client();
-            $response = $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/8292a0227ee704c15c6760456f605c7e/dns_records', $params);
-            $result = json_decode($response->getBody()->getContents());
-			
+        if ($response['status'] == false) {
+        	return back()->with('error','<strong>Cloudflare Error: </strong> '. $response['body'])->withInput($request->all());
         }
-        catch (\Exception $e)
-        {
-            $exception = $e->getMessage();
-            return back()->with('error', $exception);
-        }
+        // end here
 
 		if ($request->has('logo'))
 		{
@@ -110,7 +90,7 @@ class SiteSettingController extends Controller
 			'domain' => $request->domain,
 			'allowed_domain' => json_encode($request->allowed_domains),
             'domain_verified' => true,
-            'cloudflare_id' => isset($result) ? $result->result->id : null,
+            'cloudflare_id' => isset($response) ? $response['body'] : null,
             'company_url' => $request->company_url,
 			'company_name' => $request->company_name
 		]);

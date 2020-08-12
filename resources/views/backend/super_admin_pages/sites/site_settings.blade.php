@@ -41,7 +41,7 @@
                 @include('backend.includes.alert')
                 
                 <h4 class="card-title">Client Info</h4>
-               
+             
                 <form method="POST" action="{{ route('site-setting.store') }}" enctype="multipart/form-data">
                 	@csrf
                 	<div class="row">
@@ -223,9 +223,15 @@
 			                        <label>Allowed Domains</label>
 
 			                        <select class="allowed_domains form-control" name="allowed_domains[]"
-			                        multiple="multiple" data-placeholder="Choose ...">
+			                        multiple="multiple">
 			                        	<option value="gmail.com">gmail.com</option>
 			                       	</select>
+
+                                    @error('allowed_domains')
+                                        <div class="invalid-feedback" style="display: block;">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
 			                    </div>
 	                    	</div>
                     	</div>
@@ -271,6 +277,7 @@
 
 		$(".allowed_domains").select2({
 		    tags: true,
+            placeholder:'Select Allowed Domains',
 		    tokenSeparators: [',', ' ']
 		})
 

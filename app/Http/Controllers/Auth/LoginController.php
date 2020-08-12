@@ -74,7 +74,7 @@ class LoginController extends Controller
                     // confirm user
                     $email_domain = explode('@',$request->user()->email)[1];
                     if (in_array($email_domain,json_decode(request()->user()->userDomains('allowed_domain')[0]))) {
-                        return redirect()->to('/admin/dashboard');
+                        return redirect()->to('/user/dashboard');
                     }
                     else
                     {
