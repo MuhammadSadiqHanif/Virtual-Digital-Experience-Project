@@ -20,13 +20,18 @@ use Illuminate\Support\Facades\Auth;
 Route::domain('{domain}.'.env('APP_DOMAIN'))->group(function () {
    	Route::get('/login','Subdomain\SubLoginController@showLoginForm');
 	
+	Route::get('log',function(){
+		Auth::loginUsingId(2);
+
+		return redirect()->to('/login');
+	});
 	// admin routes on subDomain
-	Route::group(['prefix' => 'admin','namespace' => 'Subdomain\Admin','middleware' => 'AdminRestrict'],function(){
+	Route::group(['prefix' => 'admin','namespace' => 'Subdomain\Admin','middleware' => ['AdminRestrict','CheckCurrentDomain']],function(){
    		Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
    	});
 
 	// user routes on subDomain
-   	Route::group(['prefix' => 'user','namespace' => 'Subdomain\User'],function(){
+   	Route::group(['prefix' => 'user','namespace' => 'Subdomain\User','middleware' => ['CheckCurrentDomain','UserRestrict']],function(){
    		Route::get('/dashboard','UserDashboardController@index')->name('admin.dashboard');
    		Route::get('/profile_settings','UserDashboardController@showProfileSettings')->name('dashboard.profile');
    		Route::post('/profile_settings/{user_id}','UserDashboardController@editProfileSettings')->name('dashboard.profile.edit');

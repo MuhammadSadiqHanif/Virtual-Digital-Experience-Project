@@ -63,7 +63,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'SuperAdmin' => \App\Http\Middleware\SuperAdminRestrict::class,
         'AdminRestrict' => \App\Http\Middleware\AdminRestrict::class,
-        // SuperAdminRestrict
+        'CheckCurrentDomain' => \App\Http\Middleware\CheckCurrentDomain::class,
+        'UserRestrict' => \App\Http\Middleware\UserRestrict::class,
+        // SuperAdminRestrict CheckCurrentDomain UserRestrict
     ];
 
     /**
