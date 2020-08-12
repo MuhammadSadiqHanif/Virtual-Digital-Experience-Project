@@ -26,6 +26,7 @@ class CreateSiteSettingsTable extends Migration
             $table->string('domain')->nullable();
             $table->string('allowed_domain')->nullable();
             $table->boolean('domain_verified')->default(false);
+            $table->boolean('is_private')->default(false);
             $table->string('cloudflare_id')->nullable();
             $table->timestamps();
         });

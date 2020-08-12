@@ -3,7 +3,7 @@
 @section('content')
 
  <div class="images webView">
-        <lottie-player id="image1" class="image1"
+        <lottie-player id="image1" class="image1" onclick="alert('clicked')"
             src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p1_mc4fkk.json" background="transparent"
             speed="1" loop autoplay>1</lottie-player>
         <lottie-player id="image2" class="image2"

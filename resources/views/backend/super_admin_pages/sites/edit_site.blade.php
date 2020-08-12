@@ -244,6 +244,22 @@
                                 	</div>
                             	</div>
 
+                                <div class="col-lg-6">
+                                <div class="mt-4 mt-lg-0">
+                                    <h5 class="font-size-14 mb-3">Is Private ?</h5>
+                                    <div class="d-flex">
+                                        <div class="square-switch">
+                                            <input type="checkbox" name="is_private" 
+                                            {{ $site->is_private == 1 ? 'checked' : ''  }}
+                                            id="square-switch1" 
+                                            switch="none"/>
+                                            <label for="square-switch1" data-on-label="Yes"
+                                                    data-off-label="No"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <button type="submit" class="btn btn-primary waves-effect waves-light btn-block" style="margin-top: 10px;">Submit</button>
 
                         </form>

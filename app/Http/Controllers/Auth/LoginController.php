@@ -63,18 +63,35 @@ class LoginController extends Controller
         if (preg_match('!^([a-z]{2})?\.?benefitstour\.com$!', request()->getHost()) == 0)
         {
             $subDomain = explode('.',request()->getHost())[0];
-            
+            // $previousUrl = str_replace(url('/',url()->previous()));
+        
             if (in_array($subDomain,$request->user()->userDomains('domain'))) 
             {
                 if ($request->user()->role == 1) {
-                    return redirect()->to('/admin/dashboard');
+
+                    if (url()->previous() == url('/')) {
+                       return redirect()->to('/admin/dashboard');
+                    }
+                    else
+                    {
+                        return redirect()->to('/');
+                    }
                 }
                 else
                 {
                     // confirm user
                     $email_domain = explode('@',$request->user()->email)[1];
                     if (in_array($email_domain,json_decode(request()->user()->userDomains('allowed_domain')[0]))) {
-                        return redirect()->to('/user/dashboard');
+                       
+                       if (url()->previous() == url('/')) 
+                       {
+                           return redirect()->to('/user/dashboard');
+                        }
+                        else
+                        {
+                            return redirect()->to('/');
+                        }
+
                     }
                     else
                     {

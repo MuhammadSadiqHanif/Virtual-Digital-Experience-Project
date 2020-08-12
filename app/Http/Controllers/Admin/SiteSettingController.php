@@ -92,7 +92,8 @@ class SiteSettingController extends Controller
             'domain_verified' => true,
             'cloudflare_id' => isset($response) ? $response['body'] : null,
             'company_url' => $request->company_url,
-			'company_name' => $request->company_name
+			'company_name' => $request->company_name,
+			'is_private' => $request->has('is_private') && $request->is_private == 'on' ? 1 : 0,
 		]);
 
 		$site->users()->sync($request->admins);

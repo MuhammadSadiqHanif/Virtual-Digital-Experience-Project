@@ -103,7 +103,7 @@
 
                               <div class="form-group">
                                <label>Domain</label>
-                                <select class="custom-select" name="sites[]" id="sites">
+                                <select class="custom-select" name="sites[]" multiple id="sites">
                                     <option value="">Select Site</option>
                                     @forelse($sites as $site)
                                     <option
@@ -123,7 +123,6 @@
                         </div>
                     </div>
 
- 
                     <button type="submit" class="btn btn-primary waves-effect waves-light btn-block" style="margin-top: 10px;">Submit</button>
 
                 </form>

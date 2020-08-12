@@ -65,7 +65,8 @@ class Kernel extends HttpKernel
         'AdminRestrict' => \App\Http\Middleware\AdminRestrict::class,
         'CheckCurrentDomain' => \App\Http\Middleware\CheckCurrentDomain::class,
         'UserRestrict' => \App\Http\Middleware\UserRestrict::class,
-        // SuperAdminRestrict CheckCurrentDomain UserRestrict
+        'IsPrivateSite' => \App\Http\Middleware\IsPrivateSite::class,
+        // SuperAdminRestrict CheckCurrentDomain UserRestrict IsPrivateSite
     ];
 
     /**

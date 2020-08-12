@@ -125,6 +125,8 @@ class ClientController extends Controller
         $client->password = isset($request->password) ? bcrypt($request->password) : $client->password;
         $client->company_url = $request->company_url;
 
+        $client->sites()->sync($request->sites);
+
         if($client->update())
         {
             return redirect()->to('/admin/clients')->with('success','User Updated Successfully');
