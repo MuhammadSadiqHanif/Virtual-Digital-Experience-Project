@@ -15,8 +15,8 @@ class CreateUserSitesTable extends Migration
     {
         Schema::create('user_sites', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('site_id');
+            $table->unsignedBigInteger('user_id')->index();
+            $table->unsignedBigInteger('site_id')->index();
             $table->timestamps();
         });
     }
