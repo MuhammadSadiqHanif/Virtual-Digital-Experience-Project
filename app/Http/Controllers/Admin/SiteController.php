@@ -112,6 +112,7 @@ class SiteController extends Controller
         $siteSetting->allowed_domain = json_encode($request->allowed_domains);
         $siteSetting->company_name = $request->company_name;
         $siteSetting->company_url = $request->company_url;
+        $siteSetting->is_private = $request->has('is_private') && $request->is_private == 'on' ? 1 : 0;
 
         $siteSetting->update();
 

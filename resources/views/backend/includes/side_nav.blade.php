@@ -78,6 +78,19 @@
                             </a>
                         </li>
                     @endforelse
+
+                     <li class="menu-title">Site's</li>
+
+                    @forelse(auth()->user()->userDomains('domain') as $site)
+                    <li>
+                        <a href="https://{{ replaceHttps($site) }}/login" class="waves-effect">
+                            <i class="bx bxs-flag"></i>
+                            <span>{{ $site }}</span>
+                        </a>
+                    </li>
+                    @empty
+                      
+                    @endforelse
                 @endif
 
                 @if (auth()->user()->role == 2)

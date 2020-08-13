@@ -108,8 +108,7 @@
 
                               <div class="form-group">
                                <label>Domain</label>
-                               <select class="custom-select" name="sites[]" id="sites">
-                                    <option value="">Select Site</option>
+                               <select class="custom-select" name="sites[]" multiple id="sites">
                                     @forelse($sites as $site)
                                     <option
                                         {{ in_array($site->id,$client->userDomains('id')) ? 'selected' : '' }}
@@ -128,9 +127,8 @@
                             
                         </div>
                     </div>
-
- 
-                    <button type="submit" class="btn btn-primary waves-effect waves-light btn-block" style="margin-top: 10px;">Submit</button>
+        
+                  <button type="submit" class="btn btn-primary waves-effect waves-light btn-block" style="margin-top: 10px;">Submit</button>
 
                 </form>
 
@@ -154,6 +152,7 @@
     $(document).ready(function(){
         $("#sites").select2({
             tags: true,
+            placeholder:'Select Site',
             tokenSeparators: [',', ' ']
         });
 
