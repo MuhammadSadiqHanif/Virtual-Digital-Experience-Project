@@ -47,7 +47,7 @@ Auth::routes(['register' => false]);
 // Route::get('/home', 'HomeController@index')->name('home');	
 
 Route::get('/test',function(Cloudflare $Cloudflare){
-	dd(!1);
+	
 });
 
 // admin routes

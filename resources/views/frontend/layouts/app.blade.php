@@ -31,7 +31,7 @@
                     <img src="{{ asset('frontend/images/Asset 10@2x.png') }}" alt="">
 
                 </div>
-                <div onmouseover="dropDownIn()" onmouseout="dropDownOut()">
+                <div onclick="dropDownToggle()">
                     <img src="{{ asset('frontend/images/Asset 9@2x.png') }}" alt="">
                     <div id="drop" class="dropDown">
                         <div>
@@ -39,8 +39,16 @@
                         </div>
                         <div>
                             <p>VISIT</p>
-
                         </div>
+                        @guest()
+                        <div>
+                          <a href="{{ route('login') }}"><p>Login</p></a>
+                        </div>
+                        @else
+                        <div>
+                            <p>Dashboard</p>
+                        </div>
+                        @endguest
 
                     </div>
                 </div>

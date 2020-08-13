@@ -36,14 +36,17 @@ setTimeout(() => {
 }, 500)
 
 
-function dropDownIn() {
-    document.getElementById("drop").style.opacity = "1"
-
-}
-function dropDownOut() {
-    document.getElementById("drop").style.opacity = "0"
-
-
+function dropDownToggle() {
+    element = document.getElementById("drop");
+    
+    if(element.computedStyleMap().get('opacity').value == 0)
+    {
+        document.getElementById("drop").style.opacity = "1";
+    }
+    else
+    {
+        document.getElementById("drop").style.opacity = "0";
+    }
 }
 
 

@@ -60,7 +60,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        if (preg_match('!^([a-z]{2})?\.?benefitstour\.com$!', request()->getHost()) == 0)
+        if ($this->detectDomain($request))
         {
             $subDomain = explode('.',request()->getHost())[0];
         
@@ -141,5 +141,17 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/login')->with('error','You are not authoized to login on this domain');
+    }
+
+    /**
+    * Check if its domain or sub domain
+    *
+    * @return void
+    */
+    public function detectDomain($request)
+    {
+        $parsed = parse_url(request()->url());
+        $exploded = explode('.', $parsed["host"]);
+        return (count($exploded) > 2);
     }
 }
