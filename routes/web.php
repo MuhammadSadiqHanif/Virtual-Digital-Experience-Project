@@ -67,3 +67,20 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperA
 Route::get('/', function () {
     return view('frontend.home');
 });
+
+
+
+
+
+// Sadiq Routes
+Route::get('/medical',function(){
+	return view('frontend.medical');
+});
+
+Route::get('/health',function(){
+	return view('frontend.health');
+});
+
+Route::get('/health',function(){
+	return view('frontend.health');
+});
