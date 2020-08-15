@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Topic;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,5 +18,10 @@ class SiteSetting extends Model
     public function usersName($param)
     {
         return $this->users()->pluck('users.'.$param)->toArray();
+    }
+
+    public function topics()
+    {
+    	return $this->hasMany(Topic::class,'domain','domain');
     }
 }

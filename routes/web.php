@@ -18,14 +18,13 @@ use Illuminate\Support\Facades\Auth;
 /**** Sub Domain Routing *****/
 
 Route::domain('{domain}.'.env('APP_DOMAIN'))->group(function () {
+   
    	Route::get('/login','Subdomain\SubLoginController@showLoginForm');
 	
-
 	Route::group(['middleware' => 'IsPrivateSite'],function(){
 		
-		Route::get('/', function () {
-		    return view('frontend.home');
-		});	
+		Route::get('/', 'Subdomain\SubFrontendController@index');
+
 		// admin routes on subDomain
 		Route::group(['prefix' => 'admin','namespace' => 'Subdomain\Admin','middleware' => ['AdminRestrict','CheckCurrentDomain']],function(){
 	   		Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
@@ -68,4 +67,3 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperA
 Route::get('/', function () {
     return view('frontend.home');
 });
-
