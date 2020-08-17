@@ -1,8 +1,9 @@
 @extends('frontend.layouts.app')
 
 @section('content')
+<div class="center">
 
-  <div class="images webView" id="webView">
+    <div class="images webView" id="webView">
         <a href="" id="image1" class="image1 p1">
             <lottie-player 
             src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p1_mc4fkk.json" background="transparent"
@@ -10,28 +11,28 @@
         </a>
         <a href="" id="image2" class="image2 p2">
             <lottie-player 
-                src="https://res.cloudinary.com/larasolo/raw/upload/v1597050539/p2_tjpqjy.json" background="transparent"
+            src="https://res.cloudinary.com/larasolo/raw/upload/v1597050539/p2_tjpqjy.json" background="transparent"
                 speed="1" loop autoplay></lottie-player>
                 
             </a>
-        <a href="" id="image3" class="image3 p3">
-            <lottie-player
+            <a href="" id="image3" class="image3 p3">
+                <lottie-player
                 src="https://res.cloudinary.com/larasolo/raw/upload/v1597050539/p3_vo6bk1.json" background="transparent"
                 speed="1" loop autoplay></lottie-player>
             
-        </a>
+            </a>
         <a href="" id="image4" class="image4 p4">
             <lottie-player
                 src="https://res.cloudinary.com/larasolo/raw/upload/v1597050536/p4_zmellm.json" background="transparent"
                 speed="1" loop autoplay></lottie-player>
-
-        </a>
+                
+            </a>
         <a href="" id="image5" class="image5 p5" >
             <lottie-player
                 src="https://res.cloudinary.com/larasolo/raw/upload/v1597050536/p5_mk3ng5.json" background="transparent"
                 speed="1" loop autoplay></lottie-player>
 
-        </a>
+            </a>
         <a href="" id="image6" class="image6 p6">
             <lottie-player
                 src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p6_quwxyv.json" background="transparent"
@@ -54,22 +55,23 @@
             <lottie-player
                 src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p9_gicvmv.json" background="transparent"
                 speed="1" loop autoplay></lottie-player>
-
+                
         </a>
         <a href="" id="image10" class="image10 p10">
             <lottie-player
-                src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p10_oejkmr.json" background="transparent"
-                speed="1" loop autoplay></lottie-player>
-
+            src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p10_oejkmr.json" background="transparent"
+            speed="1" loop autoplay></lottie-player>
+            
         </a>
     </div>
-<div class="gray">
-
-    <div id="mobView" class="MobView">
+</div>
+    <div class="gray">
         
-        <a href="medical.html" id="mobImage1" class="mobImage1 p1">
-            <lottie-player
-            src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p1_mc4fkk.json" background="transparent"
+        <div id="mobView" class="MobView">
+            
+            <a href="medical.html" id="mobImage1" class="mobImage1 p1">
+                <lottie-player
+                src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p1_mc4fkk.json" background="transparent"
             speed="1" loop autoplay></lottie-player>
         </a>
         <a href="" id="mobImage2" class="mobImage2">
