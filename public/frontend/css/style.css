@@ -1,17 +1,23 @@
 body {
     background-color: #d9d9d6;
+
     margin: 0px;
     /* overflow: hidden; */
 }
 nav {
     background-color: white;
+    /* position: fixed;
+    width: 100%; */
+    z-index: 2;
+    position: fixed;
+    width: 100%;
 }
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
-    z-index: 1;
+    background-color: transparent;
+    z-index: 2;
 }
 .logo {
     display: flex;
@@ -53,18 +59,33 @@ nav {
     padding: 0px;
     height: 40px;
 }
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    /* height: calc(100vh - 67px); */
+}
 .images {
     /* display: flex; */
     position: relative;
-    height: 110vh;
-    /* overflow: hidden; */
+    height: 550px;
+    /* overflow-x: hidden; */
     /* top: 60px; */
+    z-index: 1;
+    zoom: 100% !important;
+    
 }
+
 .webView {
-    top: 60px;
+    background-color: #d9d9d6;
+
+
 }
 .MobView {
     display: none;
+    background-color: #d9d9d6;
+
 }
 
 .image1 {
@@ -186,20 +207,37 @@ nav {
     opacity: 0;
     height: 220px;
 }
+@media screen and (max-width:1262px) and (min-width:1116px){
+    .images {
+        zoom: 90% !important;
+    }
+}
+@media screen and (max-width:1115px) and (min-width:1026px){
+    .images {
+        zoom: 90% !important;
+    }
+    .webgray{
+    height: 100vh;
+    }
+}
 @media screen and (min-width: 1025px) {
     .images {
-        zoom: 100%;
+        zoom: 83%;
     }
 }
 
 @media screen and (max-width: 1024px) {
     .images {
-        zoom: 70%;
+        zoom: 70% !important;
     }
 }
 @media screen and (max-width: 768px) {
+    .navbar{
+        position: unset !important;
+    }
     .images {
-        zoom: 52%;
+        zoom: 52% !important;
+        top: 0px;
     }
 }
 @media screen and (max-width: 600px) {
@@ -222,11 +260,12 @@ nav {
     .logoImg {
         width: 112px;
     }
-    .logoTxt img {
-        height: 28px;
-    }
+  
     .logoImg img {
-        height: 37px;
+       width: 97%;
+    }
+    .navbar{
+        background-color: white !important;
     }
 }
 .mobImage1,
@@ -242,6 +281,8 @@ nav {
     width: 163px;
     transition: 2s;
     margin-top: -70px;
+    z-index: 1;
+
 }
 .mobImage2,
 .mobImage4,
@@ -258,4 +299,10 @@ nav {
     width: 163px;
     transition: 2s;
     margin-top: -70px;
+    z-index: 1;
+
+}
+.gray{
+    background-color: #d9d9d6;
+
 }

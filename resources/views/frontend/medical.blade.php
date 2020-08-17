@@ -17,7 +17,7 @@
                 </div>
             </div> -->
 
-        <div class="medicalinner" id="medicalinner">
+        <div class="medicalinner" id="medicalinner" style="background-image: url({{asset('frontend/images/medical/Asset5@2x.png') }})">
             <img class="plant1" src="{{ asset('frontend/images/medical/Asset1@2x.png') }}" alt="">
             <img class="plant2" src="{{ asset('frontend/images/medical/Asset1@2x.png') }}" alt="">
             <div class="pass-div">
