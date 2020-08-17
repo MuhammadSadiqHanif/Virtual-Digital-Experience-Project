@@ -4,7 +4,7 @@
 <div class="center">
 
     <div class="images webView" id="webView">
-        <a href="https://www.google.com/" target="_blank" id="image1" class="image1 p1">
+        <a href="http://localhost/vdx/medical"id="image1" class="image1 p1">
             <lottie-player 
             src="https://res.cloudinary.com/larasolo/raw/upload/v1597050538/p1_mc4fkk.json" background="transparent"
             speed="1" loop autoplay>1</lottie-player>

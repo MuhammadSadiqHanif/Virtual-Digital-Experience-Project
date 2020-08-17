@@ -207,6 +207,11 @@ nav {
     opacity: 0;
     height: 220px;
 }
+@media screen and (max-width: 2000px) and (min-width:1500px){
+    .images{
+        zoom: 148% !important;
+    }
+}
 @media screen and (max-width:1262px) and (min-width:1116px){
     .images {
         zoom: 90% !important;
@@ -236,11 +241,14 @@ nav {
         position: unset !important;
     }
     .images {
-        zoom: 52% !important;
+        zoom: 59% !important;
         top: 0px;
     }
 }
 @media screen and (max-width: 600px) {
+    .center{
+        display: none;
+    }
     .images {
         display: none;
     }
