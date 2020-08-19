@@ -39,17 +39,26 @@
                 @include('backend.includes.alert')
 
                 @include('backend.includes.form_errors')
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" id="ImageValidate" 
+                style="display: none;">
+                    <i class="bx bx-block mr-2"></i>
+                    <span id="showError"></span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
                 
                 <form action="{{ route('media.store') }}" method="POST" role="form" enctype="multipart/form-data">
                     @csrf
                     
                     <div class="form-group">
                         <label for="">Upload Media</label>
-                        <input type="file" class="form-control" id="" multiple="multiple" name="files[]" required>
+                        <input type="file" class="form-control" id="files" multiple="multiple" name="files[]" required>
                         <span class="card-title-desc" style="help-block">Maximum Size: 10MB | Allowed Extensions are jpg,jpeg,png,bmp,json,pdf</span>
                     </div>
                   
-                    <button type="submit" class="btn btn-danger">Upload</button>
+                    <button type="submit" id="submitBtn" class="btn btn-danger">Upload</button>
                 </form>
             </div>
         </div>
@@ -103,5 +112,34 @@
 @endsection
 
 @push('js')
+<script>
+    $(document).ready(function(){
+        $('#files').bind('change', function() {
 
+            var fi = document.getElementById('files'); 
+        // Check if any file is selected. 
+        if (fi.files.length > 0) { 
+            for (var i = 0; i <= fi.files.length - 1; i++) { 
+  
+                var fsize = fi.files.item(i).size; 
+                var file = Math.round((fsize / 1024)); 
+                // The size of the file. 
+                if (file >= 10000) { 
+                    $('#ImageValidate').show(); 
+                    $('#showError').html("File too Big, One of your file is more than 10MB please remove");
+                    $('#submitBtn').attr('disabled',true);
+                } 
+                else
+                {
+                    $('#ImageValidate').hide();
+                    $('#submitBtn').attr('disabled',false);
+                }
+            } 
+        } 
+          //this.files[0].size gets the size of your file.
+          // console.log(this.files[0].size  / 1024);
+
+        });
+    });
+</script>
 @endpush
