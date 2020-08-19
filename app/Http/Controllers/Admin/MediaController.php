@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Media;
 use App\Rules\FileValidate;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 
 class MediaController extends Controller
 {
@@ -36,15 +37,26 @@ class MediaController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(Request $request,MessageBag $message_bag)
 	{	
-		$request->validate([
-			'files.*' => 'required|max:10000|',new FileValidate
-		], [
-			'files.*.required' => 'Please upload a File',
-			'files.*.mimes' => 'Only jpeg,png,json and pdfs are allowed',
-			'files.*.max' => 'Sorry! Maximum allowed size for a File is 10MB',
-		]);
+		foreach ($request->file('files') as $file)
+		{
+			if (!in_array($file->getClientOriginalExtension(),['jpg','jpeg','png','bmp','json','pdf'])) 
+			{
+				$message_bag->add('error', 'Supported File Types are jpg,jpeg,png,bmp,json,pdf');
+				break;
+			}
+			if(round($file->getSize() / 1024) > 10000)
+			{
+				$message_bag->add('error', 'Sorry! Maximum allowed size for a File is 10MB');	
+				break;
+			}
+		}
+		
+		if ($message_bag->count()) 
+		{
+			return back()->withErrors($message_bag);
+		}
 
 		if ($files = $request->file('files'))
 		{
