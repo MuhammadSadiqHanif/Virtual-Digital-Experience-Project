@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/clients/logos/
+/public/clients/gallery/
 /storage/*.key
 /vendor
 .env
