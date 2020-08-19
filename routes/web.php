@@ -50,7 +50,7 @@ Route::get('/test',function(Cloudflare $Cloudflare){
 });
 
 // admin routes
-Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperAdmin'],function(){
+Route::group(['prefix' => 'admin','namespace' => 'Admin'],function(){
 	
 	Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
 
