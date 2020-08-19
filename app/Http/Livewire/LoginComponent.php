@@ -77,7 +77,7 @@ class LoginComponent extends Component
 				}
 				else
 				{
-					Auth::logout();
+					return $this->customlogout($request);
 				}
 			}
 

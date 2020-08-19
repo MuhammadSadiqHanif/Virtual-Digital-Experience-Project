@@ -5,9 +5,9 @@
         @csrf
         <div class="form-group">
             <label for="username">Email</label>
-            <input type="text" class="form-control" id="username" 
+            <input type="email" class="form-control" id="username" 
             placeholder="Enter email" 
-            {{-- name="email"  --}}
+            name="email" 
             wire:model.lazy='email'
             value="{{ old('email') }}" required autocomplete="email" autofocus>
         
@@ -21,7 +21,7 @@
         <div class="form-group">
             <label for="userpassword">Password</label>
             <input type="password" class="form-control" id="userpassword" placeholder="Enter password" 
-            {{-- name="password"  --}}
+            name="password" 
             wire:model.lazy='password'
             required autocomplete="current-password">
             @error('password')

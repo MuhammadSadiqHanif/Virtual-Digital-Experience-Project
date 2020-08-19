@@ -3,7 +3,7 @@
 @push('css')
 <link href="{{ asset('backend/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('backend/assets/libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css">	
-
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 @endpush
 
 @section('content')
@@ -107,12 +107,15 @@
                       </td>
                       <td>
                         <input type="text" name="topic[desktop][]" value="{{ $topic->lottie_desktop }}" placeholder="Desktop" class="form-control" required />
+                        <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
                       </td>
                       <td>
                         <input type="text" name="topic[mobile][]" value="{{ $topic->lottie_mobile }}" placeholder="Mobile" class="form-control" required />
+                        <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
                       </td>
                       <td>
                         <input type="text" name="topic[icon][]" value="{{ $topic->icon }}" placeholder="Icon" class="form-control" required />
+                        <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
                       </td>
                       <td>
                         <input type="text" name="topic[position][]" value="{{ $topic->position }}" placeholder="Position" class="form-control" required />
@@ -137,6 +140,52 @@
     </div>
 </div>
 <!-- end row -->
+
+
+<!--  Modal content for the above example -->
+<div class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Gallery</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <div class="row">
+                <p style="display: none;" id="handleObject"></p>
+                @forelse($medias as $media)
+
+                @if ($media->ext == 'json')
+                <div class="col-md-4" style="padding-bottom: 10px;">
+                    <lottie-player class="galleryMedia" src="{{ asset('clients/gallery/'.$media->media) }}"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+                </div>
+
+                @elseif($media->ext == 'pdf')
+                    <div class="col-md-4" style="padding-bottom: 10px;">
+                      <img class="img-thumbnail galleryMedia" alt="200x200" width="200" src="{{ asset('clients/logos/pdflogo.png') }}" data-holder-rendered="true">
+                       </a>
+                    </div>
+                @else
+
+                <div class="col-md-4" style="padding-bottom: 10px;">
+                   <img class="img-thumbnail galleryMedia" alt="200x200" width="200" src="{{ asset('clients/gallery/'.$media->media) }}" data-holder-rendered="true">
+                  
+                </div>
+
+                @endif
+                   
+
+               @empty
+
+               @endforelse
+               </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 @endif
 
 
@@ -176,18 +225,25 @@
 
 <script>
 	$(document).ready(function(){
+
+    var objectHandler = '';
+
+    $('.galleryMedia').click(function(){
+      
+      $(objectHandler).prevAll("input[type=text]").val($(this).attr('src').replace(/.*\/\/[^\/]*/, ''));
+      $('.bs-example-modal-xl').modal('hide');
+    });
+
+    $(document).on('click','.galleryOpenFetch',function(){
+        $('.bs-example-modal-xl').modal('show');
+        objectHandler = $(this);
+    });
+
 		var url = "{{ config('app.url') }}";
 
 		$('#client').on('change',function(){
 	       $('#client-form').submit();
        });
-
-        $(document).on('click','#deleteBtn',function(){
-            console.log('send ajax Request');
-        });
-
-		
-
 
     var count = 1;
     html = '';
@@ -200,9 +256,10 @@
   
   html = '<tr>'; 
     html += '<td><input type="text" name="topic[title][]" value="" placeholder="Title" class="form-control" required /></td>';
-    html += '<td><input type="text" name="topic[desktop][]" value="" placeholder="Desktop" class="form-control" required /></td>';
-    html += '<td> <input type="text" name="topic[mobile][]" value="" placeholder="Mobile" class="form-control" required /></td>';
-    html += '<td> <input type="text" name="topic[icon][]" value="" placeholder="Icon" class="form-control" required /></td>';
+    html += '<td><input type="text" name="topic[desktop][]" value="" placeholder="Desktop" class="form-control" required /> <span style="cursor:pointer;color:red;" class="galleryOpenFetch">Gallery</span></td>';
+
+    html += '<td> <input type="text" name="topic[mobile][]" value="" placeholder="Mobile" class="form-control" required /> <span style="cursor:pointer;color:red;" class="galleryOpenFetch">Gallery</span></td>';
+    html += '<td> <input type="text" name="topic[icon][]" value="" placeholder="Icon" class="form-control" required /> <span style="cursor:pointer;color:red;" class="galleryOpenFetch">Gallery</span></td>';
     html += '<td> <input type="text" name="topic[position][]" value="" placeholder="Position" class="form-control" required /></td>';
      
       if(number > 1)

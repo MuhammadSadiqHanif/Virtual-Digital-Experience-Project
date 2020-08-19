@@ -4,8 +4,8 @@
 
 @if (isset($settings) && $settings->topics->count())
     
-
-  <div class="images webView">
+<div class="center">
+  <div class="images webView" id="webView">
 
         @if ($settings->topics->where('position', 'p1')->count())
             
@@ -107,6 +107,7 @@
         @endif
     </div>
 
+    <div class="gray">
     <div id="mobView" class="MobView">
 
         @if ($settings->topics->where('position', 'p1')->count())
@@ -171,5 +172,7 @@
             speed="1" loop autoplay></lottie-player>
         @endif
     </div>
+</div>
+</div>
 @endif
 @endsection
