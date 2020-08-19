@@ -37,14 +37,13 @@ class MediaController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request)
-	{
+	{	
 		$request->validate([
-			'files.*' => 'required|max:20000|',
-            'files.*' => new FileValidate,
+			'files.*' => 'required|max:10000|',new FileValidate
 		], [
 			'files.*.required' => 'Please upload a File',
 			'files.*.mimes' => 'Only jpeg,png,json and pdfs are allowed',
-			'files.*.max' => 'Sorry! Maximum allowed size for an image is 20MB',
+			'files.*.max' => 'Sorry! Maximum allowed size for a File is 10MB',
 		]);
 
 		if ($files = $request->file('files'))

@@ -45,7 +45,7 @@
                     
                     <div class="form-group">
                         <label for="">Upload Media</label>
-                        <input type="file" class="form-control" id="" multiple="multiple" name="files[]">
+                        <input type="file" class="form-control" id="" multiple="multiple" name="files[]" required>
                     </div>
                   
                     <button type="submit" class="btn btn-danger">Upload</button>
