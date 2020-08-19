@@ -38,6 +38,8 @@ class MediaController extends Controller
 	 */
 	public function store(Request $request)
 	{	
+		dd($request->all());
+		
 		$request->validate([
 			'files.*' => 'required|max:10000|',new FileValidate
 		], [
