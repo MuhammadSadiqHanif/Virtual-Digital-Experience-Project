@@ -46,6 +46,7 @@
                     <div class="form-group">
                         <label for="">Upload Media</label>
                         <input type="file" class="form-control" id="" multiple="multiple" name="files[]" required>
+                        <span class="card-title-desc" style="help-block">Maximum Size: 10MB | Allowed Extensions are jpg,jpeg,png,bmp,json,pdf</span>
                     </div>
                   
                     <button type="submit" class="btn btn-danger">Upload</button>
