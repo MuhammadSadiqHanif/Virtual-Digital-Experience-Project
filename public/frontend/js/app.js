@@ -3,7 +3,7 @@ document.documentElement.scrollTop = 0;
 setTimeout(() => {
     if (document.getElementById('webView')){
         
-        console.log("sss22222")
+        // console.log("sss22222")
     document.getElementById('image1').style.transform = "scale(1)"
     document.getElementById('image1').style.opacity = "1"
     // document.getElementById('image1').style.zIndex = "1"
@@ -145,17 +145,41 @@ function medical(){
 }
 
 
-console.log('runoig')
+// console.log('runoig')
 
 function medicalPage(){
     if(document.getElementById('medicalinner')) {
 
-        console.log("ssssssss")
+        // console.log("ssssssss")
         document.getElementById('medicalinner').style.transform = "scale(1)"
     }
 }
 medicalPage()
 
+function Video(){
+    // console.log('running ')
+    document.getElementById('position1').style.width="100%"
+    document.getElementById('position2').style.opacity="0"
+    document.getElementById('position3').style.opacity="0"
+    document.getElementById('slider').style.display="none"
+    document.getElementById('lady').style.opacity="0"
+    document.getElementById('selfService').style.opacity="0"
+    document.getElementById('videopic').style.width="70%"
+    document.getElementById('position1').style.left="0px"
+    document.getElementById('videopic').style.transition="0.6s"
+    document.getElementById('videopic').style.zIndex="4"
+    document.getElementById('videolib').style.display="none"
+    document.getElementById('videoMenu').style.opacity = '1';
+    document.getElementById('videoMenu').style.transition = '0.7s';
+    document.getElementById('videoMenu').style.transitionDelay = '0.9s';
+    document.getElementById('videobutton').disabled = false;
+}
+function videobutton(){
+    // console.log('sdas')
+    document.getElementById('videoplay').style.zIndex='7'
+    document.getElementById('videoplay').style.opacity='1'
+
+}
 
 
 

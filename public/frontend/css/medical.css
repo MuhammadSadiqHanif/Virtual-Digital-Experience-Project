@@ -1,13 +1,13 @@
 /* medical page */
 .medicalScreen {
     background-color: white;
+    overflow: hidden;
 }
 .navbar {
     /* position: absolute; */
     width: 100%;
     /* background-color: transparent; */
     background-color: transparent;
-   
 }
 .demo {
     position: absolute;
@@ -19,7 +19,7 @@
     padding: 7px 30px;
     font-weight: bold;
 }
-.demo p{
+.demo p {
     margin: 0px;
 }
 .medicalScreen {
@@ -81,38 +81,57 @@
     justify-content: flex-end;
     align-items: baseline;
 }
-.video {
+.position1 {
     position: absolute;
     /* width: 1010px; */
-    left: 190px;
+    left: 140px;
     top: 131px;
     transition: 1s;
-    
+    /* height: 430px; */
+    width: 33%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    z-index: 3;
 }
-.video a {
+.video #videoinner{
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.video img{
+.video button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 60%;
+    border: none;
+    background: transparent;
+    z-index: 4;
+    position: absolute;
+}
+
+.video img {
     width: 350px;
 }
-.video a i{
+.video #videoinner button {
     position: absolute;
     font-size: 70px;
     color: #0077c1;
 }
-.video p{
+.video p {
     margin: 0px;
     color: #0077c1;
-font-weight: bold;
+    font-weight: bold;
 }
 .slider {
     background-color: white;
     position: absolute;
     width: 344px;
-    top: 375px;
-    left: 280px;
+    top: 295px;
+    left: 110px;
     border-radius: 30px;
     /* display: flex;
     align-items: center; */
@@ -120,76 +139,332 @@ font-weight: bold;
     /* color: #0077c1; */
     transition-delay: 2s;
 }
-.slider .sliderText p{
+.slider .sliderText p {
     padding: 4px 18px;
     font-weight: bold;
     color: #0077c1;
 }
-.slider .sliderText i{
+.slider .sliderText i {
     font-size: 40px;
     color: #0077c16e;
-
 }
-.slider .sliderText i:hover{
+.slider .sliderText i:hover {
     color: #0077c1;
 }
-.sliderText{
+.sliderText {
     display: flex;
     align-items: center;
 }
-.indicator{
+.indicator {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.slider .indicator i{
+.slider .indicator i {
     font-size: 10px;
     padding: 3px;
     color: gray;
 }
-.slider .indicator i:hover{
+.slider .indicator i:hover {
     font-size: 10px;
     padding: 3px;
     color: #0077c1;
 }
-.lady{
+.position2 {
     position: absolute;
-    right: 490px;
-    top: 202px;
+    right: 27%;
+    top: 152px;
+    /* height: 430px; */
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .lady a img {
     width: 170px;
 }
-.lady .textbox{
+.lady .textbox {
     width: 170px;
     height: 120px;
     background-size: contain;
     background-repeat: no-repeat;
     z-index: -1;
-    top: -85px;
-    left: -82px;
+    top: -74px;
+    left: 68px;
     position: absolute;
 }
-.textbox p{
+.textbox p {
     padding: 0px 10px;
 }
-.selfService{
+.position3 {
     position: absolute;
-    right: 90px;
-    top: 120px;
+    right: 0%;
+    top: 160px;
     font-weight: bold;
     transition: 1s;
+    /* height: 430px; */
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.selfService img{
+.selfService img {
     width: 240px;
-    
 }
 
-.selfTxt{
+.selfTxt {
     position: absolute;
     text-align: center;
     color: white;
-    width: 100%;
     font-size: 21px;
     margin: 10px 0px;
+    left: 39%;
+    top: 0%;
+}
+@media screen and (max-width: 2000px) and (min-width: 1500px) {
+    .medicalinner {
+        background-size: 1439px 706px;
+    }
+    .plant1 {
+        height: 277px;
+        position: absolute;
+        top: 414px;
+        left: 345px;
+    }
+
+    .plant2 {
+        height: 220px;
+        position: absolute;
+        left: 1181px;
+        top: 483px;
+    }
+    .slider {
+        width: 90%;
+        top: 335px;
+        left: 110px;
+    }
+
+    .video img {
+        width: 100%;
+    }
+    .position1 {
+        left: 390px;
+    }
+    .lady a img {
+        width: 45%;
+    }
+    .textbox {
+        width: 190px;
+        height: 170px;
+        left: -72px !important;
+    }
+    .position3 {
+        right: 11%;
+    }
+    .selfService img {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 1262px) and (min-width: 1116px) {
+    .medicalinner {
+        background-size: 1030px 446px;
+    }
+    .video img {
+        width: 300px;
+    }
+    .slider {
+        width: 80%;
+        top: 210px;
+        left: 110px;
+    }
+    .lady a img {
+        width: 150px;
+    }
+    .position2 {
+        right: 24%;
+    }
+    .plant2 {
+        height: 140px;
+        position: absolute;
+        left: 820px;
+        top: 369px;
+    }
+    .plant1 {
+        height: 167px;
+        position: absolute;
+        top: 314px;
+        left: 145px;
+    }
+}
+/* 
+@media screen and (max-width:1115px) and (min-width:1026px){
+    
+    @media screen and (min-width: 1025px) {
+        
+    }
+} 
+*/
+@media screen and (max-width: 1024px) {
+    .medicalinner{
+        background-size: 990px 500px;
+    }
+
+.plant1 {
+    height: 157px;
+    position: absolute;
+    top: 354px;
+    left: 75px;
+}
+.position1{
+    left: 20px;
+}
+
+.video img {
+    width: 270px;
+}
+.slider {
+    background-color: white;
+    position: absolute;
+    width: 264px;
+    top: 195px;
+    left: 150px;
+    border-radius: 30px;
+    padding: 0px 6px;
+    /* color: #0077c1; */
+    /* transition-delay: 2s; */
+    font-size: 11px;
+}
+.lady a img {
+    width: 140px;
+}
+.lady .textbox {
+    width: 160px;
+}
+.position2{
+    right: 21%;
+}
+.selfService img {
+    width: 220px;
+    right: 44px;
+    position: absolute;
+}
+.position3{
+    top: 80px;
+}
+.plant2 {
+    height: 140px;
+    position: absolute;
+    left: 615px;
+    top: 344px;
+}
+}
+
+@media screen and (max-width: 768px) {
+    .medicalinner {
+        background-size: 650px 390px;
+    }
+    .plant1 {
+        height: 127px;
+        position: absolute;
+        top: 324px;
+        left: 85px;
+    }
+    .video img {
+        width: 220px;
+    }
+    .slider {
+        background-color: white;
+        position: absolute;
+        width: 245px;
+        top: 161px;
+        left: 94px;
+        border-radius: 30px;
+        padding: 0px 6px;
+        /* color: #0077c1; */
+        /* transition-delay: 2s; */
+        font-size: 10px;
+    }
+    .position1 {
+        left: 50px !important;
+        align-items: unset;
+        justify-content: unset;
+    }
+    .lady a img {
+        width: 110px;
+    }
+    .lady .textbox {
+        width: 150px;
+        font-size: 13px;
+        left: 90px;
+    }
+    .plant2 {
+        height: 110px;
+        position: absolute;
+        left: 515px;
+        top: 360px;
+    }
+    .position2 {
+        right: 12%;
+    }
+    .position3 {
+        top: 150px;
+    }
+    .selfService img {
+        width: 160px;
+    }   
+.passport{
+    top: 472px;
+} 
+.selfTxt{
+    margin: 0px;
+    left: 61%;
+    text-align: left;
+    z-index: 1;
+}
+} 
+
+.videoplayback{
+    position: absolute;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+.videoplay {
+    width: 46%;
+    /* position: absolute; */
+  opacity: 0;
+    height: 54%;
+    z-index: -1;
+}
+.videoMenu {
+    position: absolute;
+    top: -61%;
+    left: -117%;
+    border-radius: 12px;
+    background-color: #4a7cab;
+    width: 160px;
+    height: 226px;
+    padding: 10px 12px;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    z-index: 1;
+    
+}
+.videoMenu div{
+    display: flex;
+    align-items: center;
+}
+.videoMenu div p{
+    margin: 4px 0px;
+    width: 100%;
+    padding: 0px 5px;
+    text-align: left;
+}
+.time{
+    float: right;
+}
+.videoMenu h5{
+    font-size: 24px;
+    margin: 20px;
 }
