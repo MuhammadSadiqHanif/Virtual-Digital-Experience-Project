@@ -179,26 +179,6 @@ function medical() {
     if (document.getElementById('medicalScreen')) {
         document.getElementById('medicalScreen').style.display = "block"
     }
-    // document.getElementById('medicalScreen').style.transform = "scale(0)"
-
-    // document.getElementById('zoom').style.transform = "scale(0)"
-    // document.getElementById('zoom').style.opacity = "0"
-
-    // document.getElementById('zoom1').style.transform = "scale(0)"
-    // document.getElementById('zoom2').style.transform = "scale(0)"
-    // document.getElementById('zoom3').style.transform = "scale(0)"
-    // document.getElementById('zoom4').style.transform = "scale(0)"
-    // document.getElementById('zoom5').style.transform = "scale(0)"
-    // document.getElementById('image1').style.transform = "scale(0)"
-    // document.getElementById('image2').style.transform = "scale(0)"
-    // document.getElementById('image3').style.transform = "scale(0)"
-    // document.getElementById('image4').style.transform = "scale(0)"
-    // document.getElementById('image5').style.transform = "scale(0)"
-    // document.getElementById('image6').style.transform = "scale(0)"
-    // document.getElementById('image7').style.transform = "scale(0)"
-
-
-
 }
 
 
@@ -219,17 +199,23 @@ function Video() {
     document.getElementById('position2').style.opacity = "0"
     document.getElementById('position3').style.opacity = "0"
     document.getElementById('slider').style.display = "none"
+    document.getElementById('videoSlider').style.top = "-70px"
+    document.getElementById('videoSlider').style.right = "455px"
     document.getElementById('lady').style.opacity = "0"
     document.getElementById('selfService').style.opacity = "0"
-    document.getElementById('videopic').style.width = "70%"
+    document.getElementById('videopic').style.width = "600px"
     document.getElementById('position1').style.left = "0px"
     document.getElementById('videopic').style.transition = "0.6s"
     document.getElementById('videopic').style.zIndex = "4"
+    document.getElementById('videoplay').style.top = "-359px"
+    document.getElementById('videoplay').style.display = "block"
     document.getElementById('videolib').style.display = "none"
+    document.getElementById('backbutton').style.display = "block"
     document.getElementById('videoMenu').style.opacity = '1';
     document.getElementById('videoMenu').style.transition = '0.7s';
     document.getElementById('videoMenu').style.transitionDelay = '0.9s';
     document.getElementById('videobutton').disabled = false;
+    document.getElementById('videoSlider').classList.add("videoSlider2");
 }
 function videobutton() {
     // console.log('sdas')
@@ -237,7 +223,86 @@ function videobutton() {
     document.getElementById('videoplay').style.opacity = '1'
 
 }
+function back() {
+    // console.log('running ')
+    document.getElementById('videoMenu').style.transitionDelay = '0s';
+    document.getElementById('position1').style.width = "33%"
+    document.getElementById('position2').style.opacity = "1"
+    document.getElementById('position3').style.opacity = "1"
+    document.getElementById('slider').style.display = "block"
+    document.getElementById('videoSlider').style.top = "-400px"
+    document.getElementById('videoSlider').style.right = "0px"
+    document.getElementById('lady').style.opacity = "1"
+    document.getElementById('selfService').style.opacity = "1"
+    document.getElementById('videopic').style.width = "350px"
+    document.getElementById('position1').style.left = "auto"
+    document.getElementById('videopic').style.transition = "0.6s"
+    document.getElementById('videopic').style.zIndex = "4"
+    document.getElementById('videoplay').style.top = "auto"
+    document.getElementById('videoplay').style.display = "none"
+    document.getElementById('videolib').style.display = "block"
+    document.getElementById('backbutton').style.display = "none"
+    document.getElementById('videoMenu').style.opacity = '0';
+    document.getElementById('videoMenu').style.transition = '0.7s';
+    document.getElementById('videobutton').disabled = false;
+    document.getElementById('videoSlider').classList.remove("videoSlider2");
+}
 
+function openChatBot() {
+    console.log('helooo')
+    document.getElementById('position1').style.opacity = "0"
+    document.getElementById('position2').style.opacity = "0"
+    document.getElementById('position3').style.opacity = "0"
+    document.getElementById('chatBot').style.display = "block"
+    setTimeout(() => {
+        document.getElementById('hiddenDiv').style.opacity = "1"
+    }, 900)
+}
+var slideIndex = 1;
+showSlides(slideIndex);
+showSlides2(slideIndex);
 
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+function plusSlides2(n) {
+    showSlides2(slideIndex += n);
+}
 
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+function currentSlide2(n) {
+    showSlides2(slideIndex = n);
+}
 
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
+function showSlides2(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlidesMob");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+}
