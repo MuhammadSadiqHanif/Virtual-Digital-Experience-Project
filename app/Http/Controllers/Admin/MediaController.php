@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Media;
-use App\Rules\FileValidate;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 
@@ -17,8 +16,8 @@ class MediaController extends Controller
 	 */
 	public function index()
 	{
-        $medias = Media::all();
-		return view('backend.super_admin_pages.gallery.index',compact('medias'));
+		$medias = Media::all();
+		return view('backend.super_admin_pages.gallery.index', compact('medias'));
 	}
 
 	/**
@@ -37,41 +36,24 @@ class MediaController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request,MessageBag $message_bag)
-	{	
-		foreach ($request->file('files') as $file)
-		{
-			if (!in_array($file->getClientOriginalExtension(),['jpg','jpeg','png','bmp','json','pdf'])) 
-			{
-				$message_bag->add('error', 'Supported File Types are jpg,jpeg,png,bmp,json,pdf');
-				break;
-			}
-			if(round($file->getSize() / 1024) > 10000)
-			{
-				$message_bag->add('error', 'Sorry! Maximum allowed size for a File is 10MB');	
-				break;
-			}
-		}
-		
-		if ($message_bag->count()) 
-		{
-			return back()->withErrors($message_bag);
-		}
-
+	public function store(Request $request, MessageBag $message_bag)
+	{
 		if ($files = $request->file('files'))
 		{
-			foreach ($files as $file)
+			foreach ($request->files as $file)
 			{
-				$name = $file->getClientOriginalExtension();
-				$realName = rand(1, 100) . uniqid() . 'media' . '.' . $name;
-				$file->move(public_path('clients/gallery'), $realName);
-				$media[] = ['media' => $realName, 'ext' => $name];
+				for ($i = 0; $i < count($file); $i++)
+				{
+					$name = $file[$i][$i]->getClientOriginalExtension();
+					$realName = rand(1, 100) . uniqid() . 'media' . '.' . $name;
+					$file[$i][$i]->move(public_path('clients/gallery'), $realName);
+					$media[] = ['media' => $realName, 'ext' => $name];
+				}
 			}
-
 			\DB::table('media')->insert($media);
-
-			return back()->with('success','Media Uploaded Successfully');
 		}
+
+		return json_encode(array_column($media, 'media'));
 	}
 
 	/**
@@ -84,11 +66,12 @@ class MediaController extends Controller
 	{
 		$pathToFile = public_path('clients/gallery/' . $name);
 
-        if (file_exists($pathToFile)) {
-            return response()->file($pathToFile);
-        }
+		if (file_exists($pathToFile))
+		{
+			return response()->file($pathToFile);
+		}
 
-        abort(404);
+		abort(404);
 	}
 
 	/**
@@ -99,16 +82,24 @@ class MediaController extends Controller
 	 */
 	public function edit($id)
 	{
-		$media = Media::findOrFail($id);
 
-        if(file_exists(public_path('clients/gallery/' . $media->media)))
-        {
-            unlink(public_path('clients/gallery/' . $media->media));
-        }
+		$name = json_decode($id);
+	
+		$media = Media::where('media', $name ?? $id)->firstOrFail();
 
-        if ($media->delete()) {
-            return back()->with('success','Media Deleted Successfully');
-        }
+		if (file_exists(public_path('clients/gallery/' . $media->media)))
+		{
+			unlink(public_path('clients/gallery/' . $media->media));
+		}
+
+		if ($media->delete() && $name == null)
+		{
+			return back()->with('success', 'Media Deleted Successfully');
+		}
+		else
+		{
+			return 'all good';
+		}
 	}
 
 	/**
