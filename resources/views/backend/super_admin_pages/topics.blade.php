@@ -4,6 +4,8 @@
 <link href="{{ asset('backend/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('backend/assets/libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css">	
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+@livewireStyles
 @endpush
 
 @section('content')
@@ -153,34 +155,9 @@
                 </button>
             </div>
             <div class="modal-body">
-               <div class="row">
                 <p style="display: none;" id="handleObject"></p>
-                @forelse($medias as $media)
-
-                @if ($media->ext == 'json')
-                <div class="col-md-4" style="padding-bottom: 10px;">
-                    <lottie-player class="galleryMedia" src="{{ asset('clients/gallery/'.$media->media) }}"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
-                </div>
-
-                @elseif($media->ext == 'pdf')
-                    <div class="col-md-4" style="padding-bottom: 10px;">
-                      <img class="img-thumbnail galleryMedia" alt="200x200" width="200" src="{{ asset('clients/logos/pdflogo.png') }}" data-holder-rendered="true">
-                       </a>
-                    </div>
-                @else
-
-                <div class="col-md-4" style="padding-bottom: 10px;">
-                   <img class="img-thumbnail galleryMedia" alt="200x200" width="200" src="{{ asset('clients/gallery/'.$media->media) }}" data-holder-rendered="true">
-                  
-                </div>
-
-                @endif
-                   
-
-               @empty
-
-               @endforelse
-               </div>
+           
+                @livewire('gallery-component')
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -205,7 +182,10 @@
 </div>
 @endsection
 
+
+
 @push('js')
+@livewireScripts
   <!-- JAVASCRIPT -->
 <script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
 <script src="{{ asset('backend/assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
@@ -228,7 +208,7 @@
 
     var objectHandler = '';
 
-    $('.galleryMedia').click(function(){
+    $(document).on('click','.galleryMedia',function(){
       
       $(objectHandler).prevAll("input[type=text]").val($(this).attr('src').replace(/.*\/\/[^\/]*/, ''));
       $('.bs-example-modal-xl').modal('hide');
