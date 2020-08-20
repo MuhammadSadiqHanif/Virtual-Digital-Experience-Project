@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Media;
 use App\SiteSetting;
 use App\Topic;
 use App\User;
@@ -28,15 +29,16 @@ class TopicController extends Controller
     public function index(Request $request)
     {
         $sites = SiteSetting::all();
+        $medias = Media::all();
 
         if ($request->has('client') && $request->client != '') {
 
             $topics = Topic::where('domain',SiteSetting::where('domain',$request->client)->first()->domain)->get();
 
-            return view('backend.super_admin_pages.topics',compact('sites','topics'));
+            return view('backend.super_admin_pages.topics',compact('sites','topics','medias'));
         }
    
-        return view('backend.super_admin_pages.topics',compact('sites'));
+        return view('backend.super_admin_pages.topics',compact('sites','medias'));
     }
 
     /**

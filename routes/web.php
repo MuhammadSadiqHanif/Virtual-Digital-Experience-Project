@@ -51,7 +51,7 @@ Route::get('/test',function(Cloudflare $Cloudflare){
 
 // admin routes
 Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperAdmin'],function(){
-	
+
 	Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
 
 	Route::group([],function(){
@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperA
 		Route::resource('/clients','ClientController');
 		Route::resource('/topics','TopicController');
 		Route::resource('sites','SiteController');
+		Route::resource('media','MediaController');
 	});
 
 });
@@ -67,9 +68,6 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperA
 Route::get('/', function () {
     return view('frontend.home');
 });
-
-
-
 
 
 // Sadiq Routes

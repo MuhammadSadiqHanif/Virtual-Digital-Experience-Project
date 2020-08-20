@@ -12,12 +12,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"
         integrity="sha512-fHXRw0CXruAoINU11+hgqYvY/PcsOWzmj0QmcSOtjlJcqITbPyypc8cYpidjPurWpCnlB8VKfRwx6PIpASCUkQ=="
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
+    <script src="{{ asset('frontend/js/jquery-3.5.1') }}" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
         integrity="sha512-kb1CHTNhoLzinkElTgWn246D6pX22xj8jFNKsDmVwIQo+px7n1yjJUZraVuR/ou6Kmgea4vZXZeUDbqKtXkEMg=="
         crossorigin="anonymous" />
-        <script src="https://kit.fontawesome.com/2c36b1428e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/font-awesome/css/font-awesome.css') }}">
 
 </head>
 
@@ -33,14 +33,11 @@
             <div class="icons">
 
                 <div class="hide">
-                    {{-- <img src="{{ asset('frontend/images/Asset 10@2x.png') }}" alt=""> --}}
                     <i style="font-size:30px; color: #043673;" class="fa fa-question-circle-o" aria-hidden="true"></i>
-
                 </div>
 
                 <div onclick="dropDownToggle()">
-                    <!-- <img src="{{ asset('frontend/images/Asset 9@2x.png') }}" alt=""> -->
-                    <i style="font-size:30px; color: #043673;" class="fas fa-bars"></i>
+                    <i style="font-size:30px; color: #043673;" class="fa fa-bars"></i>
                     <div id="drop" class="dropDown">
                         <div>
                             <p>ACTION</p>
@@ -54,7 +51,7 @@
                         </div>
                         @else
                         <div>
-                            <a href="{{ route('login') }}"><p>Dashboard</p></a>
+                            <a href="{{ route('login') }}" style="text-decoration: none;color:black;"><p>Dashboard</p></a>
                         </div>
                         @endguest
 

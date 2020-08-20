@@ -58,6 +58,15 @@
                     </a>
                 </li>
 
+                <li class="menu-title">Gallery</li>
+
+                <li>
+                    <a href="{{ route('media.index') }}" class="waves-effect">
+                        <i class="bx bx-image-add"></i>
+                        <span>Media</span>
+                    </a>
+                </li>
+
                 @endif
 
                 @if (auth()->user()->role == 1)

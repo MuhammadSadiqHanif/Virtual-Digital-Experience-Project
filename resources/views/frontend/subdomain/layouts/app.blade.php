@@ -24,23 +24,23 @@
     </style>
 </head>
 
-<body onunload = "console.log('goodBye');">
-    <nav>
+<body>
+     <nav>
         <div class="navbar">
             <div class="logo">
                 <div class="logoImg">
-                    <img src="{{ asset('clients/logos/'.optional($settings)->logo) }}" alt="">
+                    <img src="{{ asset('frontend/images/Asset 14@2x.png') }}" alt="">
                 </div>
+               
             </div>
             <div class="icons">
 
                 <div class="hide">
-                    {{-- <img src="{{ asset('frontend/images/Asset 10@2x.png') }}" alt=""> --}}
-                    <span style="font-size: 29px;padding: 0px!important;"><i class="fa fa-question-circle-o" aria-hidden="true"></i></span>
-
+                    <i style="font-size:30px; color: #043673;" class="fa fa-question-circle-o" aria-hidden="true"></i>
                 </div>
+
                 <div onclick="dropDownToggle()">
-                    <img src="{{ asset('frontend/images/Asset 9@2x.png') }}" alt="">
+                    <i style="font-size:30px; color: #043673;" class="fa fa-bars"></i>
                     <div id="drop" class="dropDown">
                         <div>
                             <p>ACTION</p>
