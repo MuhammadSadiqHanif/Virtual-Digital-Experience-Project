@@ -189,6 +189,7 @@ function medicalPage() {
 
         // console.log("ssssssss")
         document.getElementById('medicalinner').style.transform = "scale(1)"
+        document.getElementById('titleDiv').style.transform = "scale(1)"
     }
 }
 medicalPage()
@@ -216,6 +217,7 @@ function Video() {
     document.getElementById('videoMenu').style.transitionDelay = '0.9s';
     document.getElementById('videobutton').disabled = false;
     document.getElementById('videoSlider').classList.add("videoSlider2");
+    document.getElementById('videoMenu').style.display = 'block'
 }
 function videobutton() {
     // console.log('sdas')
@@ -306,3 +308,63 @@ function showSlides2(n) {
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].className += " active";
 }
+// if (document.getElementById(medicalScreen)){
+function lady() {
+    //    console.log('running')
+    document.getElementById('videoSlider').style.transform = "scale(0)"
+    document.getElementById('selfService').style.transform = "scale(0)"
+    document.getElementById('textbox').style.transform = "scale(0)"
+    document.getElementById('videoSlider').style.transition = "0.7s"
+    document.getElementById('selfService').style.transition = "0.7s"
+    document.getElementById('ladyimg').style.width = "220px"
+    document.getElementById('lady').style.left = "530px"
+    document.getElementById('lady').style.top = "-420px"
+    document.getElementById('lady').style.transition = "0.7s"
+    document.getElementById('lady').style.position = "absolute"
+    document.getElementById('chatbotDiv').style.display = "block"
+    document.getElementsByClassName('sb-chat')[0].style.display = "block"
+    document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
+    document.getElementById('backChat').style.display = "block"
+
+
+}
+function backChat() {
+    document.getElementById('videoSlider').style.transform = "scale(1)"
+    document.getElementById('selfService').style.transform = "scale(1)"
+    document.getElementById('textbox').style.transform = "scale(1)"
+    document.getElementById('videoSlider').style.transition = "0.7s"
+    document.getElementById('selfService').style.transition = "0.7s"
+    document.getElementById('ladyimg').style.width = "170px"
+    document.getElementById('lady').style.left = "0px"
+    document.getElementById('lady').style.top = "0px"
+    document.getElementById('lady').style.transition = "0.7s"
+    document.getElementById('lady').style.position = "initial"
+    document.getElementById('chatbotDiv').style.display = "none"
+    document.getElementsByClassName('sb-chat')[0].style.display = "none"
+    document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
+    document.getElementById('backChat').style.display = "none"
+
+}
+function service(){
+    // document.getElementById('videoSlider').style.transform = "scale(0)"
+    // document.getElementById('lady').style.transform = "scale(0)"
+    // document.getElementById('textbox').style.transform = "scale(0)"
+    // document.getElementById('videoSlider').style.transition = "0.7s"
+    document.getElementById('selfService').style.transition = "0.7s"
+    document.getElementById('selfService').style.transform ='scale(0)'
+    document.getElementById('selfService').style.opacity ='0'
+    document.getElementById('lady').style.left = "-500px"
+    document.getElementById('lady').style.position = "relative"
+    document.getElementById('lady').style.opacity = "0"
+    document.getElementById('videoSlider').style.right = "-500px"
+    document.getElementById('videoSlider').style.opacity = "0"
+    // document.getElementById('lady').style.top = "-420px"
+    // document.getElementById('lady').style.transition = "0.7s"
+    // document.getElementById('lady').style.position = "absolute"
+    // document.getElementById('chatbotDiv').style.display = "block"
+    // document.getElementsByClassName('sb-chat')[0].style.display = "block"
+    // document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
+    // document.getElementById('backChat').style.display = "block"
+}
+
+

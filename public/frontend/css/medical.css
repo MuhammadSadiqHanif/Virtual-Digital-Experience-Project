@@ -3,6 +3,39 @@
     background-color: white;
     overflow: hidden;
 }
+.medTitle {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.medTitle img {
+    width: 55px;
+}
+.medTitle .titleDive {
+    font-size: 40px;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    z-index: 1;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 40px;
+    margin-top: 4px;
+    transform: scale(0);
+    transition: 0.7s;
+    transition-delay: 1s;
+}
+.medTitle h6 {
+    margin: 3px;
+    color: #043673;
+    padding: 0px 10px;
+    font-size: 20px;
+}
 .navbar {
     /* position: absolute; */
     width: 100%;
@@ -51,6 +84,8 @@
     position: absolute;
     top: 5px;
     transform: scale(0);
+    overflow: hidden;
+
 }
 .medicalScreen .icons img {
     width: 70px;
@@ -82,7 +117,7 @@
 .passport {
     width: 60px;
     position: absolute;
-    top: 550px;
+    top: 85%;
     right: 10px;
 }
 .pass-div {
@@ -129,9 +164,11 @@
 .videoSlider {
     position: relative;
     top: -400px;
+    transition: 0.7s;
+    right: 0px;
+    opacity: 1;
 }
-.videoSlider2 {
-}
+
 .video #videoinner button {
     /* position: absolute; */
     font-size: 70px;
@@ -171,6 +208,7 @@
 .sliderText {
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 .indicator {
     display: flex;
@@ -197,8 +235,15 @@
     align-items: center;
     justify-content: center;
 }
+.lady {
+    z-index: 99996;
+    transition: 0.7s;
+    left: 0px;
+    opacity: 1;
+}
 .lady a img {
     width: 170px;
+    transition: 0.7s;
 }
 .lady .textbox {
     width: 170px;
@@ -207,7 +252,7 @@
     background-repeat: no-repeat;
     z-index: -1;
     top: -81px;
-    left: -76px;
+    left: -79px;
     position: absolute;
 }
 .textbox p {
@@ -228,6 +273,9 @@
 .selfService img {
     width: 240px;
 }
+.selfService {
+    opacity: 1;
+}
 
 .selfTxt {
     position: absolute;
@@ -239,7 +287,6 @@
     top: 0%;
 }
 @media screen and (min-width: 1500px) {
-
     .medicalinner {
         background-size: 1439px 706px;
     }
@@ -249,7 +296,7 @@
         top: 414px;
         left: 345px;
     }
-    
+
     .plant2 {
         height: 220px;
         position: absolute;
@@ -257,10 +304,13 @@
         top: 483px;
     }
 }
-    @media screen and (max-width: 2000px) and (min-width: 1300px) {
+@media screen and (max-width: 2000px) and (min-width: 1442px) {
     /* .video img {
         width: 270px;
     } */
+    .titleDive {
+        margin-top: 37px !important;
+    }
     .selfTxt {
         z-index: 1;
         top: -10%;
@@ -276,7 +326,7 @@
         position: relative;
         top: -448px;
     }
-    .videoSlider2{
+    .videoSlider2 {
         right: 370px !important;
     }
     .pass-div {
@@ -304,7 +354,50 @@
     .textbox {
         width: 190px;
         height: 170px;
-        left: -72px !important;
+
+        left: 37px !important;
+    }
+    .lady a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .position1 {
+        top: 208px;
+    }
+    .sb-chat-btn{
+        top: 707px !important;
+        left: 809px !important;
+    }
+    .chatbotDiv{
+        width: 377px !important;
+    height: 611px !important;
+    left: 500px !important;
+    top: 140px !important;
+    }
+    .sb-body{
+        left: 290px !important;
+    }
+    
+    
+    
+}
+@media screen and (max-width: 1440px) and (min-width: 1367px) {
+    .titleDive {
+        margin-top: 12px;
+    }
+    .sb-chat-btn{
+        left: 47%;
+        top: 89%;
+        transform: translate(-60%, -89%);
+    }
+}
+@media screen and (max-width:1366px) and (min-width:1263px){
+    .sb-chat-btn {
+        left: 630px !important;
+        top: 510px !important;
     }
 }
 @media screen and (max-width: 1262px) and (min-width: 1116px) {
@@ -314,7 +407,7 @@
     .video img {
         width: 270px;
     }
-    .videoSlider2{
+    .videoSlider2 {
         right: 280px !important;
     }
     .selfTxt {
@@ -359,7 +452,7 @@
     }
 } 
 */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (min-width:769px) {
     .medicalinner {
         background-size: 990px 500px;
     }
@@ -390,8 +483,21 @@
         position: relative;
         top: -305px;
     }
-    .videoSlider2{
-        right: 265px !important;
+    .videoSlider2 {
+        right: 66% !important;
+    }
+    .videoMenu {
+        position: initial !important;
+    }
+    .videoplay {
+        top: 50%;
+        left: 11%;
+        transform: translate((-16%, 50%));
+    }
+    .videoplayback {
+        top: 49% !important;
+        transform: translate(-16%, -50%) !important;
+        left: 13% !important;
     }
     .selfService img {
         width: 200px;
@@ -402,24 +508,50 @@
         left: 615px;
         top: 344px;
     }
+    .sb-chat{
+        height: 463px !important;
+
+    }
+    .chatbotDiv {
+        width: 310px !important;
+    }
+    .sb-body{
+        width: 301px !important;
+        left: 26% !important;
+        top: 32% !important;  
+        transform: translate(-26%, -2%) !important;
+    zoom: 90% !important;
+    
+
+    }
+    .sb-chat-btn{
+        zoom: 90%;
+        top: 100% !important;
+        left: 58% !important;
+        transform: translate(-58%,-100%);
+    }
+    .passport{
+        top: 82%;
+        
+    }
 }
-.Mobile-medical{
+.Mobile-medical {
     display: none;
 }
-.web-medical{
+.web-medical {
     display: flex;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (min-width:601px) {
     .medicalinner {
         background-size: 650px 390px;
         overflow: auto;
     }
-    .Mobile-medical{
-        display: block;
-    }
-    .web-medical{
-        display: none;
-    }
+   /* .passport{
+       top: 100%;
+    right: 10px;
+    transform: translate(-100px,100%);
+   } */
+    
     .plant1 {
         height: 127px;
         position: absolute;
@@ -435,6 +567,9 @@
     .slider {
         width: 245px;
         font-size: 11px;
+    }
+    .passport{
+        position: absolute !important;
     }
     /* .slider {
         background-color: white;
@@ -454,18 +589,18 @@
         justify-content: unset;
     } */
     .lady a img {
-        width: 110px;
+        width: 100px;
     }
     .lady .textbox {
-        width: 150px;
+        width: 145px;
         font-size: 13px;
-        left: 90px;
+        left: -34px;
     }
     .plant2 {
         height: 110px;
         position: absolute;
         left: 515px;
-        top: 360px;
+        left: 340px;
     }
     .position1 {
         position: relative;
@@ -505,7 +640,10 @@
     }
     .videoSlider {
         position: relative;
-        top: 55px;
+        top: 0px;
+    }
+    .slider{
+        left: 10px;
     }
     .position3 {
         position: relative;
@@ -524,22 +662,39 @@
     .selfService img {
         width: 160px;
     }
-    .passport {
+    /* .passport {
         top: 472px;
-    }
+    } */
     /* .selfTxt {
         margin: 0px;
         left: 61%;
         text-align: left;
         z-index: 1;
     } */
+    .pasportDiv {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        /* position: fixed; */
+        /* position: sticky; */
+        justify-content: flex-end;
+        /* left: rig; */
+        right: 30px;
+        top: 460px;
+        padding: 10px 0px;
+    }
+    .passport {
+        position: initial;
+    }
 }
 
 .videoplayback {
     position: absolute;
     top: 32%;
     transform: translate(-50%, -50%);
-    left: 13%;
+    left: 10%;
 }
 /* .videoplay {
     width: 46%;
@@ -559,7 +714,8 @@
     text-align: center;
     color: white;
     opacity: 0;
-    z-index: 1;
+    /* z-index: 0; */
+    display: none;
 }
 .videoMenu div {
     display: flex;
@@ -591,7 +747,7 @@
     opacity: 0;
     transition: 0.6s ease-in-out;
 }
-.backbutton{
+.backbutton {
     left: 10%;
     position: absolute;
     top: 11%;
@@ -601,7 +757,7 @@
     z-index: 10000;
     display: none;
 }
-.mySlides{
+.mySlides {
     width: 90%;
 }
 .dot {
@@ -613,25 +769,75 @@
     border-radius: 50%;
     display: inline-block;
     transition: background-color 0.6s ease;
-  }
-  
-  .active, .dot:hover {
+}
+
+.active,
+.dot:hover {
     background-color: #717171;
-  }
-  
-  /* Fading animation */
-  .fade {
+}
+
+/* Fading animation */
+.fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
     animation-name: fade;
     animation-duration: 1.5s;
-  }
-  @-webkit-keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-  
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.chatbotDiv {
+    width: 377px;
+    height: 430px;
+    position: absolute;
+    top: 10px;
+    background-color: white;
+    left: 330px;
+    top: 140px;
+    display: none;
+}
+
+.sb-chat {
+    left: 220px;
+    position: absolute;
+    top: 10px;
+    opacity:0;
+    transition: 0.7s;
+    display: none;
+    height: 499px;
+}
+.sb-body {
+    left: 120px;
+    top: 139px;
+}
+/* .flipbook{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: c;
+}
+.flipbook img{
+    width: 230px;
+} */
+.innerSlider{
+    display: flex;
+    align-items: center;
+}
+
+
