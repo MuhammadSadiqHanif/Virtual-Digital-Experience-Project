@@ -52,7 +52,7 @@ nav {
     opacity: 0;
     transition: 0.3s;
     border-radius: 5px;
-    z-index: 9999;
+    z-index: 0;
     padding: 10px;
 }
 .dropDown div {

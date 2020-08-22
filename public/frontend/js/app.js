@@ -77,9 +77,11 @@ function dropDownToggle() {
 
     if (element.computedStyleMap().get('opacity').value == 0) {
         document.getElementById("drop").style.opacity = "1";
+        document.getElementById("drop").style.zIndex = "99";
     }
     else {
         document.getElementById("drop").style.opacity = "0";
+        document.getElementById("drop").style.zIndex = "0";
     }
 }
 
@@ -196,8 +198,40 @@ medicalPage()
 
 function Video() {
     // console.log('running ')
-    document.getElementById('position1').style.width = "100%"
-    document.getElementById('position2').style.opacity = "0"
+    var x = window.matchMedia("(max-width: 768px)")
+
+    if (x.matches) { 
+        document.getElementById('position1').style.width = "100%"
+        document.getElementById('position2').style.opacity = "0"
+    document.getElementById('position3').style.opacity = "0"
+    document.getElementById('slider').style.display = "none"
+    document.getElementById('videoSlider').style.top = "-30px"
+    document.getElementById('videoSlider').style.right = "-20px"
+    document.getElementById('lady').style.opacity = "0"
+    document.getElementById('selfService').style.opacity = "0"
+    document.getElementById('videopic').style.width = "600px"
+    document.getElementById('position1').style.left = "0px"
+    document.getElementById('videopic').style.transition = "0.6s"
+    document.getElementById('videopic').style.zIndex = "4"
+    document.getElementById('videoplay').style.top = "-359px"
+    document.getElementById('videoplay').style.display = "block"
+    document.getElementById('videolib').style.display = "none"
+    document.getElementById('backbutton').style.display = "block"
+    document.getElementById('videoMenu').style.opacity = '1';
+    document.getElementById('videoMenu').style.transition = '0.7s';
+    document.getElementById('videoMenu').style.transitionDelay = '0.9s';
+    document.getElementById('videobutton').disabled = false;
+    document.getElementById('videoSlider').classList.add("videoSlider2");
+    document.getElementById('videoMenu').style.display = 'block'
+    setTimeout(() => {
+        document.getElementById('lady').style.display = "none"
+        document.getElementById('selfService').style.display = "none"
+    }, 300);
+    document.documentElement.scrollTop = 0;
+    } else {
+
+        document.getElementById('position1').style.width = "100%"
+        document.getElementById('position2').style.opacity = "0"
     document.getElementById('position3').style.opacity = "0"
     document.getElementById('slider').style.display = "none"
     document.getElementById('videoSlider').style.top = "-70px"
@@ -218,10 +252,16 @@ function Video() {
     document.getElementById('videobutton').disabled = false;
     document.getElementById('videoSlider').classList.add("videoSlider2");
     document.getElementById('videoMenu').style.display = 'block'
+    setTimeout(() => {
+        document.getElementById('lady').style.display = "none"
+        document.getElementById('selfService').style.display = "none"
+    }, 300);
+    document.documentElement.scrollTop = 0;
+}
 }
 function videobutton() {
     // console.log('sdas')
-    document.getElementById('videoplay').style.zIndex = '7'
+    document.getElementById('videoplay').style.zIndex = '10'
     document.getElementById('videoplay').style.opacity = '1'
 
 }
@@ -248,6 +288,7 @@ function back() {
     document.getElementById('videoMenu').style.transition = '0.7s';
     document.getElementById('videobutton').disabled = false;
     document.getElementById('videoSlider').classList.remove("videoSlider2");
+
 }
 
 function openChatBot() {
@@ -310,24 +351,49 @@ function showSlides2(n) {
 }
 // if (document.getElementById(medicalScreen)){
 function lady() {
-    //    console.log('running')
-    document.getElementById('videoSlider').style.transform = "scale(0)"
-    document.getElementById('selfService').style.transform = "scale(0)"
-    document.getElementById('textbox').style.transform = "scale(0)"
-    document.getElementById('videoSlider').style.transition = "0.7s"
-    document.getElementById('selfService').style.transition = "0.7s"
-    document.getElementById('ladyimg').style.width = "220px"
-    document.getElementById('lady').style.left = "530px"
-    document.getElementById('lady').style.top = "-420px"
-    document.getElementById('lady').style.transition = "0.7s"
-    document.getElementById('lady').style.position = "absolute"
-    document.getElementById('chatbotDiv').style.display = "block"
-    document.getElementsByClassName('sb-chat')[0].style.display = "block"
-    document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
-    document.getElementById('backChat').style.display = "block"
+    console.log('running')
+
+    var x = window.matchMedia("(max-width: 768px)")
+
+    if (x.matches) {
+        document.getElementById('videoSlider').style.transform = "scale(0)"
+        document.getElementById('selfService').style.transform = "scale(0)"
+        document.getElementById('textbox').style.transform = "scale(0)"
+        document.getElementById('videoSlider').style.transition = "0.7s"
+        document.getElementById('selfService').style.transition = "0.7s"
+        document.getElementById('ladyimg').style.width = "220px"
+        document.getElementById('lady').style.left = "460px"
+        document.getElementById('lady').style.top = "-130px"
+        document.getElementById('lady').style.transition = "0.7s"
+        document.getElementById('lady').style.position = "absolute"
+        document.getElementById('chatbotDiv').style.display = "block"
+        document.getElementsByClassName('sb-chat')[0].style.display = "block"
+        document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
+        document.getElementById('backChat').style.display = "block"
+    } else {
 
 
+        document.getElementById('videoSlider').style.transform = "scale(0)"
+        document.getElementById('selfService').style.transform = "scale(0)"
+        document.getElementById('textbox').style.transform = "scale(0)"
+        document.getElementById('videoSlider').style.transition = "0.7s"
+        document.getElementById('selfService').style.transition = "0.7s"
+        document.getElementById('ladyimg').style.width = "220px"
+        document.getElementById('lady').style.left = "530px"
+        document.getElementById('lady').style.top = "-420px"
+        document.getElementById('lady').style.transition = "0.7s"
+        document.getElementById('lady').style.position = "absolute"
+        document.getElementById('chatbotDiv').style.display = "block"
+        document.getElementsByClassName('sb-chat')[0].style.display = "block"
+        document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
+        document.getElementById('backChat').style.display = "block"
+    }
+
+
+    // myFunction(x) // Call listener function at run time
+    // x.addListener(myFunction) // Attach listener function on state changes
 }
+
 function backChat() {
     document.getElementById('videoSlider').style.transform = "scale(1)"
     document.getElementById('selfService').style.transform = "scale(1)"
@@ -345,26 +411,24 @@ function backChat() {
     document.getElementById('backChat').style.display = "none"
 
 }
-function service(){
-    // document.getElementById('videoSlider').style.transform = "scale(0)"
-    // document.getElementById('lady').style.transform = "scale(0)"
-    // document.getElementById('textbox').style.transform = "scale(0)"
-    // document.getElementById('videoSlider').style.transition = "0.7s"
+function service() {
+
     document.getElementById('selfService').style.transition = "0.7s"
-    document.getElementById('selfService').style.transform ='scale(0)'
-    document.getElementById('selfService').style.opacity ='0'
+    document.getElementById('selfService').style.transform = 'scale(0)'
+    document.getElementById('selfService').style.opacity = '0'
     document.getElementById('lady').style.left = "-500px"
     document.getElementById('lady').style.position = "relative"
     document.getElementById('lady').style.opacity = "0"
     document.getElementById('videoSlider').style.right = "-500px"
     document.getElementById('videoSlider').style.opacity = "0"
-    // document.getElementById('lady').style.top = "-420px"
-    // document.getElementById('lady').style.transition = "0.7s"
-    // document.getElementById('lady').style.position = "absolute"
-    // document.getElementById('chatbotDiv').style.display = "block"
-    // document.getElementsByClassName('sb-chat')[0].style.display = "block"
-    // document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
-    // document.getElementById('backChat').style.display = "block"
+    document.getElementById('flipCon').style.display = "block"
+  
 }
+$(document).ready(function () {
+    $("#flipCon").flipBook({
+        pdfUrl:"{{ asset('frontend/plugin/pdf.js') }}",
+    });
+});
+
 
 

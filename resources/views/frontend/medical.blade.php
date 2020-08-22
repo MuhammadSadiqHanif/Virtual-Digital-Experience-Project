@@ -16,7 +16,7 @@
                 <img  src="{{ asset('frontend/images/medical/Asset2@2x.png') }}" alt="">
             </div>
         </div> -->
-        
+
         <div class="medicalinner" id="medicalinner" style="background-image: url({{asset('frontend/images/medical/Asset5@2x.png') }})">
             <div class="medTitle">
             <div id="titleDiv" class="titleDive">
@@ -41,7 +41,7 @@
                         <a >
                             <img id="ladyimg"  src="{{ asset('frontend/images/medical/Asset4@2x.png') }}" alt="">
                         </a>
-    
+
                     </div>
                 </div>
                 <div id="position2" class="position2 animate__animated animate__fadeInUpBig animate__delay-2s">
@@ -50,7 +50,7 @@
                             <img src="{{ asset('frontend/images/medical/Asset7@2x.png') }}" alt="">
                     </div>
                 </div>
-                <div id="position3" class="position3 animate__animated animate__fadeInRightBig animate__delay-2s"> 
+                <div id="position3" class="position3 animate__animated animate__fadeInRightBig animate__delay-2s">
                     <div id="videoSlider" class="videoSlider">
                         <div id="video" class="video ">
                             <p id="videolib">Video Library</p>
@@ -80,18 +80,21 @@
                                         </p></div>
                                     </div>
                                     <div class="mySlides fade">
-                                        <div class="text"><p>heloo
-                                            </p></div>
+                                        <div class="text">
+                                            <p>heloo
+                                            </p>
                                         </div>
-                                        <div class="mySlides fade">
-                                            <div class="text"><p>Hays Companiew offers a choice of two
+                                    </div>
+                                    <div class="mySlides fade">
+                                        <div class="text"><p>Hays Companiew offers a choice of two
                                                 medical plan option so you can choose the plan that best meets your needs -
                                                 and those of your family.
-                                            </p></div>
+                                            </p>
+                                        </div>
                                         </div>
                                         <i class="fa fa-caret-right" onclick="plusSlides(1)"></i>
                                     </div>
-                        
+
                                         <div class="indicator">
                                             <span class="dot" onclick="currentSlide2(1)"></span>
                                 <span class="dot" onclick="currentSlide2(2)"></span>
@@ -100,26 +103,41 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="chatbotDiv" class="chatbotDiv">
-                                
-                        
+
+
                                 </div>
-                        <button id='backChat' onclick="backChat()" class='backbutton'><i class="fa fa-caret-left"></i></button>
-                   
-<!--                     
-                    <div class="flipbook">
-                        <div>
+                        </div>
+                        </div>
+
+                        <!--
+                            <div class="flipbook">
+                                <div>
                         <img src="{{asset('frontend/images/medical/Asset 1@2x.png')}}" alt="">
-                            
+
+                    </div>
+                    <div>
+                        <img src="{{asset('frontend/images/medical/Asset 1@2x.png')}}" alt="">
                             </div>
-                            <div>
-                                <img src="{{asset('frontend/images/medical/Asset 1@2x.png')}}" alt="">
-                            </div>
-                            
+
                         </div>
                     </div> -->
+                    <button id='backChat' onclick="backChat()" class='backbutton'><i class="fa fa-caret-left"></i></button>
                     
+
+                    <!-- <script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#flipCon").flipBook({
+            pdfUrl:"{{ asset('frontend/plugin/pdf.js') }}",
+        });
+    });
+</script> -->
+<div id="flipCon">
+
+</div>
+
 
             <!-- Mobile View -->
             <div class="Mobile-medical">
@@ -163,7 +181,7 @@
 
                     <div id="slider" class="slider animate__animated animate__fadeInUpBig animate__slow animate__delay-2s">
                         <div class='sliderText'>
-                            
+
                         <i class="fa fa-caret-left" onclick="plusSlides(-1)"></i>
                             <div class="mySlidesMob fade">
                                 <div class="text"><p>Hays Companiew offers a choice of two
@@ -210,23 +228,26 @@
     <div class="videoplayback">
         <div id="videoMenu" class="videoMenu">
             <h5>Menu</h5>
-            <div>
-                <i class="fa fa-play-circle"></i> <p>Plan Overview <span class="time">:30</span></p>
+            <div class="videolist">
+
+                <div class="videolink">
+                    <i class="fa fa-play-circle"></i> <p>Plan Overview <span class="time">:30</span></p>
             </div>
-            <div>
+            <div class="videolink">
                 <i class="fa fa-play-circle"></i> <p>Eligiblity <span class="time">:40</span></p>
             </div>
-            <div>
+            <div class="videolink">
                 <i class="fa fa-play-circle"></i> <p>Dependents <span class="time">1:30</span></p>
             </div>
-            <div>
+            <div class="videolink">
                 <i class="fa fa-play-circle"></i> <p>Telemedicine<span class="time">:10</span></p>
             </div>
-            <div>
+            <div class="videolink">
                 <i class="fa fa-play-circle"></i> <p>HSA vs HRA<span class="time">1:10</span></p>
             </div>
+        </div>
         </div>
     </div>
 
 
-@endsection
+    @endsection

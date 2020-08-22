@@ -70,9 +70,18 @@
 <script src="https://support.mybenefitsappchat.com/supportboard/js/min/jquery.min.js"></script>
 <script src="https://support.mybenefitsappchat.com/supportboard/js/init.js"></script>
 <script src="https://support.mybenefitsappchat.com/supportboard/js/api.js?v=4"></script>
-<link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugins/flipbook.style.css') }}">
-<script src="{{ asset('frontend/plugins/flipbook.js') }}"></script>
-
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugin/flipbook.style.css') }}">
+<script src="{{ asset('frontend/plugin/flipbook.js') }}"></script>
+<script src="{{ asset('frontend/plugin/flipbook.pdfservice.js') }}"></script>
+<script src="{{ asset('frontend/plugin/flipbook.swipe.js') }}"></script>
+<script src="{{ asset('frontend/plugin/flipbook.webgl.js') }}"></script>
+<script src="{{ asset('frontend/plugin/iscroll.js') }}"></script>
+<script src="{{ asset('frontend/plugin/pdf.js') }}"></script>
+<script src="{{ asset('frontend/plugin/pdf.worker.js') }}"></script>
+<script src="{{ asset('frontend/plugin/pdfobject.js') }}"></script>
+<script src="{{ asset('frontend/plugin/pdfobject.min.js') }}"></script>
+<script src="{{ asset('frontend/plugin/three.js') }}"></script>
+<script src="{{ asset('plugin/flipbook.js') }}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 <script>
 </script>
