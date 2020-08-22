@@ -43,15 +43,7 @@
     /* background-color: transparent; */
     background-color: transparent;
 }
-.videoplay {
-    width: 97%;
-    position: relative;
-    display: none;
-    opacity: 0;
-    z-index: -1;
-    left: 9px;
-    top: -357px;
-}
+
 .demo {
     position: absolute;
     top: 50px;
@@ -311,7 +303,7 @@
         width: 270px;
     } */
     .titleDive {
-        margin-top: 37px !important;
+        margin-top: 13px !important;
     }
     .selfTxt {
         z-index: 1;
@@ -385,12 +377,9 @@
     .videoSlider{
         margin-top: 170px;
     }
-    .videoplay{
-        margin-top: 4px;
-    }
-    .videoMenu{
-        margin-left: 360px;
-    }
+   
+
+    
 }
     
    
@@ -408,11 +397,7 @@
     .videoSlider{
         margin-top: 100px;
     }
-    .videoplay{
-        top: -410px;
-        margin-top: 1px;
-        z-index: 99;
-    }
+   
     
    
 
@@ -426,10 +411,7 @@
         margin-top: 50px;
         margin-left: 90px;
     }
-    .videoplay{
-        margin-left: 0px;
-        margin-top: 0px;
-        }
+   
 }
 @media screen and (max-width: 1262px) and (min-width: 1116px) {
     .medicalinner {
@@ -519,20 +501,9 @@
         margin-top: 40px;
 
     }
-    .videoMenu {
-        position: initial !important;
-    }
-    .videoplay {
-        top: 50%;
-        left: 1%;
-        transform: translate((-16%, 50%));
-        
-    }
-    .videoplayback {
-        top: 49% !important;
-        transform: translate(-16%, -50%) !important;
-        left: 13% !important;
-    }
+  
+   
+   
     .selfService img {
         width: 200px;
     }
@@ -568,6 +539,16 @@
         top: 82%;
         
     }
+    .videoModal{
+        margin-top: 0px !important;
+        margin-left: 180px !important;
+        top: 391px;
+    }
+    .titleDive{
+        margin-top: 32px !important ;
+    }
+
+  
 }
 .Mobile-medical {
     display: none;
@@ -585,7 +566,9 @@
     right: 10px;
     transform: translate(-100px,100%);
    } */
-    
+    .titleDive{
+        margin-top: 32px !important;
+    }
     .plant1 {
         height: 127px;
         position: absolute;
@@ -721,9 +704,7 @@
         top: 460px;
         padding: 10px 0px;
     }
-    .videoplayback{
-        left: 0px !important;
-    }
+    
     .passport {
         position: initial;
     }
@@ -731,6 +712,12 @@
         left: 0px !important; 
     height: 360px;
     width: 280px !important;
+    }
+    .videoModal{
+        zoom: 60%;
+        top: 320px;
+        left: 90px;
+        margin: 0px;
     }
 }
 @media screen and (max-width:600px) {
@@ -770,15 +757,7 @@
     .slider{
         left: 0px;
     }
-    .videoplay{
-        top: -75px !important;
-        /* display: block !important; */
-        position: absolute !important;
-        /* z-index: 999; */
-        width: 330px !important;
-        left: -106px !important;
-        
-    }
+ 
     .video img {
         width: 350px !important;
     }
@@ -787,69 +766,20 @@
         top: 0%;
         width: 110px;
     }
-    .videoMenu{
-        width: 323px !important;
-        height: 155px !important;
-        left: 110% !important;
-
-    }
-    .videoMenu h5{
-margin: 2px !important;
-    }
-    .videoplayback{
-        left: -173 !important;
-        position: relative !important;
-        top: 28.7% !important;
-        left: -54% !important;
-    }
+ 
+  
+ 
     
 }
 
-.videoplayback {
-    position: absolute;
-    top: 32%;
-    transform: translate(-50%, -50%);
-    left: 10%;
-}
-/* .videoplay {
-    width: 46%;
-    opacity: 0;
-    height: 54%;
-    z-index: -1;
-} */
-.videoMenu {
-    position: absolute;
-        margin-left: 100px;
-        margin-top: 50px;
 
-    border-radius: 12px;
-    background-color: #4a7cab;
-    width: 160px;
-    height: 226px;
-    padding: 10px 12px;
-    text-align: center;
-    color: white;
-    opacity: 0;
-    /* z-index: 0; */
-    display: none;
-}
-.videoMenu .videolink {
-    display: flex;
-    align-items: center;
-}
-.videoMenu div p {
-    margin: 4px 0px;
-    width: 100%;
-    padding: 0px 5px;
-    text-align: left;
-}
+
+
+
 .time {
     float: right;
 }
-.videoMenu h5 {
-    font-size: 24px;
-    margin: 20px;
-}
+
 .chatBot {
     display: none;
     position: absolute;
@@ -962,5 +892,79 @@ margin: 2px !important;
 #flipCon{
     display: none;
     position: absolute;
+}
+.videoModal{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 160px 0px 0px 0px;
+    z-index: 99;
+    flex-direction: row-reverse;
+    transform: scale(0);
+    transition: 0.7s;
+    top: 100px;
+
+
+}
+#videoModalpic{
+    height: 400px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#videoModalpic img{
+    height: 100%;
+    z-index: 10;
+}
+#videoModalpic button{
+    position: absolute;
+    border: none;
+    background: transparent;
+    font-size: 100px;
+    color: #0077c1;
+    z-index: 10;
+}
+.videoplayback{
+    position: relative;
+    right: 440px;
+    background: #4a7cab;
+    display: flex;
+    width: 230px;
+    color: white;
+    font-weight: bold;
+    z-index: 11;
+}
+.videoMenu{
+    width: 100%;
+}
+.videolist p{
+    width: 100%;
+}
+.videolist div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.videolist .time{
+    float: right;
+}
+.videoplayback h5{
+    text-align: center;
+    font-size: 20px;
+    margin: 13px;
+}
+.videoplayback{
+        padding: 10px;
+}
+.videolist p{
+    margin: 9px;
+}
+.videoplay{
+    position: absolute;
+    z-index: 0px;
+    display: none;
 }
 

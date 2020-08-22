@@ -56,11 +56,10 @@
                             <p id="videolib">Video Library</p>
                             <div onclick="Video()" id="videoinner">
                                 <img id="videopic" src="{{ asset('frontend/images/medical/Asset6@2x.png') }}" alt="">
-                                <button onclick="videobutton()"  id="videobutton" class="fa fa-play-circle" disabled>
+                                <button id="videobutton" class="fa fa-play-circle" disabled>
                                 </button>
                             </div>
                         </div>
-                        <iframe id="videoplay" class="videoplay videoSlider" src="https://player.vimeo.com/video/116690342?color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
                         <div id="slider" class="slider animate__animated animate__fadeInUpBig animate__slow animate__delay-2s">
                             <div class='sliderText'>
@@ -124,23 +123,53 @@
                         </div>
                     </div> -->
                     <button id='backChat' onclick="backChat()" class='backbutton'><i class="fa fa-caret-left"></i></button>
-                    
+                    <script src="{{ asset('plugin/flipbook.js') }}"></script>
 
-                    <!-- <script type="text/javascript">
+                    <script type="text/javascript">
 
     $(document).ready(function () {
         $("#flipCon").flipBook({
             pdfUrl:"{{ asset('frontend/plugin/pdf.js') }}",
         });
     });
-</script> -->
+</script>
 <div id="flipCon">
 
-</div>
+    </div>
+    <div id="videoModal" class="videoModal"> 
+        <div id="videoModalpic">
+            <img  src="{{ asset('frontend/images/medical/Asset6@2x.png') }}" alt="">
+            <button onclick="videobutton()"  id="videobutton" class="fa fa-play-circle" > </button>
+            <iframe id="videoplay" class="videoplay" src="https://player.vimeo.com/video/116690342?color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
-
-            <!-- Mobile View -->
-            <div class="Mobile-medical">
+            </div>
+            <div class="videoplayback">
+                <div id="videoMenu" class="videoMenu">
+                    <h5>Menu</h5>
+            <div class="videolist">
+                
+                <div class="videolink">
+                    <i class="fa fa-play-circle"></i> <p>Plan Overview <span class="time">:30</span></p>
+                </div>
+                <div class="videolink">
+                    <i class="fa fa-play-circle"></i> <p>Eligiblity <span class="time">:40</span></p>
+            </div>
+            <div class="videolink">
+                <i class="fa fa-play-circle"></i> <p>Dependents <span class="time">1:30</span></p>
+            </div>
+            <div class="videolink">
+                <i class="fa fa-play-circle"></i> <p>Telemedicine<span class="time">:10</span></p>
+            </div>
+            <div class="videolink">
+                <i class="fa fa-play-circle"></i> <p>HSA vs HRA<span class="time">1:10</span></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    
+    <!-- Mobile View
+    <div class="Mobile-medical">
 
             <button id='backbutton' onclick="back()" class='backbutton'><i class="fa fa-caret-left"></i></button>
             <div class="pasportDiv">
@@ -219,13 +248,13 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
     <div id='chatBot' class='chatBot'>
         <div id ='hiddenDiv' class='hiddenDiv'>
             <h1>heloo</h1>
         </div>
     </div>
-    <div class="videoplayback">
+    <!-- <div class="videoplayback">
         <div id="videoMenu" class="videoMenu">
             <h5>Menu</h5>
             <div class="videolist">
@@ -246,7 +275,7 @@
                 <i class="fa fa-play-circle"></i> <p>HSA vs HRA<span class="time">1:10</span></p>
             </div>
         </div>
-        </div>
+        </div> -->
     </div>
 
 
