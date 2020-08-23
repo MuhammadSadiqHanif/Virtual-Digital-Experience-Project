@@ -78,6 +78,14 @@ class AdminTopicController extends Controller
 				$content->update();
 			}
 		}
+		else
+		{
+			$content = new TopicContent();
+			$content->videos = json_encode($request->videos);
+			$content->topic_id = $request->topic;
+			$content->video_default = '';
+			$content->save();
+		}
 
 		return back()->with('success', 'Videos Added Successfully');
 	}
@@ -117,11 +125,20 @@ class AdminTopicController extends Controller
 			'required' => 'Please Select a Image!',
 		]);
 
-		$content = TopicContent::where('topic_id', $request->topic)->firstOrFail();
+		$content = TopicContent::where('topic_id', $request->topic)->first();
 
-		$content->video_default = $request->video_default;
-
-		$content->update();
+		if ($content)
+		{
+			$content->video_default = $request->video_default;
+			$content->update();
+		}
+		else
+		{
+			$content = new TopicContent();
+			$content->topic_id = $request->topic;
+			$content->video_default = $request->video_default;
+			$content->save();
+		}
 
 		return back()->with('success', 'Videos Default Image Set Successfully');
 	}
