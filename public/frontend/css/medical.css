@@ -766,6 +766,23 @@
         top: 0%;
         width: 110px;
     }
+    .videoModal{
+        zoom: 40% ;
+        top: 530px !important;
+    right: -110px !important;
+    }
+    /* .videoplayback {
+        position: relative !important; 
+        right: 0px !important;
+        background: #4a7cab !important;
+        display: flex;
+    
+        color: white !important;
+        font-weight: bold !important;
+        z-index: 11 !important;
+        top: 320px !important;
+        width: 630px !important;
+    } */
  
   
  
