@@ -132,6 +132,7 @@
     /* align-items: center; */
     justify-content: center;
     z-index: 3;
+    /* display: none; */
 }
 .video #videoinner {
     display: flex;
@@ -185,6 +186,7 @@
     padding: 0px 6px;
     /* color: #0077c1; */
     transition-delay: 2s;
+    /* display: none; */
 }
 .slider .sliderText p {
     padding: 4px 18px;
@@ -227,6 +229,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* display: none; */
 }
 .lady {
     z-index: 99996;
@@ -268,6 +271,8 @@
 }
 .selfService {
     opacity: 1;
+    transform: scale(1);
+    transition: 0.7s;
 }
 
 .selfTxt {
@@ -361,19 +366,8 @@
     .position1 {
         top: 208px;
     }
-    .sb-chat-btn{
-        top: 707px !important;
-        left: 809px !important;
-    }
-    .chatbotDiv{
-        width: 377px !important;
-        height: 611px !important;
-        left: 500px !important;
-        top: 140px !important;
-    }
-    .sb-body{
-        left: 290px !important;
-    }
+   
+  
     .videoSlider{
         margin-top: 170px;
     }
@@ -389,11 +383,7 @@
     .titleDive {
         margin-top: 12px;
     }
-    .sb-chat-btn{
-        left: 47%;
-        top: 89%;
-        transform: translate(-60%, -89%);
-    }
+ 
     .videoSlider{
         margin-top: 100px;
     }
@@ -403,10 +393,7 @@
 
 }
 @media screen and (max-width:1366px) and (min-width:1263px){
-    .sb-chat-btn {
-        left: 630px !important;
-        top: 510px !important;
-    }
+   
     .videoSlider{
         margin-top: 50px;
         margin-left: 90px;
@@ -513,28 +500,8 @@
         left: 615px;
         top: 344px;
     }
-    .sb-chat{
-        height: 463px !important;
-
-    }
-    .chatbotDiv {
-        width: 310px !important;
-    }
-    .sb-body{
-        width: 301px !important;
-        left: 26% !important;
-        top: 32% !important;  
-        transform: translate(-26%, -2%) !important;
-    zoom: 90% !important;
     
-
-    }
-    .sb-chat-btn{
-        zoom: 90%;
-        top: 100% !important;
-        left: 58% !important;
-        transform: translate(-58%,-100%);
-    }
+   
     .passport{
         top: 82%;
         
@@ -546,6 +513,9 @@
     }
     .titleDive{
         margin-top: 32px !important ;
+    }
+    .sb-chat{
+        left: 55% !important;
     }
 
   
@@ -677,6 +647,7 @@
         justify-content: center;
         width: 85%;
         margin: auto;
+        /* display: none; */
     }
     .selfService img {
         width: 160px;
@@ -708,16 +679,15 @@
     .passport {
         position: initial;
     }
-    .sb-body{
-        left: 0px !important; 
-    height: 360px;
-    width: 280px !important;
-    }
+  
     .videoModal{
         zoom: 60%;
         top: 320px !important;
         left: 90px;
         margin: 0px;
+    }
+    .sb-chat{
+        left: 57% !important;
     }
 }
 @media screen and (max-width:600px) {
@@ -863,30 +833,9 @@
         opacity: 1;
     }
 }
-.chatbotDiv {
-    width: 377px;
-    height: 430px;
-    position: absolute;
-    top: 10px;
-    background-color: white;
-    left: 330px;
-    top: 140px;
-    display: none;
-}
 
-.sb-chat {
-    left: 220px;
-    position: absolute;
-    top: 10px;
-    opacity:0;
-    transition: 0.7s;
-    display: none;
-    height: 499px;
-}
-.sb-body {
-    left: 120px;
-    top: 139px;
-}
+
+
 .innerSlider{
     display: flex;
     align-items: center;
@@ -984,4 +933,46 @@
     z-index: 0px;
     display: none;
 }
+.ladyexpnd{
+    position: absolute;
+    position: absolute;
+    display: flex;
+    top: 140px;
+    transform: scale(0);
+    transition: 0.7s;
+
+}
+.ladyexpnd .chatBotdiv{
+    width: 380px;
+    height: 430px;
+    background-color: white;
+}
+
+.ladyexpnd img {
+    width: 260px;
+}
+.sb-body{
+    max-height: 354px !important;
+    bottom: 85px !important;
+    
+}
+.sb-chat{
+    top: 90%;
+    left: 54%;
+    transform: translate(-50%, 50%);
+    bottom: unset !important;
+    right: unset !important;
+    transform: scale(0);
+    transition-delay:1s ;
+    transition: 0.7s;
+}
+
+
+    
+
+/*
+.sb-chat-btn{
+    right: unset !important;
+    bottom: 90px !important;
+} */
 

@@ -103,10 +103,7 @@
                         </div>
                     </div>
 
-                    <div id="chatbotDiv" class="chatbotDiv">
-
-
-                                </div>
+                
                         </div>
                         </div>
 
@@ -122,7 +119,7 @@
 
                         </div>
                     </div> -->
-                    <button id='backChat' onclick="backChat()" class='backbutton'><i class="fa fa-caret-left"></i></button>
+                <button id='backbutton' onclick="back()" class='backbutton'><i class="fa fa-caret-left"></i></button>
                     <script src="{{ asset('plugin/flipbook.js') }}"></script>
 
                     <script type="text/javascript">
@@ -165,6 +162,18 @@
             </div>
         </div>
     </div>
+    </div>
+            </div>
+    <div id="ladyexpnd" class="ladyexpnd">
+    <div class="chatBotdiv">
+
+
+    </div>
+    <div class="ladyImgDiv">
+    <img  src="{{ asset('frontend/images/medical/Asset4@2x.png') }}" alt="">
+
+    </div>
+
     </div>
     
     
