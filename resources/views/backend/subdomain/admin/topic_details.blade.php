@@ -122,7 +122,7 @@
                             <i class="bx bx-check-double font-size-16 align-middle mr-2"></i>
                             Set
                             </button>
-                            @if (optional($details->content)->video_default != null)
+                            @if ($details->content != null && $details->content->video_default != null)
                               <a href="#" id="delete-default-image-video" class="btn btn-danger waves-effect waves-light">
                               <i class="bx bx-block font-size-16 align-middle mr-2"></i>
                               Remove
