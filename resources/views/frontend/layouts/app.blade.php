@@ -81,7 +81,7 @@
 <script src="{{ asset('frontend/plugin/pdfobject.js') }}"></script>
 <script src="{{ asset('frontend/plugin/pdfobject.min.js') }}"></script>
 <script src="{{ asset('frontend/plugin/three.js') }}"></script>
-<script src="{{ asset('plugin/flipbook.js') }}"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 <script>
 </script>

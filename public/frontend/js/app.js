@@ -206,14 +206,14 @@ function Video() {
     document.getElementById('position3').style.opacity = "0"
     document.getElementById('slider').style.display = "none"
     document.getElementById('videoSlider').style.top = "-30px"
+    document.getElementById('videoSlider').style.opacity = "0"
+
     document.getElementById('videoSlider').style.right = "-20px"
     document.getElementById('lady').style.opacity = "0"
     document.getElementById('selfService').style.opacity = "0"
-    document.getElementById('videopic').style.width = "600px"
+    document.getElementById('videoModal').style.transform = "scale(1)"
+    
     document.getElementById('position1').style.left = "0px"
-    document.getElementById('videopic').style.transition = "0.6s"
-    document.getElementById('videopic').style.zIndex = "4"
-    document.getElementById('videoplay').style.top = "-359px"
     document.getElementById('videoplay').style.display = "block"
     document.getElementById('videolib').style.display = "none"
     document.getElementById('backbutton').style.display = "block"
@@ -236,14 +236,17 @@ function Video() {
     document.getElementById('slider').style.display = "none"
     document.getElementById('videoSlider').style.top = "-70px"
     document.getElementById('videoSlider').style.right = "455px"
+    document.getElementById('videoSlider').style.opacity = "0"
     document.getElementById('lady').style.opacity = "0"
     document.getElementById('selfService').style.opacity = "0"
-    document.getElementById('videopic').style.width = "600px"
+    document.getElementById('videoModal').style.transform = "scale(1)"
+
+    // document.getElementById('videopic').style.width = "600px"
     document.getElementById('position1').style.left = "0px"
-    document.getElementById('videopic').style.transition = "0.6s"
-    document.getElementById('videopic').style.zIndex = "4"
-    document.getElementById('videoplay').style.top = "-359px"
-    document.getElementById('videoplay').style.display = "block"
+    // document.getElementById('videopic').style.transition = "0.6s"
+    // document.getElementById('videopic').style.zIndex = "4"
+    // document.getElementById('videoplay').style.top = "-359px"
+    // document.getElementById('videoplay').style.display = "block"
     document.getElementById('videolib').style.display = "none"
     document.getElementById('backbutton').style.display = "block"
     document.getElementById('videoMenu').style.opacity = '1';
@@ -260,8 +263,9 @@ function Video() {
 }
 }
 function videobutton() {
-    // console.log('sdas')
-    document.getElementById('videoplay').style.zIndex = '10'
+    console.log('sdas')
+    document.getElementById('videoplay').style.zIndex = '11'
+    document.getElementById('videoplay').style.display = "block"
     document.getElementById('videoplay').style.opacity = '1'
 
 }
@@ -378,10 +382,10 @@ function lady() {
         document.getElementById('textbox').style.transform = "scale(0)"
         document.getElementById('videoSlider').style.transition = "0.7s"
         document.getElementById('selfService').style.transition = "0.7s"
-        document.getElementById('ladyimg').style.width = "220px"
+        // document.getElementById('ladyimg').style.width = "220px"
         document.getElementById('lady').style.left = "530px"
         document.getElementById('lady').style.top = "-420px"
-        document.getElementById('lady').style.transition = "0.7s"
+        // document.getElementById('lady').style.transition = "0.7s"
         document.getElementById('lady').style.position = "absolute"
         document.getElementById('chatbotDiv').style.display = "block"
         document.getElementsByClassName('sb-chat')[0].style.display = "block"
@@ -424,11 +428,7 @@ function service() {
     document.getElementById('flipCon').style.display = "block"
   
 }
-$(document).ready(function () {
-    $("#flipCon").flipBook({
-        pdfUrl:"{{ asset('frontend/plugin/pdf.js') }}",
-    });
-});
+
 
 
 
