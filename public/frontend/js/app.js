@@ -206,6 +206,8 @@ function Video() {
     document.getElementById('position3').style.opacity = "0"
     document.getElementById('slider').style.display = "none"
     document.getElementById('videoSlider').style.top = "-30px"
+    document.getElementById('videoSlider').style.opacity = "0"
+
     document.getElementById('videoSlider').style.right = "-20px"
     document.getElementById('lady').style.opacity = "0"
     document.getElementById('selfService').style.opacity = "0"
@@ -234,6 +236,7 @@ function Video() {
     document.getElementById('slider').style.display = "none"
     document.getElementById('videoSlider').style.top = "-70px"
     document.getElementById('videoSlider').style.right = "455px"
+    document.getElementById('videoSlider').style.opacity = "0"
     document.getElementById('lady').style.opacity = "0"
     document.getElementById('selfService').style.opacity = "0"
     document.getElementById('videoModal').style.transform = "scale(1)"
