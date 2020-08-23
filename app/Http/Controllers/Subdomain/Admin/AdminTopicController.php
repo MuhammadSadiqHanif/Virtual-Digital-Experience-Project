@@ -111,7 +111,7 @@ class AdminTopicController extends Controller
 	public function setVideoDefault(Request $request)
 	{
 		$request->validate([
-			'videos_default' => 'required',
+			'video_default' => 'required',
 		],
 		[
 			'required' => 'Please Select a Image!',
