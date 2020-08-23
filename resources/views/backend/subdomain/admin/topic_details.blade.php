@@ -114,7 +114,7 @@
                               <label for="">Image</label>
                               <input type="text" class="form-control" id="video-default-image" 
                                 name="video_default"
-                                value="{{ $details->content->video_default }}" 
+                                value="{{ $details->content->video_default ?? null }}" 
                                 placeholder="Select Any From Gallery">
                               <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
                             </div>
@@ -122,7 +122,7 @@
                             <i class="bx bx-check-double font-size-16 align-middle mr-2"></i>
                             Set
                             </button>
-                            @if ($details->content != null && $details->content->video_default != null)
+                            @if (optional($details->content)->video_default != null)
                               <a href="#" id="delete-default-image-video" class="btn btn-danger waves-effect waves-light">
                               <i class="bx bx-block font-size-16 align-middle mr-2"></i>
                               Remove
