@@ -1,5 +1,19 @@
 @extends('frontend.layouts.app')
 
+@push('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugin/flipbook.style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#flipCon").flipBook({
+        pdfUrl:"{{ asset('frontend/plugin/sample-3pp.pdf') }}",
+    });
+});
+</script>
+@endpush
+
 @section('content')
 
     <div id="medicalScreen" class="medicalScreen ">
@@ -120,19 +134,14 @@
                         </div>
                     </div> -->
                 <button id='backbutton' onclick="back()" class='backbutton'><i class="fa fa-caret-left"></i></button>
-                    <script src="{{ asset('plugin/flipbook.js') }}"></script>
+        
+        {{-- filpbook here --}}
+        <div id="flipCon">
 
-                    <script type="text/javascript">
+        </div>
+        {{-- flipobook end here --}}
+    
 
-    $(document).ready(function () {
-        $("#flipCon").flipBook({
-            pdfUrl:"{{ asset('frontend/plugin/pdf.js') }}",
-        });
-    });
-</script>
-<div id="flipCon">
-
-    </div>
     <div id="videoModal" class="videoModal"> 
         <div id="videoModalpic">
             <img  src="{{ asset('frontend/images/medical/Asset6@2x.png') }}" alt="">
