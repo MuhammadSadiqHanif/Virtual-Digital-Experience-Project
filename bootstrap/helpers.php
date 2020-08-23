@@ -28,3 +28,13 @@ function replaceHttps($host)
 	$test = str_replace(['http://', 'https://'],'',$domain);
 	return $host .'.'.$test;
 }
+
+/**
+* Json decoder
+*
+* @return void
+*/
+function jsonDecode($value='')
+{
+	return json_decode($value);
+}

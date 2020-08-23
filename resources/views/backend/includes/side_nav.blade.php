@@ -74,8 +74,8 @@
 
                     @forelse($topics as $topic)
                     <li>
-                        <a href="#" class="waves-effect">
-                            <i class="bx bxs-flag"></i>
+                        <a href="{{ url('admin/site-topics/'.$topic->id) }}" class="waves-effect">
+                            <i class="bx bx-purchase-tag-alt"></i>
                             <span>{{ $topic->title }}</span>
                         </a>
                     </li>

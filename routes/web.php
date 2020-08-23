@@ -3,6 +3,7 @@
 use App\DnsProvider\Cloudflare;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,13 @@ Route::domain('{domain}.'.env('APP_DOMAIN'))->group(function () {
 		// admin routes on subDomain
 		Route::group(['prefix' => 'admin','namespace' => 'Subdomain\Admin','middleware' => ['AdminRestrict','CheckCurrentDomain']],function(){
 	   		Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
+	   		Route::get('/site-topics/{topic}','AdminTopicController@show')->name('admin.topic.index');
+	   		Route::post('/site-topics/{topic}/video','AdminTopicController@addVideos')->name('admin.topic.video');
+	   		Route::get('/site-topics/{topic}/video/{video}','AdminTopicController@deleteVideo')
+	   				->name('admin.topic.video.delete');
+	   		Route::post('/site-topics/{topic}/video/default','AdminTopicController@setVideoDefault')
+	   				->name('admin.topic.video.default');
+	   		
 	   	});
 
 		// user routes on subDomain
@@ -46,7 +54,7 @@ Auth::routes(['register' => false]);
 // Route::get('/home', 'HomeController@index')->name('home');	
 
 Route::get('/test',function(Cloudflare $Cloudflare){
-	
+
 });
 
 // admin routes

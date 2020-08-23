@@ -47,10 +47,10 @@
                     </div>
                 @endif
 
-            <form method="POST" action="{{ route('sites.update',$site->id) }}" 
-            enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
+                    <form method="POST" action="{{ route('sites.update',$site->id) }}" 
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                      <input type="hidden" name="client_id" value="{{ $site->id }}">
 
                         @csrf
