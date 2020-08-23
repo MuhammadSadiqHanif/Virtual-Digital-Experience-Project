@@ -34,18 +34,18 @@
 
 	@if ($media->ext == 'json')
 	<div class="col-md-4" style="padding-bottom: 10px;">
-	    <lottie-player class="galleryMedia" src="{{ asset('clients/gallery/'.$media->media) }}"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+	    <lottie-player class="galleryMedia" lsrc="{{ asset('clients/gallery/'.$media->media) }}" src="{{ asset('clients/gallery/'.$media->media) }}"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
 	</div>
 
 	@elseif($media->ext == 'pdf')
 	    <div class="col-md-4" style="padding-bottom: 10px;">
-	      <img class="img-thumbnail galleryMedia" alt="200x200" width="200" src="{{ asset('clients/logos/pdflogo.png') }}" data-holder-rendered="true">
+	      <img class="img-thumbnail galleryMedia" lsrc="{{ asset('clients/gallery/'.$media->media) }}" alt="200x200" width="200" src="{{ asset('clients/logos/pdflogo.png') }}" data-holder-rendered="true">
 	       </a>
 	    </div>
 	@else
 
 	<div class="col-md-4" style="padding-bottom: 10px;">
-	   <img class="img-thumbnail galleryMedia" alt="200x200" width="200" src="{{ asset('clients/gallery/'.$media->media) }}" data-holder-rendered="true">
+	   <img class="img-thumbnail galleryMedia" lsrc="{{ asset('clients/gallery/'.$media->media) }}" alt="200x200" width="200" src="{{ asset('clients/gallery/'.$media->media) }}" data-holder-rendered="true">
 	  
 	</div>
 
