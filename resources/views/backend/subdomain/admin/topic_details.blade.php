@@ -13,12 +13,12 @@
       <div class="row">
         <div class="col-12">
           <div class="page-title-box d-flex align-items-center justify-content-between">
-            <h4 class="mb-0 font-size-18">{{ $details->title }} Content</h4>
+            <h4 class="mb-0 font-size-18"> Content</h4>
             <div class="page-title-right">
               <ol class="breadcrumb m-0">
                 <li class="breadcrumb-item"><a href="javascript: void(0);">Site</a></li>
                 <li class="breadcrumb-item">Topics</li>
-                <li class="breadcrumb-item active">{{ $details->title }}</li>
+                <li class="breadcrumb-item active"></li>
               </ol>
             </div>
           </div>
@@ -69,34 +69,42 @@
                       @include('backend.includes.alert')
                       <div class="card">
                         <div class="card-body">
-                          <button type="button" style="margin-bottom: 15px;" name="add" id="add" class="btn btn-success waves-effect waves-light">Add +</button>
+                          <button type="button" style="margin-bottom: 15px;" name="add" id="add-video" class="btn btn-success waves-effect waves-light">Add +</button>
                           <form method="POST" action="{{ url('admin/site-topics/'.$details->id.'/video') }}">
                             @csrf
-                            <table class="table table-striped table-bordered" id="user_table">
+                            <table class="table table-striped table-bordered" id="videos">
                               <thead>
                                 <tr>
-                                  <th width="80%">Link</th>
+                                  <th width="50%">Link</th>
+                                  <th width="30%">Title</th>
                                   <th width="20%">Action</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                @if (optional($details->content)->videos != null &&
-                                is_array(jsonDecode($details->content->videos)) 
-                                &&
-                                count(jsonDecode($details->content->videos)))
-                                @forelse(jsonDecode($details->content->videos) as $video)
+
+                                @if ($details->videos()->count())
+                                @forelse($details->videos as $videos)
                                 <tr>
+                                  <input type="hidden" name="videos[id][]" 
+                                  value="{{ $videos->id }}">
                                   <td>
-                                    <input type="text" name="videos[]" value="{{ $video }}" 
+                                    <input type="text" name="videos[link][]" 
+                                      value="{{ $videos->video }}" 
+                                      placeholder="Vimeo / Youtube Link" class="form-control"/>
+                                  </td>
+                                  <td>
+                                    <input type="text" name="videos[title][]" 
+                                      value="{{ $videos->title }}" 
                                       placeholder="Vimeo / Youtube Link" class="form-control"/>
                                   </td>
                                   <td>
                                     <a class="btn btn-danger" 
-                                      href="{{ url('admin/site-topics/'.$details->id.'/video/'.encrypt($video)) }}">Delete</a>
+                                      href="{{ url('admin/site-topics/'.$details->id.'/video/'.$videos->id) }}">Delete</a>
                                   </td>
                                 </tr>
                                 @empty
                                 @endforelse
+                            
                                 @endif
                               </tbody>
                             </table>
@@ -114,7 +122,7 @@
                               <label for="">Image</label>
                               <input type="text" class="form-control" id="video-default-image" 
                                 name="video_default"
-                                value="{{ $details->content->video_default ?? null }}" 
+                                value="{{ $details->video_default }}" required 
                                 placeholder="Select Any From Gallery">
                               <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
                             </div>
@@ -122,7 +130,7 @@
                             <i class="bx bx-check-double font-size-16 align-middle mr-2"></i>
                             Set
                             </button>
-                            @if (optional($details->content)->video_default != null)
+                            @if (isset($details->video_default))
                               <a href="#" id="delete-default-image-video" class="btn btn-danger waves-effect waves-light">
                               <i class="bx bx-block font-size-16 align-middle mr-2"></i>
                               Remove
@@ -139,23 +147,175 @@
                 </div>
 
 
-                <div class="tab-pane" id="profile-1" role="tabpanel">
+                <div class="tab-pane" id="profile-1" role="tabpanel"> 
                   <p class="mb-0">
-                    {{--  --}}
+
+
+                    <div class="row">
+                    <div class="col-lg-12">
+                      @include('backend.includes.form_errors')
+                      @include('backend.includes.alert')
+                      <div class="card">
+                        <div class="card-body">
+                          <button type="button" style="margin-bottom: 15px;" name="add" id="add-pdf" class="btn btn-success waves-effect waves-light">Add +</button>
+                          <form method="POST" action="{{ url('admin/site-topics/'.$details->id.'/pdf') }}">
+                            @csrf
+                            <table class="table table-striped table-bordered" id="pdf">
+                              <thead>
+                                <tr>
+                                  <th width="50%">PDF</th>
+                                  <th width="30%">Title</th>
+                                  <th width="20%">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                @if ($details->pdfs()->count())
+                                @forelse($details->pdfs as $pdf)
+                                <tr>
+                                  <input type="hidden" name="pdf[id][]" 
+                                  value="{{ $pdf->id }}">
+                                  <td>
+                                    <input type="text" name="pdf[link][]" 
+                                      value="{{ $pdf->link }}" 
+                                      placeholder="Select From Gallery" class="form-control"/>
+                                    <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
+                                  </td>
+                                  <td>
+                                    <input type="text" name="pdf[title][]" 
+                                      value="{{ $pdf->title }}" 
+                                      placeholder="Vimeo / Youtube Link" class="form-control"/>
+                                  </td>
+                                  <td>
+                                    <a class="btn btn-danger" 
+                                      href="{{ url('admin/site-topics/'.$details->id.'/pdf/'.$pdf->id) }}">Delete</a>
+                                  </td>
+                                </tr>
+                                @empty
+                                @endforelse
+                            
+                                @endif
+                              </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-warning waves-effect waves-light">
+                            <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Submit
+                            </button>   
+                          </form>
+                          <br>
+                          <br>
+                          <hr>
+                          <form action="{{ url('admin/site-topics/'.$details->id.'/pdf/default') }}" method="POST" role="form" id="video-default-pdf-form">
+                            @csrf
+                            <legend>No Pdf's yet? Set a default Image!</legend>
+                            <div class="form-group">
+                              <label for="">Image</label>
+                              <input type="text" class="form-control" id="video-default-pdf" 
+                                name="pdf_default"
+                                value="{{ $details->pdf_default }}" required 
+                                placeholder="Select Any From Gallery">
+                              <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
+                            </div>
+                            <button type="submit" class="btn btn-info waves-effect waves-light">
+                            <i class="bx bx-check-double font-size-16 align-middle mr-2"></i>
+                            Set
+                            </button>
+                            @if (isset($details->pdf_default))
+                              <a href="#" id="delete-default-pdf-video" class="btn btn-danger waves-effect waves-light">
+                              <i class="bx bx-block font-size-16 align-middle mr-2"></i>
+                              Remove
+                              </a>
+                            @endif   
+                          </form>
+                        </div>
+                      </div>
+                      <!-- end client -->
+                    </div>
+                  </div>
+                  <!-- end row -->
                   </p>
                 </div>
 
 
                 <div class="tab-pane" id="messages-1" role="tabpanel">
                   <p class="mb-0">
-                    {{--  --}}
+                  <div class="row">
+                    <div class="col-lg-12">
+                      @include('backend.includes.form_errors')
+                      @include('backend.includes.alert')
+                      <div class="card">
+                        <div class="card-body">
+                          <button type="button" style="margin-bottom: 15px;" name="add" id="add-text" class="btn btn-success waves-effect waves-light">Add +</button>
+                          <form method="POST" action="{{ url('admin/site-topics/'.$details->id.'/text') }}">
+                            @csrf
+                            <table class="table table-striped table-bordered" id="text">
+                              <thead>
+                                <tr>
+                                  <th width="50%">Text</th>
+                                  <th width="20%">Action</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+
+                                @if (isset($details->text_slider) && is_array(json_decode($details->text_slider)))
+                                @forelse(json_decode($details->text_slider) as $text)
+                                <tr>
+                                  <td>
+                                    <textarea name="text[]" class="form-control" rows="3" required="required">{{ $text }}</textarea>
+                                  </td>
+                                  <td>
+                                    <a class="btn btn-danger" 
+                                      href="{{ url('admin/site-topics/'.$details->id.'/text/'.$text) }}">Delete</a>
+                                  </td>
+                                </tr>
+                                @empty
+                                @endforelse
+                            
+                                @endif
+                              </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-warning waves-effect waves-light">
+                            <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Submit
+                            </button>   
+                          </form>
+                        </div>
+                      </div>
+                      <!-- end client -->
+                    </div>
+                  </div>
+                  <!-- end row -->
                   </p>
                 </div>
 
 
                 <div class="tab-pane" id="settings-1" role="tabpanel">
                   <p class="mb-0">
-                    {{--  --}}
+                    <div class="row">
+                    <div class="col-lg-12">
+                      @include('backend.includes.form_errors')
+                      @include('backend.includes.alert')
+                      <div class="card">
+                        <div class="card-body">
+                          <form action="{{ url('admin/site-topics/'.$details->id.'/chatbot') }}" method="POST" role="form">
+                            @csrf
+                            
+                            <div class="form-group">
+                              <label for="">ChatBot Image</label>
+                              <input type="text" class="form-control" id="" 
+                              name="chatbot"
+                              required="required"
+                              value="{{ $details->chatbot_pic }}" 
+                              placeholder="Select From Gallery">
+                              <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
+                            </div>
+                        
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- end client -->
+                    </div>
+                  </div>
+                  <!-- end row -->
                   </p>
                 </div>
 
@@ -213,48 +373,131 @@
          objectHandler = $(this);
      });
    // gallery code end here
-  
-    var count = 1;
-    html = '';
+
+
+// Video part
+var count = 1;
+html = '';
+ 
+ 
+dynamic_field_video(count);
    
-   
-  dynamic_field(count);
-   
-function dynamic_field(number)
+function dynamic_field_video(number)
 {
    
   html = '<tr>'; 
-  html += '<td><input type="text" name="videos[]" value="" placeholder="Vimeo / Youtube Link" class="form-control" required /></td>';
+  html += '<td><input type="text" name="videos[link][]" value="" placeholder="Vimeo / Youtube Link" class="form-control" required /></td>';
+  html += '<td><input type="text" name="videos[title][]" value="" placeholder="Title" class="form-control" required /></td>';
     
   if(number > 1)
    {
-      html += '<td><button type="button" name="remove" class="btn btn-danger remove">Remove</button></td></tr>';
+      html += '<td><button type="button" name="remove" class="btn btn-danger remove-video">Remove</button></td></tr>';
        
-      $('tbody').append(html);   
+      $("#videos tbody").append(html);   
    }
   else
   {   
     html = '';
-    $('tbody').append(html);
+    $("#videos tbody").append(html);
   }    
 }
    
-  $(document).on('click', '#add', function(){
+  $(document).on('click', '#add-video', function(){
   count++;
 
-  dynamic_field(count);  
+  dynamic_field_video(count);  
   });
 
-  $(document).on('click', '.remove', function(){
+  $(document).on('click', '.remove-video', function(){
   count--;
   $(this).parent().parent().remove();
   });
 
-// default image removal trick
+// default image removal trick for video
 $('#delete-default-image-video').click(function(){
   $('#video-default-image').val('');
   $('#video-default-image-form')[0].submit();
 });
+// video part end here
+
+
+// pdf part
+var count = 1;
+html = '';
+ 
+dynamic_field_pdf(count);
+   
+function dynamic_field_pdf(number)
+{
+   
+  html = '<tr>'; 
+  html += '<td><input type="text" name="pdf[link][]" value="" placeholder="Select from gallery" class="form-control" required /><span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span></td>';
+  html += '<td><input type="text" name="pdf[title][]" value="" placeholder="Title" class="form-control" required /></td>';
+    
+  if(number > 1)
+   {
+      html += '<td><button type="button" name="remove" class="btn btn-danger remove-pdf">Remove</button></td></tr>';
+       
+      $("#pdf tbody").append(html);   
+   }
+  else
+  {   
+    html = '';
+    $("#pdf tbody").append(html);
+  }    
+}
+   
+  $(document).on('click', '#add-pdf', function(){
+  count++;
+
+  dynamic_field_pdf(count);  
+  });
+
+  $(document).on('click', '.remove-pdf', function(){
+  count--;
+  $(this).parent().parent().remove();
+  });
+// default image removal trick for pdf
+$('#delete-default-pdf-video').click(function(){
+  $('#video-default-pdf').val('');
+  $('#video-default-pdf-form')[0].submit();
+});
+
+// text part
+var count = 1;
+html = '';
+ 
+dynamic_field_text(count);
+   
+function dynamic_field_text(number)
+{
+   
+  html = '<tr>'; 
+  html += '<td><textarea name="text[]" class="form-control" rows="3" placeholder="Text" required="required"></textarea></td>';
+    
+  if(number > 1)
+   {
+      html += '<td><button type="button" name="remove" class="btn btn-danger remove-text">Remove</button></td></tr>';
+       
+      $("#text tbody").append(html);   
+   }
+  else
+  {   
+    html = '';
+    $("#text tbody").append(html);
+  }    
+}
+   
+  $(document).on('click', '#add-text', function(){
+  count++;
+
+  dynamic_field_text(count);  
+  });
+
+  $(document).on('click', '.remove-text', function(){
+  count--;
+  $(this).parent().parent().remove();
+  });
    
 });
 </script> 

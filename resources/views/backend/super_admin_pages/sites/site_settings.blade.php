@@ -62,7 +62,12 @@
                                 <label>Admins</label>
                                 <select class="custom-select" name="admins[]" multiple id="admins">
                                     @forelse($clients as $client)
-                                        <option value="{{ $client->id }}">{{ $client->name }}</option>
+                                        <option 
+                                        {{ is_array(old('admins')) && 
+                                        in_array($client->id,old('admins')) ? 'selected' : '' }} 
+                                        value="{{ $client->id }}">
+                                            {{ $client->name }}
+                                        </option>
                                     @empty
                                     @endforelse
                                 </select>
@@ -224,7 +229,19 @@
 
 			                        <select class="allowed_domains form-control" name="allowed_domains[]"
 			                        multiple="multiple">
-			                        	<option value="gmail.com">gmail.com</option>
+                                        @if (is_array(old('allowed_domains')))
+                                            @forelse(old('allowed_domains') as $dom)
+                                                <option selected value="{{ $dom }}">
+                                                    {{ $dom }}
+                                                </option>
+                                            @empty
+                                            @endforelse
+                                        @else
+                                        <option value="gmail.com">
+                                            gmail.com
+                                        </option>
+                                        @endif
+			                        	
 			                       	</select>
 
                                     @error('allowed_domains')

@@ -16,7 +16,7 @@ class MediaController extends Controller
 	 */
 	public function index()
 	{
-		$medias = Media::all();
+		$medias = Media::where('domain',null)->get();
 		return view('backend.super_admin_pages.gallery.index', compact('medias'));
 	}
 
@@ -47,7 +47,7 @@ class MediaController extends Controller
 					$name = $file[$i][$i]->getClientOriginalExtension();
 					$realName = basename($file[$i][$i]->getClientOriginalName(), '.'.$file[$i][$i]->getClientOriginalExtension()) . uniqid() . 'media' . '.' . $name;
 					$file[$i][$i]->move(public_path('clients/gallery'), $realName);
-					$media[] = ['media' => $realName, 'ext' => $name];
+					$media[] = ['media' => $realName, 'ext' => $name,'domain' => $request->domain];
 				}
 			}
 			\DB::table('media')->insert($media);

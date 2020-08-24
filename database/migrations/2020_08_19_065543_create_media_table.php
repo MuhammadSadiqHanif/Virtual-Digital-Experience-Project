@@ -17,6 +17,7 @@ class CreateMediaTable extends Migration
             $table->bigIncrements('id');
             $table->string('media')->nullable();
             $table->string('ext')->nullable();
+            $table->string('domain')->nullable();
             $table->timestamps();
         });
     }

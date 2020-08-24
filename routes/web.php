@@ -28,21 +28,32 @@ Route::domain('{domain}.'.env('APP_DOMAIN'))->group(function () {
 
 		// admin routes on subDomain
 		Route::group(['prefix' => 'admin','namespace' => 'Subdomain\Admin','middleware' => ['AdminRestrict','CheckCurrentDomain']],function(){
+
+			Route::resource('media','AdminMediaController');
 	   		Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
 	   		Route::get('/site-topics/{topic}','AdminTopicController@show')->name('admin.topic.index');
-	   		Route::post('/site-topics/{topic}/video','AdminTopicController@addVideos')->name('admin.topic.video');
-	   		Route::get('/site-topics/{topic}/video/{video}','AdminTopicController@deleteVideo')
-	   				->name('admin.topic.video.delete');
-	   		Route::post('/site-topics/{topic}/video/default','AdminTopicController@setVideoDefault')
-	   				->name('admin.topic.video.default');
 	   		
-	   	});
+	   		// topic videos
+	   		Route::post('/site-topics/{topic}/video','AdminTopicController@addVideos');
+	   		Route::get('/site-topics/{topic}/video/{video}','AdminTopicController@deleteVideo');
+	   		Route::post('/site-topics/{topic}/video/default','AdminTopicController@setVideoDefault');
+	   		// topic pdf
+	   		Route::post('/site-topics/{topic}/pdf','AdminTopicController@addPdf');
+	   		Route::get('/site-topics/{topic}/pdf/{pdf}','AdminTopicController@deletePdf');
+	   		Route::post('/site-topics/{topic}/pdf/default','AdminTopicController@setPdfDefault');
+
+	   		// topic pdf
+	   		Route::post('/site-topics/{topic}/text','AdminTopicController@addText');
+	   		Route::get('/site-topics/{topic}/text/{text}','AdminTopicController@deleteText');
+	   		// topic pdf
+	   		Route::post('/site-topics/{topic}/chatbot','AdminTopicController@addChatBotImage');
+		});
 
 		// user routes on subDomain
 	   	Route::group(['prefix' => 'user','namespace' => 'Subdomain\User','middleware' => ['CheckCurrentDomain','UserRestrict']],function(){
 	   		Route::get('/dashboard','UserDashboardController@index')->name('admin.dashboard');
-	   		Route::get('/profile_settings','UserDashboardController@showProfileSettings')->name('dashboard.profile');
-	   		Route::post('/profile_settings/{user_id}','UserDashboardController@editProfileSettings')->name('dashboard.profile.edit');
+	   		Route::get('/profile_settings','UserDashboardController@showProfileSettings');
+	   		Route::post('/profile_settings/{user_id}','UserDashboardController@editProfileSettings');
 	   	});
 
 	});

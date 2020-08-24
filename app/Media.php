@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
 {
-    protected $media = ['media','ext'];
+    protected $media = ['media','ext','domain'];
 }

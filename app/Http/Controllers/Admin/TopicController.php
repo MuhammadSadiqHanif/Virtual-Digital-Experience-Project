@@ -32,7 +32,7 @@ class TopicController extends Controller
       
         if ($request->has('client') && $request->client != '') {
 
-            $topics = Topic::where('domain',SiteSetting::where('domain',$request->client)->first()->domain)->get();
+            $topics = Topic::where('domain',$request->client)->get();
 
             return view('backend.super_admin_pages.topics',compact('sites','topics'));
         }

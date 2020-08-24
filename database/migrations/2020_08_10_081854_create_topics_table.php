@@ -21,6 +21,10 @@ class CreateTopicsTable extends Migration
             $table->string('icon')->nullable();
             $table->string('position')->nullable();
             $table->string('domain')->nullable();
+            $table->string('video_default')->nullable();
+            $table->string('pdf_default')->nullable();
+            $table->text('text_slider')->nullable();
+            $table->string('chatbot_pic')->nullable();
             $table->timestamps();
         });
     }

@@ -38,3 +38,13 @@ function jsonDecode($value='')
 {
 	return json_decode($value);
 }
+
+/**
+* IS this the same site
+*
+* @return void
+*/
+function sameSite($site = '')
+{
+	return replaceHttps($site) == request()->getHost();
+}

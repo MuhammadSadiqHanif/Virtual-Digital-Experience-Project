@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Subdomain\Admin;
 
 use App\Http\Controllers\Controller;
+use App\SiteSetting;
 use App\Topic;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,8 @@ class AdminDashboardController extends Controller
 	public function index()
 	{
 		$topics = Topic::where('domain',request()->domain)->get();
-		return view('backend.dashboard',compact('topics'));
+		$settings = SiteSetting::where('domain',request()->domain)->first();
+
+		return view('backend.dashboard',compact('topics','settings'));
 	}
 }

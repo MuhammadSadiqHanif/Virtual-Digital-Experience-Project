@@ -14,7 +14,11 @@ class GalleryComponent extends Component
     	$term = '%'.$this->search.'%';
     	$filter = '%'.$this->filter.'%';
 
-    	$medias = Media::where('media','LIKE',$term)->where('ext','LIKE',$filter)->get();
+    	$medias = Media::where('media','LIKE',$term)
+		    	->where('ext','LIKE',$filter)
+		    	->where('domain',request()->domain)
+		    	->get();
+		    	
         return view('livewire.gallery-component',compact('medias'));
     }
 }

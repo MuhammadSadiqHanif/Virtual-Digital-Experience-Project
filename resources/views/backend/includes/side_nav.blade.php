@@ -6,7 +6,7 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">Menu</li>
+               
                 @if (auth()->user()->role == 0)
                     
                 <li>
@@ -88,18 +88,28 @@
                         </li>
                     @endforelse
 
-                     <li class="menu-title">Site's</li>
-
+                    <li class="menu-title">Site's</li>
                     @forelse(auth()->user()->userDomains('domain') as $site)
                     <li>
-                        <a href="https://{{ replaceHttps($site) }}/login" class="waves-effect">
-                            <i class="bx bxs-flag"></i>
+                        <a href="https://{{ replaceHttps($site) }}/login" 
+                            class="waves-effect"
+                            style="{{ sameSite($site) ? 'color:white' : ''}}">
+                            <i class="bx bxs-flag"  style="{{ sameSite($site) ? 'color:white' : ''}}"></i>
                             <span>{{ $site }}</span>
                         </a>
                     </li>
                     @empty
                       
                     @endforelse
+
+                    <li class="menu-title">Gallery</li>
+
+                    <li>
+                        <a href="{{ route('media.index') }}" class="waves-effect">
+                            <i class="bx bx-image-add"></i>
+                            <span>Media</span>
+                        </a>
+                    </li>
                 @endif
 
                 @if (auth()->user()->role == 2)
