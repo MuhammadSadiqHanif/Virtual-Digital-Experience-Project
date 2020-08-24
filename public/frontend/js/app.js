@@ -229,6 +229,8 @@ function Video() {
     // }, 300);
     // document.documentElement.scrollTop = 0;
     // } else {
+        document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
         document.getElementById('videoSlider').style.transform = "scale(0)"
         document.getElementById('selfService').style.transform = "scale(0)"
         document.getElementById('textbox').style.transform = "scale(0)"
@@ -264,6 +266,14 @@ function Video() {
     // }, 300);
     // document.documentElement.scrollTop = 0;
 // }
+var x = window.matchMedia("(max-width: 600px)")
+
+if (x.matches) { 
+        
+    document.getElementById('medicalinner').style.height = "1000px"
+    document.getElementById('medicalScreen').style.height = "1000px"
+  document.getElementById('passport').style.top = "91%"
+}
 }
 function videobutton() {
     console.log('sdas')
@@ -355,7 +365,8 @@ function lady() {
     //     document.getElementById('backChat').style.display = "block"
     // } else {
 
-
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
         document.getElementById('videoSlider').style.transform = "scale(0)"
         document.getElementById('selfService').style.transform = "scale(0)"
         document.getElementById('textbox').style.transform = "scale(0)"
@@ -384,16 +395,28 @@ function lady() {
 
 
 function service() {
-
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    document.getElementById('videoSlider').style.transform = "scale(0)"
+    document.getElementById('selfService').style.transform = "scale(0)"
+    document.getElementById('textbox').style.transform = "scale(0)"
+    document.getElementById('lady').style.transform = "scale(0)"
+    document.getElementById('pdfModal').style.transform = "scale(1)"
+    document.getElementById('videoSlider').style.transition = "0.7s"
     document.getElementById('selfService').style.transition = "0.7s"
-    document.getElementById('selfService').style.transform = 'scale(0)'
-    document.getElementById('selfService').style.opacity = '0'
-    document.getElementById('lady').style.left = "-500px"
-    document.getElementById('lady').style.position = "relative"
-    document.getElementById('lady').style.opacity = "0"
-    document.getElementById('videoSlider').style.right = "-500px"
-    document.getElementById('videoSlider').style.opacity = "0"
-    document.getElementById('flipCon').style.display = "block"
+    document.getElementById('backbutton').style.transform = "scale(1)"
+    var x = window.matchMedia("(max-width: 600px)")
+
+    if (x.matches) { 
+        
+        document.getElementById('medicalinner').style.height = "1000px"
+        document.getElementById('medicalScreen').style.height = "1000px"
+      document.getElementById('passport').style.top = "91%"
+    }
+
+
+    // myFunction(x) // Call listener function at run time
+    // x.addListener(myFunction) // Attach listener function on state changes
   
 }
 function back(){
@@ -405,8 +428,95 @@ function back(){
     document.getElementsByClassName('sb-chat')[0].style.transform = "scale(0)"
     document.getElementById('videoModal').style.transform = "scale(0)"
     document.getElementById('backbutton').style.transform = "scale(0)"
+    document.getElementById('pdfModal').style.transform = "scale(0)"
+    var x = window.matchMedia("(max-width: 600px)")
+
+    if (x.matches) { 
+        
+        document.getElementById('medicalinner').style.height = "1700px"
+        document.getElementById('medicalScreen').style.height = "1700px"
+      
+    }
+
+    
 
 }
+// var slideIndex = 1;
+// showPdfSlider(slideIndex);
+// showPdfSlider2(slideIndex);
+
+// function pdfSlider(n) {
+//     showPdfSlider(slideIndex += n);
+// }
+// function pdfSlider2(n) {
+//     showPdfSlider2(slideIndex += n);
+// }
+
+// function currentSlide(n) {
+//     showPdfSlider(slideIndex = n);
+// }
+// function pdfCurrent(n) {
+//     showPdfSlider2(slideIndex = n);
+// }
+
+// function showPdfSlider(n) {
+//     var i;
+//     var slides = document.getElementsByClassName("pdfIconSlide");
+//     var dots = document.getElementsByClassName("pdfInd");
+//     if (n > slides.length) { slideIndex = 1 }
+//     if (n < 1) { slideIndex = slides.length }
+//     for (i = 0; i < slides.length; i++) {
+//         slides[i].style.display = "none";
+//     }
+//     for (i = 0; i < dots.length; i++) {
+//         dots[i].className = dots[i].className.replace(" active", "");
+//     }
+//     slides[slideIndex - 1].style.display = "block";
+//     dots[slideIndex - 1].className += " active";
+// }
+// function showPdfSlider2(n) {
+//     var i;
+//     var slides = document.getElementsByClassName("pdfIconSlide");
+//     var dots = document.getElementsByClassName("pdfInd");
+//     if (n > slides.length) { slideIndex = 1 }
+//     if (n < 1) { slideIndex = slides.length }
+//     for (i = 0; i < slides.length; i++) {
+//         slides[i].style.display = "none";
+//     }
+//     for (i = 0; i < dots.length; i++) {
+//         dots[i].className = dots[i].className.replace(" active", "");
+//     }
+//     slides[slideIndex - 1].style.display = "block";
+//     dots[slideIndex - 1].className += " active";
+// }
+var slidePdfIndex = 1;
+showPdfSlides(slidePdfIndex);
+
+function plusPdfSlides(n) {
+  showPdfSlides(slidePdfIndex += n);
+}
+
+function currentPdfSlide(n) {
+  showPdfSlides(slidePdfIndex = n);
+}
+
+function showPdfSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("myPdfSlides");
+  var dots = document.getElementsByClassName("Pdfdot");
+  if (n > slides.length) {slidePdfIndex = 1}
+    if (n < 1) {slidePdfIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+  slides[slidePdfIndex-1].style.display = "flex";
+  console.log(dots[slidePdfIndex-1])
+  dots[slidePdfIndex-1].className += " active";
+}
+
 
 
 

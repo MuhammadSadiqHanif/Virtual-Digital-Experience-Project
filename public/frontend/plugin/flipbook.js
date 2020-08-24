@@ -44,10 +44,10 @@ var FLIPBOOK = FLIPBOOK || {};
             deeplinkingPrefix: '',
 
             assets: {
-                preloader: "https://haysemails.com/plugins/preloader.jpg",
+                preloader: "https://vdx.test/frontend/plugin/preloader.jpg",
                 overlay: "images/overlay.png",
-                flipMp3: "https://haysemails.com/plugins/turnPage.mp3",
-                spinner: "https://haysemails.com/plugins/spinner.gif"
+                flipMp3: "https://vdx.test/frontend/plugin/turnPage.mp3",
+                spinner: "https://vdx.test/frontend/plugin/spinner.gif"
             },
 
             //pdf source options

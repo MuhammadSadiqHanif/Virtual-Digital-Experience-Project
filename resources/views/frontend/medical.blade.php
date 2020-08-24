@@ -1,5 +1,19 @@
 @extends('frontend.layouts.app')
 
+@push('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugin/flipbook.style.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#flipCon").flipBook({
+        pdfUrl:"{{ asset('frontend/plugin/sample-3pp.pdf') }}",
+    });
+});
+</script>
+@endpush
+
 @section('content')
 
     <div id="medicalScreen" class="medicalScreen ">
@@ -29,7 +43,7 @@
             <img class="plant2" src="{{ asset('frontend/images/medical/Asset1@2x.png') }}" alt="">
             <div class="pass-div web-medical">
 
-                <img class="passport animate__animated animate__zoomIn animate__delay-2s" src="{{ asset('frontend/images/medical/Asset3@2x.png') }}" alt="">
+                <img id="passport" class="passport animate__animated animate__zoomIn animate__delay-2s" src="{{ asset('frontend/images/medical/Asset3@2x.png') }}" alt="">
                 <div id="position1" class="position1 animate__animated animate__fadeInLeftBig animate__delay-2s">
                     <div onclick="lady()" id="lady" class="lady ">
                         <div id="textbox" class="textbox" style="background-image:url({{ asset('frontend/images/medical/Asset8@2x.png') }}) ;">
@@ -118,21 +132,99 @@
 
                         </div>
                     </div> -->
-                <!-- <button id='backbutton' onclick="back()" class='backbutton'><i class="fas fa-arrow-left"></i></button> -->
-                    <script src="{{ asset('plugin/flipbook.js') }}"></script>
+                <!-- <button id='backbutton' onclick="back()" class='backbutton'><i class="fa fa-caret-left"></i></button> -->
+        
+    <div id="pdfModal" class="pdfModal">
+    <div class="pdfFile">
+        <div id="flipCon">
 
-                    <script type="text/javascript">
-
-    $(document).ready(function () {
-        $("#flipCon").flipBook({
-            pdfUrl:"{{ asset('frontend/plugin/pdf.js') }}",
-        });
-    });
-</script>
-<div id="flipCon">
-
+        </div>
     </div>
+        <div class="pdfPic"> 
+        <img  src="{{ asset('frontend/images/medical/Asset 1@2x.png') }}" alt="">
+
+        <div class="pdfslider">
+            <div class="pdfIcons">
+
+                <i class="fa fa-caret-left" aria-hidden="true" onclick="plusPdfSlides(-1)" ></i>
+                    <div class="myPdfSlides fade pdfImages ">
+
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+            </div>
+            <!-- <div class="myPdfSlides fade pdfImages">
+
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+            </div>
+            <div class="myPdfSlides fade pdfImages">
+                
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+            </div>
+            <div class="myPdfSlides fade pdfImages">
+                
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+                <div>
+                    <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                </div>
+            </div> -->
+                <i class="fa fa-caret-right" aria-hidden="true" onclick="plusPdfSlides(1)"></i>
+        </div>
+        <div class="pdfIndicator">
+            <i class="Pdfdot fa fa-circle active" aria-hidden="true" onclick="currentPdfSlide(1)"></i>
+            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(2)"></i>
+            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(3)"></i>
+            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(4)"></i>
+            
+        </div>
+
+        </div>
+
+        </div>
+    </div>
+        <!-- {{-- filpbook here --}}
+        {{-- flipobook end here --}} -->
     
+
     <div id="videoModal" class="videoModal"> 
 
         <div id="videoModalpic">
@@ -178,7 +270,7 @@
     </div>
 
     </div>
-    <button id='backbutton' onclick="back()" class='backbutton'><i class="fas fa-arrow-left"></i></button>
+    <button id='backbutton' onclick="back()" class='backbutton'><img src="{{ asset('frontend/images/medical/backicon.png') }}" alt=""></button>
     
     
     <!-- Mobile View

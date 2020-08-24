@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
     <title>Virtual Digital Experience</title>
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/medical.css') }}">
@@ -17,8 +18,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
         integrity="sha512-kb1CHTNhoLzinkElTgWn246D6pX22xj8jFNKsDmVwIQo+px7n1yjJUZraVuR/ou6Kmgea4vZXZeUDbqKtXkEMg=="
         crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('frontend/css/font-awesome/css/font-awesome.css') }}">
-    <script src="https://kit.fontawesome.com/2c36b1428e.js" crossorigin="anonymous"></script>
+    
+    @stack('css')
 
 </head>
 
@@ -70,19 +71,5 @@
 <script src="https://support.mybenefitsappchat.com/supportboard/js/min/jquery.min.js"></script>
 <script src="https://support.mybenefitsappchat.com/supportboard/js/init.js"></script>
 <script src="https://support.mybenefitsappchat.com/supportboard/js/api.js?v=4"></script>
-<link rel="stylesheet" type="text/css" href="{{ asset('frontend/plugin/flipbook.style.css') }}">
 <script src="{{ asset('frontend/plugin/flipbook.js') }}"></script>
-<script src="{{ asset('frontend/plugin/flipbook.pdfservice.js') }}"></script>
-<script src="{{ asset('frontend/plugin/flipbook.swipe.js') }}"></script>
-<script src="{{ asset('frontend/plugin/flipbook.webgl.js') }}"></script>
-<script src="{{ asset('frontend/plugin/iscroll.js') }}"></script>
-<script src="{{ asset('frontend/plugin/pdf.js') }}"></script>
-<script src="{{ asset('frontend/plugin/pdf.worker.js') }}"></script>
-<script src="{{ asset('frontend/plugin/pdfobject.js') }}"></script>
-<script src="{{ asset('frontend/plugin/pdfobject.min.js') }}"></script>
-<script src="{{ asset('frontend/plugin/three.js') }}"></script>
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-<script>
-</script>
 </html>
