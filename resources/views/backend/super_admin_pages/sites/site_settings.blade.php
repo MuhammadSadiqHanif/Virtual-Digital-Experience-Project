@@ -81,6 +81,18 @@
                         </div>
 
                         <div class="col-lg-6">
+
+                                <div class="form-group">
+                                   <label>Company Url</label>
+                                    <input class="form-control" type="text" name="company_url" 
+                                    value="{{ old('company_url') }}">
+                                    @error('company_url')
+                                        <div class="invalid-feedback" style="display: block;">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div> 
+
                                <div class="form-group">
 	                               <label>Domain</label>
 	                               <input class="form-control" type="text" name="domain" value="{{ old('domain') }}" id="domain">
@@ -91,18 +103,6 @@
                                     </div>
                                 	@enderror
 		                        </div>
-
-		                        <div class="form-group">
-	                               <label>Company Url</label>
-	                                <input class="form-control" type="text" name="company_url" 
-	                                value="{{ old('company_url') }}">
-	                                @error('company_url')
-	                                    <div class="invalid-feedback" style="display: block;">
-	                                        <strong>{{ $message }}</strong>
-	                                    </div>
-	                                @enderror
-	                            </div> 
-
                                    
                             </div>
                        
