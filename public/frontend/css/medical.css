@@ -78,7 +78,6 @@
     top: 5px;
     transform: scale(0);
     overflow: hidden;
-
 }
 .medicalScreen .icons img {
     width: 70px;
@@ -112,6 +111,7 @@
     position: absolute;
     top: 85%;
     right: 10px;
+    z-index: 999999;
 }
 .pass-div {
     display: flex;
@@ -265,6 +265,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* display: none; */
 }
 .selfService img {
     width: 240px;
@@ -308,7 +309,7 @@
         width: 270px;
     } */
     .titleDive {
-        margin-top: 13px !important;
+        margin-top: 30px !important;
     }
     .selfTxt {
         z-index: 1;
@@ -353,7 +354,7 @@
     .textbox {
         width: 190px;
         height: 170px;
-        
+
         left: 37px !important;
     }
     .lady a {
@@ -366,39 +367,37 @@
     .position1 {
         top: 208px;
     }
-   
-  
-    .videoSlider{
+
+    .videoSlider {
         margin-top: 170px;
     }
-   
-
-    
+    .videoModal {
+        zoom: 150%;
+    }
+    .pdfModal{
+        
+    zoom: 120%;
+    }
 }
-    
-   
-    
-    
+
 @media screen and (max-width: 1440px) and (min-width: 1367px) {
     .titleDive {
         margin-top: 12px;
     }
- 
-    .videoSlider{
+
+    .videoSlider {
         margin-top: 100px;
     }
-   
-    
-   
-
+    .pdfModal{
+        top: 90px !important;
+    zoom: 80% !important;
+    }
 }
-@media screen and (max-width:1366px) and (min-width:1263px){
-   
-    .videoSlider{
+@media screen and (max-width: 1366px) and (min-width: 1263px) {
+    .videoSlider {
         margin-top: 50px;
         margin-left: 90px;
     }
-   
 }
 @media screen and (max-width: 1262px) and (min-width: 1116px) {
     .medicalinner {
@@ -452,7 +451,7 @@
     }
 } 
 */
-@media screen and (max-width: 1024px) and (min-width:769px) {
+@media screen and (max-width: 1024px) and (min-width: 769px) {
     .medicalinner {
         background-size: 990px 500px;
     }
@@ -486,11 +485,8 @@
     .videoSlider2 {
         right: 66% !important;
         margin-top: 40px;
-
     }
-  
-   
-   
+
     .selfService img {
         width: 200px;
     }
@@ -500,25 +496,26 @@
         left: 615px;
         top: 344px;
     }
-    
-   
-    .passport{
+
+    .passport {
         top: 82%;
-        
     }
-    .videoModal{
+    .videoModal {
         margin-top: 0px !important;
         margin-left: 180px !important;
-        top: 391px;
+        top: 281px !important;
+        zoom: 89%;
     }
-    .titleDive{
+    .titleDive {
         margin-top: 32px !important ;
     }
-    .sb-chat{
+    .sb-chat {
         left: 55% !important;
     }
-
-  
+    .pdfModal{
+        top: 143px !important; 
+    zoom: 70% !important;
+    }
 }
 .Mobile-medical {
     display: none;
@@ -526,17 +523,17 @@
 .web-medical {
     display: flex;
 }
-@media screen and (max-width: 768px) and (min-width:601px) {
+@media screen and (max-width: 768px) and (min-width: 601px) {
     .medicalinner {
         background-size: 650px 390px;
         overflow: auto;
     }
-   /* .passport{
+    /* .passport{
        top: 100%;
     right: 10px;
     transform: translate(-100px,100%);
    } */
-    .titleDive{
+    .titleDive {
         margin-top: 32px !important;
     }
     .plant1 {
@@ -555,7 +552,7 @@
         width: 245px;
         font-size: 11px;
     }
-    .passport{
+    .passport {
         position: absolute !important;
     }
     /* .slider {
@@ -587,7 +584,7 @@
         height: 110px;
         position: absolute;
         left: 441px;
-    top: 350px;
+        top: 350px;
     }
     .position1 {
         position: relative;
@@ -631,7 +628,7 @@
         /* margin-left: 960px;
     margin-top: 40px; */
     }
-    .slider{
+    .slider {
         left: 10px;
     }
     .position3 {
@@ -675,71 +672,77 @@
         top: 460px;
         padding: 10px 0px;
     }
-    
+
     .passport {
         position: initial;
     }
-  
-    .videoModal{
+
+    .videoModal {
         zoom: 60%;
         top: 320px !important;
         left: 90px;
         margin: 0px;
     }
-    .sb-chat{
+    .sb-chat {
         left: 57% !important;
     }
+    .pdfModal{
+        top: 180px !important;
+        zoom: 60% !important;
+    }
+    .pdfIcons img{
+        width: auto;
+    }
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
     .web-medical {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    .position1{
+    .position1 {
         margin-top: 50px;
     }
-    .position2{
+    .position2 {
         margin-top: 50px;
     }
-    .position3{
-        position:initial;
+    .position3 {
+        position: initial;
         top: auto;
         margin-top: 180px;
-
-    }    
-    .position3 .videoSlider{
+    }
+    .position3 .videoSlider {
         position: initial;
         top: 0px;
     }
-    .medicalinner{
+    .medicalinner {
         background-size: 615px 376px;
         height: 1700px;
         background-attachment: fixed;
     }
-    .medicalScreen{
+    .medicalScreen {
         height: 1700px;
     }
-    .passport{
+    .passport {
         top: 93% !important;
     }
-    .slider{
+    .slider {
         left: 0px;
     }
- 
+
     .video img {
         width: 350px !important;
     }
-    .selfTxt{
-        left: -4%;
+    .selfTxt {
+        left: 25%;
         top: 0%;
         width: 110px;
     }
-    .videoModal{
-        zoom: 40% ;
+    .videoModal {
+        zoom: 40%;
         top: 530px !important;
-    right: -110px !important;
+        right: -110px !important;
     }
     /* .videoplayback {
         position: relative !important; 
@@ -753,14 +756,33 @@
         top: 320px !important;
         width: 630px !important;
     } */
- 
-  
- 
-    
+    .pdfModal{
+        flex-direction: column;
+        height: 100%;
+    }
+    .pdfFile{
+        height: auto !important;
+    }
+    .pdfPic{
+        min-width: 470px;
+        max-width: 472px !important;
+        margin-top: 140px;
+
+    }
+    .pdfslider{
+        left: -17px !important;
+    }
+    .backbutton{
+        top: 70px !important;
+    }
+    #flipCon{
+        width: 100% !important;
+    }
+    .pdfIndicator{
+        margin-top: 46px;
+    }
+
 }
-
-
-
 
 
 .time {
@@ -781,15 +803,26 @@
     transition: 0.6s ease-in-out;
 }
 .backbutton {
-    left: 10%;
+    left: 2%;
+    transform: translate(-2%, -50%);
     position: absolute;
-    top: 11%;
-    font-size: 23px;
+    top: 50%;
+    /* font-size: 63px; */
     padding: 0px 9px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     z-index: 10000;
-    display: none;
+    /* display: none; */
+    background-color: transparent;
+    border: none;
+    /* color: #4a7cab; */
+    outline: none;
+    transform: scale(0);
+    width: 70px;
 }
+.backbutton img{
+    width: 100%;
+}
+
 .mySlides {
     width: 90%;
 }
@@ -834,32 +867,124 @@
     }
 }
 
-
-
-.innerSlider{
+.innerSlider {
     display: flex;
     align-items: center;
 }
 /* flip book */
-.flipbook-main-wrapper{
+.flipbook-main-wrapper {
     width: 100%;
-    height: 60vw; 
+    height: 60vw;
+    height: 570px !important;
 }
 .fa-angle-left {
-    background-color: #0E4D92!important;
+    background-color: #0e4d92 !important;
 }
 
 .fa-angle-right {
-    background-color: #0E4D92!important;
+    background-color: #0e4d92 !important;
 }
 .flipbook-menuBottom {
     display: none;
 }
-#flipCon{
-    display: none;
+#flipCon {
+    /* display: none; */
     position: absolute;
+    width: 430px;
+    top: 80px;
 }
-.videoModal{
+.flipbook-bookLayer {
+    top: -13px !important;
+}
+.pdfModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 170px 0px;
+    position: absolute;
+    top: 50px;
+    zoom: 93%;
+    transform: scale(0);
+    transition: 0.7s;
+}
+.pdfFile {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+.pdfPic {
+ 
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.pdfPic img {
+    width: 100%;
+}
+.pdfslider{
+    position: absolute;
+    /* left: 10px; */
+    left: 31%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 190px;
+
+    
+}
+.pdfIcons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+
+
+}
+.pdfIcons i{
+    z-index: 99999;
+    font-size: 30px;
+    color: #0077c1;
+    opacity: 0.7;
+    transition: 0.2s;
+}
+.pdfIndicator i{
+    z-index: 99999;
+    font-size: 20px;
+    color: #0077c1;
+    opacity: 0.7;
+    transition: 0.2s;
+}
+.pdfIcons i:hover{
+    opacity: 1;
+}
+
+.pdfIndicator i:hover{
+    opacity: 1;
+}
+.active{
+    opacity: 1 !important; 
+    background-color: transparent;
+
+}
+
+.pdfslider img{
+    width: 80px;
+    z-index: 99999;
+}
+.pdfIndicator{
+    margin-top: 40px;
+}
+.pdfImages{
+    display: flex;
+    align-items: center;
+}
+.videoModal {
     position: absolute;
     width: 100%;
     display: flex;
@@ -871,21 +996,19 @@
     transform: scale(0);
     transition: 0.7s;
     top: 100px;
-
-
 }
-#videoModalpic{
+#videoModalpic {
     height: 400px;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#videoModalpic img{
+#videoModalpic img {
     height: 100%;
     z-index: 10;
 }
-#videoModalpic button{
+#videoModalpic #videobutton {
     position: absolute;
     border: none;
     background: transparent;
@@ -893,7 +1016,7 @@
     color: #0077c1;
     z-index: 10;
 }
-.videoplayback{
+.videoplayback {
     position: relative;
     right: 440px;
     background: #4a7cab;
@@ -903,46 +1026,45 @@
     font-weight: bold;
     z-index: 11;
 }
-.videoMenu{
+.videoMenu {
     width: 100%;
 }
-.videolist p{
+.videolist p {
     width: 100%;
 }
-.videolist div{
+.videolist div {
     display: flex;
     align-items: center;
     width: 100%;
 }
-.videolist .time{
+.videolist .time {
     float: right;
 }
-.videoplayback h5{
+.videoplayback h5 {
     text-align: center;
     font-size: 20px;
     margin: 13px;
 }
-.videoplayback{
-        padding: 10px;
+.videoplayback {
+    padding: 10px;
 }
-.videolist p{
+.videolist p {
     margin: 9px;
 }
-.videoplay{
+.videoplay {
     position: absolute;
     z-index: 0px;
     display: none;
 }
-.ladyexpnd{
+.ladyexpnd {
     position: absolute;
     position: absolute;
     display: flex;
     top: 140px;
     transform: scale(0);
     transition: 0.7s;
-
 }
-.ladyexpnd .chatBotdiv{
+.ladyexpnd .chatBotdiv {
     width: 380px;
     height: 430px;
     background-color: white;
@@ -951,28 +1073,23 @@
 .ladyexpnd img {
     width: 260px;
 }
-.sb-body{
+.sb-body {
     max-height: 354px !important;
     bottom: 85px !important;
-    
 }
-.sb-chat{
+.sb-chat {
     top: 90%;
     left: 54%;
     transform: translate(-50%, 50%);
     bottom: unset !important;
     right: unset !important;
     transform: scale(0);
-    transition-delay:1s ;
+    transition-delay: 1s;
     transition: 0.7s;
 }
-
-
-    
 
 /*
 .sb-chat-btn{
     right: unset !important;
     bottom: 90px !important;
 } */
-
