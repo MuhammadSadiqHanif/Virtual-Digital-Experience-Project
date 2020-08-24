@@ -29,7 +29,6 @@
             <img class="plant2" src="{{ asset('frontend/images/medical/Asset1@2x.png') }}" alt="">
             <div class="pass-div web-medical">
 
-                <button id='backbutton' onclick="back()" class='backbutton'><i class="fa fa-caret-left"></i></button>
                 <img class="passport animate__animated animate__zoomIn animate__delay-2s" src="{{ asset('frontend/images/medical/Asset3@2x.png') }}" alt="">
                 <div id="position1" class="position1 animate__animated animate__fadeInLeftBig animate__delay-2s">
                     <div onclick="lady()" id="lady" class="lady ">
@@ -119,7 +118,7 @@
 
                         </div>
                     </div> -->
-                <button id='backbutton' onclick="back()" class='backbutton'><i class="fa fa-caret-left"></i></button>
+                <!-- <button id='backbutton' onclick="back()" class='backbutton'><i class="fas fa-arrow-left"></i></button> -->
                     <script src="{{ asset('plugin/flipbook.js') }}"></script>
 
                     <script type="text/javascript">
@@ -133,7 +132,9 @@
 <div id="flipCon">
 
     </div>
+    
     <div id="videoModal" class="videoModal"> 
+
         <div id="videoModalpic">
             <img  src="{{ asset('frontend/images/medical/Asset6@2x.png') }}" alt="">
             <button onclick="videobutton()"  id="videobutton" class="fa fa-play-circle" > </button>
@@ -163,7 +164,9 @@
         </div>
     </div>
     </div>
+    <!-- <button id='backbutton' onclick="back()" class='backbutton'><i class="fas fa-arrow-left"></i></button> -->
             </div>
+            
     <div id="ladyexpnd" class="ladyexpnd">
     <div class="chatBotdiv">
 
@@ -175,6 +178,7 @@
     </div>
 
     </div>
+    <button id='backbutton' onclick="back()" class='backbutton'><i class="fas fa-arrow-left"></i></button>
     
     
     <!-- Mobile View

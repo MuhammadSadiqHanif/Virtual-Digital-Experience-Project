@@ -308,7 +308,7 @@
         width: 270px;
     } */
     .titleDive {
-        margin-top: 13px !important;
+        margin-top: 30px !important;
     }
     .selfTxt {
         z-index: 1;
@@ -370,6 +370,9 @@
   
     .videoSlider{
         margin-top: 170px;
+    }
+    .videoModal{
+        zoom: 150%;
     }
    
 
@@ -509,7 +512,8 @@
     .videoModal{
         margin-top: 0px !important;
         margin-left: 180px !important;
-        top: 391px;
+        top: 281px !important;
+    zoom: 89%;
     }
     .titleDive{
         margin-top: 32px !important ;
@@ -781,15 +785,23 @@
     transition: 0.6s ease-in-out;
 }
 .backbutton {
-    left: 10%;
+    left: 2%;
+    transform: translate(-2%, -50%);
     position: absolute;
-    top: 11%;
-    font-size: 23px;
+    top: 50%;
+    font-size: 63px;
     padding: 0px 9px;
     border-radius: 50%;
     z-index: 10000;
-    display: none;
+    /* display: none; */
+    background-color: transparent;
+    border: none;
+    color: #4a7cab;
+    outline: none;
+    transform: scale(0);
+
 }
+
 .mySlides {
     width: 90%;
 }
@@ -885,7 +897,7 @@
     height: 100%;
     z-index: 10;
 }
-#videoModalpic button{
+#videoModalpic #videobutton{
     position: absolute;
     border: none;
     background: transparent;

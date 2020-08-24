@@ -251,7 +251,7 @@ function Video() {
     // // document.getElementById('videoplay').style.top = "-359px"
     // // document.getElementById('videoplay').style.display = "block"
     // document.getElementById('videolib').style.display = "none"
-    document.getElementById('backbutton').style.display = "block"
+    document.getElementById('backbutton').style.transform = "scale(1)"
     // document.getElementById('videoMenu').style.opacity = '1';
     // document.getElementById('videoMenu').style.transition = '0.7s';
     // document.getElementById('videoMenu').style.transitionDelay = '0.9s';
@@ -372,7 +372,9 @@ function lady() {
         // document.getElementById('chatbotDiv').style.display = "block"
         // document.getElementsByClassName('sb-chat')[0].style.display = "block"
         // document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
-        document.getElementById('backbutton').style.display = "block"
+        // document.getElementById('backbutton').style.display = "block"
+    document.getElementById('backbutton').style.transform = "scale(1)"
+
     // }
 
 
@@ -402,6 +404,7 @@ function back(){
     document.getElementById('ladyexpnd').style.transform = "scale(0)"
     document.getElementsByClassName('sb-chat')[0].style.transform = "scale(0)"
     document.getElementById('videoModal').style.transform = "scale(0)"
+    document.getElementById('backbutton').style.transform = "scale(0)"
 
 }
 
