@@ -1,6 +1,8 @@
 @extends('backend.layouts.app')
 @push('css')
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<link href="{{ asset('backend/assets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" 
+type="text/css" />
 @livewireStyles
 @endpush
 @section('content')
@@ -357,6 +359,9 @@
 @push('js')
 @livewireScripts
 <!-- JAVASCRIPT -->
+<script src="{{ asset('backend/assets/libs/dropzone/min/dropzone.min.js') }}"></script>
+<script src="{{ asset('backend/assets/Admin/dropzone_popup.js') }}"></script>
+
 <script>
   $(document).ready(function(){
    // gallery code

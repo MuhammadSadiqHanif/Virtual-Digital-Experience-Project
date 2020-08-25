@@ -1,8 +1,8 @@
 @extends('backend.layouts.app')
 
 @push('css')
-<link href="{{ asset('backend/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('backend/assets/libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}" rel="stylesheet" type="text/css">	
+<link href="{{ asset('backend/assets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" 
+type="text/css" />
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 @livewireStyles
@@ -186,22 +186,11 @@
 
 @push('js')
 @livewireScripts
-  <!-- JAVASCRIPT -->
-<script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
-<script src="{{ asset('backend/assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js') }}"></script>
-<script src="{{ asset('backend/assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js') }}"></script>	
-<script src="{{ asset('backend/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>
-<script src="{{ asset('backend/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
-<script src="{{ asset('backend/assets/libs/%40chenfengyuan/datepicker/datepicker.min.js') }}"></script>
-<script src="{{ asset('backend/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<!-- JAVASCRIPT -->
 
-<!-- form repeater js -->
-<script src="{{ asset('backend/assets/libs/jquery.repeater/jquery.repeater.min.js') }}"></script>
-
-<script src="{{ asset('backend/assets/js/pages/form-repeater.int.js')}}"></script>
-<!-- form advanced init -->
-<script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
-
+<!-- Plugins js -->
+<script src="{{ asset('backend/assets/libs/dropzone/min/dropzone.min.js') }}"></script>
+<script src="{{ asset('backend/assets/SuperAdmin/dropzone_popup.js') }}"></script>
 
 <script>
 	$(document).ready(function(){
@@ -258,8 +247,6 @@
       }    
   
   }
-  
-  
   
   $(document).on('click', '#add', function(){
   count++;

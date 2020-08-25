@@ -4,131 +4,144 @@ namespace App\Http\Controllers\Subdomain\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Media;
+use App\SiteSetting;
 use App\Topic;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminMediaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $medias = Media::where('domain',request()->domain)->get();
-        $topics = Topic::where('domain',request()->domain)->get();
-        return view('backend.subdomain.admin.gallery',compact('medias','topics'));
-    }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index()
+	{
+		$medias = Media::where('domain', request()->domain)->get();
+		$topics = Topic::where('domain', request()->domain)->get();
+        $settings = SiteSetting::where('domain',request()->domain)->first();
+		return view('backend.subdomain.admin.gallery', compact('medias', 'topics','settings'));
+	}
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+		//
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        if ($files = $request->file('files'))
-        {
-            foreach ($request->files as $file)
-            {
-                for ($i = 0; $i < count($file); $i++)
-                {
-                    $name = $file[$i][$i]->getClientOriginalExtension();
-                    $realName = basename($file[$i][$i]->getClientOriginalName(), '.'.$file[$i][$i]->getClientOriginalExtension()) . uniqid() . 'media' . '.' . $name;
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store(Request $request)
+	{
+		if ($files = $request->file('files'))
+		{
+			foreach ($request->files as $file)
+			{
+				for ($i = 0; $i < count($file); $i++)
+				{
+					$name = $file[$i][$i]->getClientOriginalExtension();
+
+					$realName = basename($file[$i][$i]->getClientOriginalName(), '.' . $file[$i][$i]->getClientOriginalExtension()) . uniqid() . 'media' . '.' . $name;
+					
                     $file[$i][$i]->move(public_path('clients/gallery'), $realName);
-                    $media[] = ['media' => $realName, 'ext' => $name,'domain' => $request->domain];
-                }
-            }
-            \DB::table('media')->insert($media);
-        }
 
-        return json_encode(array_column($media, 'media'));
-    }
+					$media[] = [
+						'media' => $realName,
+						'ext' => $name,
+						'domain' => $request->domain,
+						"created_at" => Carbon::now(),
+						"updated_at" => Carbon::now(),
+					];
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($name)
-    {
-        $pathToFile = public_path('clients/gallery/' . $name);
+				}
+			}
+			\DB::table('media')->insert($media);
+		}
 
-        if (file_exists($pathToFile))
-        {
-            return response()->file($pathToFile);
-        }
+		return json_encode(array_column($media, 'media'));
+	}
 
-        abort(404);
-    }
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function show($name)
+	{
+		$pathToFile = public_path('clients/gallery/' . $name);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Request $request)
-    {
-        if ($request->ajax()) 
-        {
-           $name = json_decode(request()->medium);
-        }
-        else
-        {
-            $name = request()->medium;
-        }
+		if (file_exists($pathToFile))
+		{
+			return response()->file($pathToFile);
+		}
 
-        $media = Media::where('media', $name)->firstOrFail();
-        
-        if (file_exists(public_path('clients/gallery/' . $media->media)))
-        {
-            unlink(public_path('clients/gallery/' . $media->media));
-        }
+		abort(404);
+	}
 
-        if ($media->delete() && !$request->ajax())
-        {
-            return back()->with('success', 'Media Deleted Successfully');
-        }
-        else
-        {
-            return 'all good';
-        }
-    }
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit(Request $request)
+	{
+		if ($request->ajax())
+		{
+			$name = json_decode(request()->medium);
+		}
+		else
+		{
+			$name = request()->medium;
+		}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+		$media = Media::where('media', $name)->firstOrFail();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+		if (file_exists(public_path('clients/gallery/' . $media->media)))
+		{
+			unlink(public_path('clients/gallery/' . $media->media));
+		}
+
+		if ($media->delete() && !$request->ajax())
+		{
+			return back()->with('success', 'Media Deleted Successfully');
+		}
+		else
+		{
+			return 'all good';
+		}
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(Request $request, $id)
+	{
+		//
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy($id)
+	{
+		//
+	}
 }
