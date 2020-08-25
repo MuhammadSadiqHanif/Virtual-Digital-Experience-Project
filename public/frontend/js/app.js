@@ -397,14 +397,25 @@ function lady() {
 function service() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+    setTimeout(() => {
+        document.getElementById('pdfModal').style.display= "flex"
+        
+    }, 700);
+    
     document.getElementById('videoSlider').style.transform = "scale(0)"
     document.getElementById('selfService').style.transform = "scale(0)"
     document.getElementById('textbox').style.transform = "scale(0)"
     document.getElementById('lady').style.transform = "scale(0)"
-    document.getElementById('pdfModal').style.transform = "scale(1)"
     document.getElementById('videoSlider').style.transition = "0.7s"
     document.getElementById('selfService').style.transition = "0.7s"
     document.getElementById('backbutton').style.transform = "scale(1)"
+    setTimeout(() => {
+        
+        document.getElementById('pdfModal').style.transform = "scale(1)"
+        document.getElementById('position1').style.display = "none"
+        document.getElementById('position2').style.display = "none"
+        document.getElementById('position3').style.display = "none"
+    }, 800);
     var x = window.matchMedia("(max-width: 600px)")
 
     if (x.matches) { 
@@ -420,15 +431,27 @@ function service() {
   
 }
 function back(){
-    document.getElementById('videoSlider').style.transform = "scale(1)"
-    document.getElementById('selfService').style.transform = "scale(1)"
-    document.getElementById('textbox').style.transform = "scale(1)"
-    document.getElementById('lady').style.transform = "scale(1)"
-    document.getElementById('ladyexpnd').style.transform = "scale(0)"
-    document.getElementsByClassName('sb-chat')[0].style.transform = "scale(0)"
-    document.getElementById('videoModal').style.transform = "scale(0)"
-    document.getElementById('backbutton').style.transform = "scale(0)"
-    document.getElementById('pdfModal').style.transform = "scale(0)"
+    
+    document.getElementById('pdfModal').style.transform= "scale(0)"
+        setTimeout(() => {
+        document.getElementById('pdfModal').style.transition= "0.7s"
+        document.getElementById('position1').style.display = "block"
+        document.getElementById('position2').style.display = "block"
+        document.getElementById('position3').style.display = "block"
+        document.getElementById('videoSlider').style.transform = "scale(1)"
+        document.getElementById('selfService').style.transform = "scale(1)"
+        document.getElementById('textbox').style.transform = "scale(1)"
+        document.getElementById('lady').style.transform = "scale(1)"
+        document.getElementById('ladyexpnd').style.transform = "scale(0)"
+        document.getElementsByClassName('sb-chat')[0].style.transform = "scale(0)"
+        document.getElementById('videoModal').style.transform = "scale(0)"
+        document.getElementById('backbutton').style.transform = "scale(0)"
+        document.getElementById('pdfModal').style.transform = "scale(0)"
+    }, 500);
+        setTimeout(() => {
+        document.getElementById('pdfModal').style.display= "none"
+        
+  }, 700);
     var x = window.matchMedia("(max-width: 600px)")
 
     if (x.matches) { 
@@ -516,6 +539,13 @@ function showPdfSlides(n) {
   console.log(dots[slidePdfIndex-1])
   dots[slidePdfIndex-1].className += " active";
 }
+
+$('.pdfsliders').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
 
 
 
