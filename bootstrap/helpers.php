@@ -48,3 +48,22 @@ function sameSite($site = '')
 {
 	return replaceHttps($site) == request()->getHost();
 }
+
+/**
+* Make Redirect Url in Impersonate
+*
+* @return void
+*/
+function intendedUrl($role)
+{	
+	if (in_array($role,[0,1])) 
+    {
+        $append = '/admin/dashboard';
+    }
+    else
+    {
+        $append = '/user/dashboard';
+    }
+
+	return 'https://'.session()->get('impersonate')['domain']. '.'.env('APP_DOMAIN') .$append;
+}

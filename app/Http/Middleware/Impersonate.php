@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class SuperAdminRestrict
+class Impersonate
 {
     /**
      * Handle an incoming request.
@@ -15,11 +16,11 @@ class SuperAdminRestrict
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->role == 0) 
+        if (session()->has('impersonate')) 
         {
-            return $next($request);
+            Auth::onceUsingId(session()->get('impersonate')['id']);
         }
-
-        abort(404);
+        
+        return $next($request);
     }
 }
