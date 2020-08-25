@@ -43,8 +43,8 @@ $(document).ready(function () {
             <img class="plant2" src="{{ asset('frontend/images/medical/Asset1@2x.png') }}" alt="">
             <div class="pass-div web-medical">
 
-                <img id="passport" class="passport animate__animated animate__zoomIn animate__delay-2s" src="{{ asset('frontend/images/medical/Asset3@2x.png') }}" alt="">
-                <div id="position1" class="position1 animate__animated animate__fadeInLeftBig animate__delay-2s">
+                <img id="passport" class="passport animate__animated animate__zoomIn animate__delay-1s" src="{{ asset('frontend/images/medical/Asset3@2x.png') }}" alt="">
+                <div id="position1" class="position1 animate__animated animate__fadeInLeftBig animate__delay-1s">
                     <div onclick="lady()" id="lady" class="lady ">
                         <div id="textbox" class="textbox" style="background-image:url({{ asset('frontend/images/medical/Asset8@2x.png') }}) ;">
                             <p>
@@ -57,13 +57,13 @@ $(document).ready(function () {
 
                     </div>
                 </div>
-                <div id="position2" class="position2 animate__animated animate__fadeInUpBig animate__delay-2s">
+                <div id="position2" class="position2 animate__animated animate__fadeInUpBig animate__delay-1s">
                     <div onclick="service()" id="selfService" class="selfService ">
                             <p class="selfTxt">Self Service</p>
                             <img src="{{ asset('frontend/images/medical/Asset7@2x.png') }}" alt="">
                     </div>
                 </div>
-                <div id="position3" class="position3 animate__animated animate__fadeInRightBig animate__delay-2s">
+                <div id="position3" class="position3 animate__animated animate__fadeInRightBig animate__delay-1s">
                     <div id="videoSlider" class="videoSlider">
                         <div id="video" class="video ">
                             <p id="videolib">Video Library</p>
@@ -74,7 +74,7 @@ $(document).ready(function () {
                             </div>
                         </div>
 
-                        <div id="slider" class="slider animate__animated animate__fadeInUpBig animate__slow animate__delay-2s">
+                        <div id="slider" class="slider animate__animated animate__fadeInUpBig animate__slow animate__delay-1s">
                             <div class='sliderText'>
                                 <div class="innerSlider">
 
@@ -142,7 +142,11 @@ $(document).ready(function () {
     </div>
         <div class="pdfPic"> 
         <img  src="{{ asset('frontend/images/medical/Asset 1@2x.png') }}" alt="">
-
+        <!-- <div class="pdfsliders">
+    <div>your content</div>
+    <div>your content</div>
+    <div>your content</div>
+  </div> -->
         <div class="pdfslider">
             <div class="pdfIcons">
 
@@ -230,7 +234,10 @@ $(document).ready(function () {
         <div id="videoModalpic">
             <img  src="{{ asset('frontend/images/medical/Asset6@2x.png') }}" alt="">
             <button onclick="videobutton()"  id="videobutton" class="fa fa-play-circle" > </button>
-            <iframe id="videoplay" class="videoplay" src="https://player.vimeo.com/video/116690342?color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <!-- <iframe id="videoplay" class="videoplay" src="https://player.vimeo.com/video/116690342?color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
+
+                <iframe id="videoplay" class="videoplay" src="https://player.vimeo.com/video/35636533" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
 
             </div>
             <div class="videoplayback">
