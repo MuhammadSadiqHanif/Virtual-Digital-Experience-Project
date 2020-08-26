@@ -235,7 +235,7 @@ document.documentElement.scrollTop = 0;
         document.getElementById('selfService').style.transform = "scale(0)"
         document.getElementById('textbox').style.transform = "scale(0)"
         document.getElementById('lady').style.transform = "scale(0)"
-        document.getElementById('position1').style.width = "100%"
+        // document.getElementById('position1').style.width = "100%"
     //     // document.getElementById('position2').style.opacity = "0"
     // // document.getElementById('position3').style.opacity = "0"
     // document.getElementById('slider').style.display = "none"
@@ -448,11 +448,11 @@ function back(){
         document.getElementById('videoModal').style.transform = "scale(0)"
         document.getElementById('backbutton').style.transform = "scale(0)"
         document.getElementById('pdfModal').style.transform = "scale(0)"
-    }, 500);
+    }, 300);
         setTimeout(() => {
         document.getElementById('pdfModal').style.display= "none"
-        
-  }, 700);
+    
+  }, 300);
     var x = window.matchMedia("(max-width: 600px)")
 
     if (x.matches) { 
