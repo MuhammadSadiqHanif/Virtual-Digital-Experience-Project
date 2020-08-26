@@ -98,6 +98,6 @@ Route::get('/health',function(){
 	return view('frontend.health');
 });
 
-Route::get('/health',function(){
-	return view('frontend.health');
+Route::get('/slider',function(){
+	return view('frontend.slider');
 });

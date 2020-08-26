@@ -114,7 +114,7 @@
 .passport {
     width: 60px;
     position: absolute;
-    top: 85%;
+    top: 80%;
     right: 10px;
     z-index: 999999;
 }
@@ -125,7 +125,7 @@
     justify-content: space-around;
     align-items: baseline;
     position: absolute;
-    top: 56%;
+    top: 62%;
     left: 50%;
     zoom: 85%;
     transform: translate(-50%, -56%);
@@ -413,6 +413,18 @@
         left: 65% !important;
         transform: translate(-65%, -60%) !important;
     }
+    .sb-body {
+        height: 46vh !important;
+    }
+    .sb-chat {
+        top: 77% !important;
+        left: 53% !important;
+    
+    }
+    .ladyexpnd .chatBotdiv {
+       
+        height: 53vh !important;
+    }
 
 }
 
@@ -434,6 +446,9 @@
         margin-top: 50px;
         margin-left: 90px;
     }
+    .sb-chat .sb-scroll-area {
+        min-height: 377px !important;
+    }
 }
 @media screen and (max-width: 1262px) and (min-width: 1116px) {
     .titleDive{
@@ -443,7 +458,7 @@
         background-size: 1030px 446px;
     }
     .pass-div{
-        margin-top: 4%;
+        /* margin-top: 4%; */
     }
     .video img {
         width: 270px;
@@ -547,7 +562,7 @@
         zoom: 79% !important;
     }
     .titleDive {
-        margin-top: 32px !important ;
+        /* margin-top: 32px !important ; */
     }
     .sb-chat {
         left: 55% !important;
@@ -573,6 +588,10 @@
     right: 10px;
     transform: translate(-100px,100%);
    } */
+   .medTitle {
+    
+    top: 6% !important; 
+}
    .pass-div{
     height: 100vh;
    }
@@ -642,6 +661,7 @@
         /* align-items: center; */
         justify-content: center;
         z-index: 3;
+        text-align: center;
     }
     .position2 {
         position: relative;
@@ -655,6 +675,8 @@
         align-items: center;
         justify-content: center;
         margin: auto;
+        text-align: center;
+
     }
     .selfTxt {
         position: absolute;
@@ -725,12 +747,13 @@
         margin: 0px;
     }
     .sb-chat {
-        left: 57% !important;
+        left: 60% !important;
     }
     .pdfModal{
         top: 18% !important;
         left: 7% !important;
         position: absolute !important;
+        zoom: 56% !important;
     }
     .pdfIcons img{
         width: auto;
@@ -740,13 +763,25 @@
         width: 63px !important;
         top: 11% !important;
     }
+    .ladyImgDiv{
+        margin-left: 50px;
+    }
+    .chatBotdiv{
+        margin-left: 21px;
+        height: 285px !important;
+    }
 }
 @media screen and (max-width: 600px) {
+    .medTitle{
+        top:5%;
+    }
     .web-medical {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        top: 45% !important;
+        
     }
     .position1 {
         margin-top: 50px;
@@ -760,8 +795,8 @@
         margin-top: 180px;
     }
     .position3 .videoSlider {
-        position: initial;
-        top: 0px;
+        /* position: initial; */
+        top: 40px !important;
     }
     .medicalinner {
         background-size: 615px 376px;
@@ -772,7 +807,7 @@
         height: 1700px;
     }
     .passport {
-        top: 93% !important;
+        top: 110% !important;
     }
     .slider {
         left: 0px;
@@ -864,6 +899,17 @@
     }
     .pdfIndicator{
         margin-top: 46px;
+    }
+    .sb-chat {
+        top: 100% !important;
+        left: 100% !important;
+    }
+    .chatBotdiv{
+        display: none;
+    }
+
+    .sb-body{
+        height: 450px !important;
     }
 
 }
@@ -1184,8 +1230,9 @@ width: 100%;
     width: 260px;
 }
 .sb-body {
-    max-height: 354px !important;
-    bottom: 85px !important;
+    height: 57vh;
+    /* max-height: 354px !important;
+    bottom: 85px !important; */
 }
 .sb-chat {
     top: 90%;
@@ -1197,9 +1244,33 @@ width: 100%;
     transition-delay: 1s;
     transition: 0.7s;
 }
+.sb-chat>.sb-body {
+   
+    right: 3px !important;
+    bottom: 60px  !important;
 
 /*
 .sb-chat-btn{
     right: unset !important;
     bottom: 90px !important;
 } */
+}
+
+/* slick slider css */
+
+.main {
+    font-family:Arial;
+    width:500px;
+    display:block;
+    margin:0 auto;
+  }
+  .sliderImage {
+      background: #fff;
+      color: #3498db;
+      font-size: 36px;
+      line-height: 100px;
+      margin: 10px;
+      padding: 2%;
+      position: relative;
+      text-align: center;
+  }
