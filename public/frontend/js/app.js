@@ -270,9 +270,18 @@ var x = window.matchMedia("(max-width: 600px)")
 
 if (x.matches) { 
         
-    document.getElementById('medicalinner').style.height = "1000px"
+    document.getElementById('medicalinner').style.position = "initial"
+    document.getElementById('medicalinner').style.minHeight = "100vh"
+    document.getElementById('medicalScreen').style.minHeight = "100vh"
+    // document.getElementById('medicalinner').style.maxHeight = "1700px"
+    document.getElementById('medicalScreen').style.maxHeight = "1700px"
+    document.getElementById('medicalinner').style.height = "100%"
     document.getElementById('medicalScreen').style.height = "1000px"
-  document.getElementById('passport').style.top = "91%"
+    document.getElementById('medicalinner').style.overflow = "hidden"
+    document.getElementById('medicalScreen').style.overflow = "hidden"
+    document.getElementById('passport').style.top = "80%"
+
+//   document.getElementById('passport').style.top = "91%"
 }
 }
 function videobutton() {
@@ -343,15 +352,16 @@ function showSlides2(n) {
     dots[slideIndex - 1].className += " active";
 }
 // if (document.getElementById(medicalScreen)){
-function lady() {
-    console.log('running')
-
-    // var x = window.matchMedia("(max-width: 768px)")
-
-    // if (x.matches) {
-    //     document.getElementById('videoSlider').style.transform = "scale(0)"
-    //     document.getElementById('selfService').style.transform = "scale(0)"
-    //     document.getElementById('textbox').style.transform = "scale(0)"
+    
+    function lady() {
+        console.log('running')
+        
+        // var x = window.matchMedia("(max-width: 768px)")
+        
+        // if (x.matches) {
+            //     document.getElementById('videoSlider').style.transform = "scale(0)"
+            //     document.getElementById('selfService').style.transform = "scale(0)"
+            //     document.getElementById('textbox').style.transform = "scale(0)"
     //     document.getElementById('videoSlider').style.transition = "0.7s"
     //     document.getElementById('selfService').style.transition = "0.7s"
     //     // document.getElementById('ladyimg').style.width = "220px"
@@ -364,7 +374,7 @@ function lady() {
     //     // document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
     //     document.getElementById('backChat').style.display = "block"
     // } else {
-
+        
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
         document.getElementById('videoSlider').style.transform = "scale(0)"
@@ -385,6 +395,26 @@ function lady() {
         // document.getElementsByClassName('sb-chat')[0].style.opacity = "1"
         // document.getElementById('backbutton').style.display = "block"
     document.getElementById('backbutton').style.transform = "scale(1)"
+    document.getElementById('passport').style.top = "116%"
+    document.getElementsByClassName('pass-div')[0].style.overflow= "hidden"
+
+    
+    var x = window.matchMedia("(max-width: 600px)")
+    if (x.matches) { 
+        
+    document.getElementById('medicalinner').style.position = "initial"
+    document.getElementById('medicalinner').style.minHeight = "100vh"
+    document.getElementById('medicalScreen').style.minHeight = "100vh"
+    // document.getElementById('medicalinner').style.maxHeight = "1700px"
+    document.getElementById('medicalScreen').style.maxHeight = "1700px"
+    document.getElementById('medicalinner').style.height = "100%"
+    document.getElementById('medicalScreen').style.height = "1000px"
+    document.getElementById('medicalinner').style.overflow = "hidden"
+    document.getElementById('medicalScreen').style.overflow = "hidden"
+    document.getElementById('passport').style.top = "80%"
+    
+    //   document.getElementById('passport').style.top = "91%"
+}
 
     // }
 
@@ -448,6 +478,10 @@ function back(){
         document.getElementById('videoModal').style.transform = "scale(0)"
         document.getElementById('backbutton').style.transform = "scale(0)"
         document.getElementById('pdfModal').style.transform = "scale(0)"
+    document.getElementById('passport').style.top = "124%"
+    document.getElementsByClassName('pass-div')[0].style.overflow= "visible"
+
+
     }, 300);
         setTimeout(() => {
         document.getElementById('pdfModal').style.display= "none"

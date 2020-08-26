@@ -6,7 +6,7 @@
 }
 .medTitle {
     position: absolute;
-    top: 11%;
+    top: 9.5%;
     width: 100%;
     text-align: center;
     display: flex;
@@ -112,9 +112,9 @@
    
 }
 .passport {
-    width: 60px;
+    width: 50px;
     position: absolute;
-    top: 80%;
+    top: 71%;
     right: 10px;
     z-index: 999999;
 }
@@ -125,9 +125,9 @@
     justify-content: space-around;
     align-items: baseline;
     position: absolute;
-    top: 62%;
+    top: 66%;
     left: 50%;
-    zoom: 85%;
+    /* zoom: 85%; */
     transform: translate(-50%, -56%);
  
 }
@@ -390,7 +390,7 @@
         margin-top: 170px;
     }
     .videoModal {
-        zoom: 140%;
+        /* zoom: 140%; */
     }
     .pdfModal{
         display: flex;
@@ -438,7 +438,7 @@
     }
     .pdfModal{
         top: 90px !important;
-    zoom: 80% !important;
+    /* zoom: 80% !important; */
     }
 }
 @media screen and (max-width: 1366px) and (min-width: 1263px) {
@@ -447,7 +447,7 @@
         margin-left: 90px;
     }
     .sb-chat .sb-scroll-area {
-        min-height: 377px !important;
+        min-height: 318px !important;
     }
 }
 @media screen and (max-width: 1262px) and (min-width: 1116px) {
@@ -559,7 +559,7 @@
     }
     .videoModal {
         top: 60% !important;
-        zoom: 79% !important;
+        /* zoom: 79% !important; */
     }
     .titleDive {
         /* margin-top: 32px !important ; */
@@ -569,7 +569,7 @@
     }
     .pdfModal{
         top: 143px !important; 
-    zoom: 70% !important;
+    /* zoom: 70% !important; */
     }
 }
 .Mobile-medical {
@@ -616,6 +616,7 @@
     }
     .passport {
         position: absolute !important;
+        top: 76%;
     }
     /* .slider {
         background-color: white;
@@ -743,7 +744,7 @@
     }
 
     .videoModal {
-        zoom: 60%;
+        /* zoom: 60%; */
         margin: 0px;
     }
     .sb-chat {
@@ -753,7 +754,7 @@
         top: 18% !important;
         left: 7% !important;
         position: absolute !important;
-        zoom: 56% !important;
+        /* zoom: 56% !important; */
     }
     .pdfIcons img{
         width: auto;
@@ -761,7 +762,7 @@
     .backbutton{
         left: 0 !important;
         width: 63px !important;
-        top: 11% !important;
+        top: 0% !important;
     }
     .ladyImgDiv{
         margin-left: 50px;
@@ -773,14 +774,15 @@
 }
 @media screen and (max-width: 600px) {
     .medTitle{
-        top:5%;
+        top:7%;
     }
+    
     .web-medical {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        top: 45% !important;
+        top: 52% !important;
         
     }
     .position1 {
@@ -807,7 +809,7 @@
         height: 1700px;
     }
     .passport {
-        top: 110% !important;
+        top: 110%;
     }
     .slider {
         left: 0px;
@@ -832,7 +834,7 @@
         /* flex-direction: row-reverse; */
         transform: scale(0);
         transition: 0.7s;
-        top: 20% !important;
+        top: 33% !important;
     }
     #videoModalpic {
         height: unset !important;
@@ -892,7 +894,7 @@
         left: -17px !important;
     }
     .backbutton{
-        top: 70px !important;
+        top: 26% !important;
     }
     #flipCon{
         width: 100% !important;
@@ -910,6 +912,9 @@
 
     .sb-body{
         height: 450px !important;
+    }
+    .ladyexpnd{
+        top: auto !important;
     }
 
 }
@@ -1036,7 +1041,7 @@
     position: unset;
     display: none;
     top: 50px;
-    zoom: 93%;
+    /* zoom: 93%; */
     transform: scale(0);
     transition: 0.7s;
 }
@@ -1221,7 +1226,7 @@ width: 100%;
     transition: 0.7s;
 }
 .ladyexpnd .chatBotdiv {
-    width: 380px;
+    width: 390px;
     height: 430px;
     background-color: white;
 }
@@ -1231,6 +1236,8 @@ width: 100%;
 }
 .sb-body {
     height: 57vh;
+    width: 357px !important;
+
     /* max-height: 354px !important;
     bottom: 85px !important; */
 }
@@ -1249,11 +1256,11 @@ width: 100%;
     right: 3px !important;
     bottom: 60px  !important;
 
-/*
+
+}
 .sb-chat-btn{
-    right: unset !important;
-    bottom: 90px !important;
-} */
+    
+    bottom: 0px !important;
 }
 
 /* slick slider css */
