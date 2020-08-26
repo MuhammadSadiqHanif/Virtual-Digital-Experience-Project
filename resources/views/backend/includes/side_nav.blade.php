@@ -122,6 +122,26 @@
                     </li>
                    
                 @endif
+
+                @if (session()->has('impersonate'))
+                   
+                <li class="menu-title">Impersonateing</li>
+
+                <li>
+                    <a href="javascript:" class="waves-effect">
+                        <i class="bx bxs-user-check"></i>
+                        <span>{{ auth()->user()->email }}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.impersonate.stop') }}" 
+                        class="waves-effect" >
+                        <i class="bx bxs-stopwatch"></i>
+                        <span>Stop Impersonate</span>
+                    </a>
+                </li>
+                @endif
+
             </ul>
         </div>
         <!-- Sidebar -->

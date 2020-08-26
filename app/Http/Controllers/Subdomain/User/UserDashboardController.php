@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Subdomain\User;
 
 use App\Http\Controllers\Controller;
+use App\SiteSetting;
 use Illuminate\Http\Request;
 
 class UserDashboardController extends Controller
@@ -24,7 +25,8 @@ class UserDashboardController extends Controller
 	*/
 	public function index()
 	{
-		return view('backend.dashboard');
+		$settings = SiteSetting::where('domain',request()->domain)->first();
+		return view('backend.dashboard',compact('settings'));
 	}
 
 	/**
@@ -34,7 +36,8 @@ class UserDashboardController extends Controller
 	*/
 	public function showProfileSettings()
 	{
-		return view('backend.subdomain.user.profile_edit');
+		$settings = SiteSetting::where('domain',request()->domain)->first();
+		return view('backend.subdomain.user.profile_edit',compact('settings'));
 	}
 
 	/**

@@ -47,10 +47,9 @@
                             <tr>
                                 <th>Name</th>
                                 <th data-priority="1">Email</th>
-                                <th data-priority="2">Domain</th>
-                                <th data-priority="3">Role</th>
-                                <th data-priority="5">Company url</th>
-                                <th data-priority="6">Action</th>
+                                <th data-priority="2">Role</th>
+                                <th data-priority="3">Company url</th>
+                                <th data-priority="4">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -58,19 +57,29 @@
                             <tr>
                                 <th>{{ $user->name }}</th>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->domain }}</td>
                                 <td>{{ $user->role == 1 ? 'Admin' : "User"  }}</td>
                                 <td>{{ $user->company_url }}</td>
                                 <td>
                                     <div class="btn-group btn-group-example mb-3" role="group">
                                         <a href="{{ route('clients.edit',$user->id) }}" class="btn btn-primary w-xs btn-sm"><i class="bx bx-pencil font-size-16"></i></a>
                                         <a href="#" onclick="event.preventDefault(); document.getElementById('user-del-{{ $user->id }}').submit();" class="btn btn-danger w-xs btn-sm"><i class="bx bxs-trash d-block font-size-16"></i></a>
+
+                                        <a href="#"  onclick="event.preventDefault(); document.getElementById('user-impersonate-{{ $user->id }}').submit();" 
+                                            class="btn btn-info w-xs btn-sm">
+                                            <i class="bx bx-key font-size-16"></i>
+                                        </a>
                                     </div>
                                 </td>
 
                                 <form action="{{ route('clients.destroy',$user->id) }}" id="user-del-{{ $user->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
+                                </form>
+                                {{-- impoersonate form --}}
+                                <form action="{{ route('admin.impersonate') }}" 
+                                    id="user-impersonate-{{ $user->id }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="impersonate_email" value="{{ $user->email }}">
                                 </form>
                             </tr> 
                             @empty

@@ -22,7 +22,7 @@ Route::domain('{domain}.'.env('APP_DOMAIN'))->group(function () {
    
    	Route::get('/login','Subdomain\SubLoginController@showLoginForm');
 	
-	Route::group(['middleware' => 'IsPrivateSite'],function(){
+	Route::group(['middleware' => ['IsPrivateSite','Impersonate']],function(){
 		
 		Route::get('/', 'Subdomain\SubFrontendController@index');
 
@@ -69,9 +69,11 @@ Route::get('/test',function(Cloudflare $Cloudflare){
 });
 
 // admin routes
-Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => 'SuperAdmin'],function(){
+Route::group(['prefix' => 'admin','namespace' => 'Admin','middleware' => ['SuperAdmin']],function(){
 
 	Route::get('/dashboard','AdminDashboardController@index')->name('admin.dashboard');
+	Route::post('/impersonate','AdminDashboardController@impersonate')->name('admin.impersonate');
+	Route::get('/impersonate','AdminDashboardController@stopImpersonate')->name('admin.impersonate.stop');
 
 	Route::group([],function(){
 		Route::resource('/site-setting','SiteSettingController');

@@ -78,7 +78,9 @@ type="text/css" />
 
                 @if ($media->ext == 'json')
                 <div class="col-md-4" style="padding-bottom: 10px;">
-                    <lottie-player src="{{ asset('clients/gallery/'.$media->media) }}"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop autoplay></lottie-player>
+                    <lottie-player src="{{ asset('clients/gallery/'.$media->media) }}"  background="transparent"  
+                        speed="1"  style="width: 300px; height: 150px;"  loop autoplay></lottie-player>
+                    <a href="javascript:" style="display: block">{{ $media->media }}</a>
                     <a href="{{ route('media.edit',$media->media) }}" style="display: block;">Delete</a>
                 </div>
 
@@ -86,13 +88,15 @@ type="text/css" />
                     <div class="col-md-4" style="padding-bottom: 10px;">
                        <a href="{{ route('media.show',$media->media) }}"><img class="img-thumbnail" alt="200x200" width="200" src="{{ asset('clients/logos/pdflogo.png') }}" data-holder-rendered="true">
                        </a>
-                       <a href="{{ route('media.edit',$media->media) }}" style="display: block;">Delete</a>
+                        <a href="javascript:" style="display: block">{{ $media->media }}</a>
+                        <a href="{{ route('media.edit',$media->media) }}" style="display: block;">Delete</a>
                     </div>
                 @else
 
                 <div class="col-md-4" style="padding-bottom: 10px;">
                    <img class="img-thumbnail" alt="200x200" width="200" src="{{ asset('clients/gallery/'.$media->media) }}" data-holder-rendered="true">
-                   <a href="{{ route('media.edit',$media->media) }}" style="display: block;">Delete</a>
+                    <a href="javascript:" style="display: block">{{ $media->media }}</a>
+                    <a href="{{ route('media.edit',$media->media) }}" style="display: block;">Delete</a>
                 </div>
 
                 @endif
@@ -116,92 +120,32 @@ type="text/css" />
 @push('js')
 <!-- Plugins js -->
 <script src="{{ asset('backend/assets/libs/dropzone/min/dropzone.min.js') }}"></script>
+<script src="{{ asset('backend/assets/Admin/dropzone.js') }}"></script>
 
 <script>
-    $(document).ready(function(){
-        $('#files').bind('change', function() {
+$(document).ready(function(){
+    $('#files').bind('change', function() {
 
-            var fi = document.getElementById('files'); 
-            // Check if any file is selected. 
-            if (fi.files.length > 0) { 
-                for (var i = 0; i <= fi.files.length - 1; i++) { 
-      
-                    var fsize = fi.files.item(i).size; 
-                    var file = Math.round((fsize / 1024)); 
-                    // The size of the file. 
-                    if (file >= 10000) { 
-                        $('#ImageValidate').show(); 
-                        $('#showError').html("File too Big, One of your file is more than 10MB please remove");
-                        $('#submitBtn').attr('disabled',true);
-                    } 
-                    else
-                    {
-                        $('#ImageValidate').hide();
-                        $('#submitBtn').attr('disabled',false);
-                    }
+        var fi = document.getElementById('files'); 
+        // Check if any file is selected. 
+        if (fi.files.length > 0) { 
+            for (var i = 0; i <= fi.files.length - 1; i++) { 
+  
+                var fsize = fi.files.item(i).size; 
+                var file = Math.round((fsize / 1024)); 
+                // The size of the file. 
+                if (file >= 10000) { 
+                    $('#ImageValidate').show(); 
+                    $('#showError').html("File too Big, One of your file is more than 10MB please remove");
+                    $('#submitBtn').attr('disabled',true);
                 } 
-            }
-        });
-
-
-
-    });
-</script>
-   <script>
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-Dropzone.autoDiscover = false;
-// imageDataArray variable to set value in crud form
-var imageDataArray = new Array;
-// fileList variable to store current files index and name
-var fileList = new Array;
-var i = 0;
-$(function(){
-    uploader = new Dropzone(".dropzone",{
-        url: "media",
-        paramName : "files[]",
-        uploadMultiple :true,
-        acceptedFiles: ".jpeg,.jpg,.png,.gif,.pdf,.json",
-        addRemoveLinks: true,
-        forceFallback: false,
-        maxFilesize: 10, // Set the maximum file size to 256 MB
-        parallelUploads: 1,
-    });//end drop zone
-    uploader.on("success", function(file,response) {
-        imageDataArray.push(response)
-        fileList[i] = {
-            "serverFileName": response,
-            "fileName": file.name,
-            "fileId": i
-        };
-   
-        i += 1;
-        $('#item_images').val(imageDataArray);
-    });
-    uploader.on("removedfile", function(file) {
-        var rmvFile = "";
-        for (var f = 0; f < fileList.length; f++) {
-            if (fileList[f].fileName == file.name) {
-                // remove file from original array by database image name
-                imageDataArray.splice(imageDataArray.indexOf(fileList[f].serverFileName), 1);
-                $('#item_images').val(imageDataArray);
-                // get removed database file name
-                rmvFile = fileList[f].serverFileName;
-                // get request to remove the uploaded file from server
-                
-                $.get( "media/" +  rmvFile  + '/edit' )
-                  .done(function( data ) {
-                    //console.log(data)
-                  });
-                // reset imageDataArray variable to set value in crud form
-                
-                console.log(imageDataArray)
-            }
+                else
+                {
+                    $('#ImageValidate').hide();
+                    $('#submitBtn').attr('disabled',false);
+                }
+            } 
         }
-        
     });
 });
 </script>

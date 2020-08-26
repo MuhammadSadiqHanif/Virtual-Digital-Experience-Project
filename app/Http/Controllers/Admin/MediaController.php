@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Media;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 
@@ -45,9 +46,18 @@ class MediaController extends Controller
 				for ($i = 0; $i < count($file); $i++)
 				{
 					$name = $file[$i][$i]->getClientOriginalExtension();
+
 					$realName = basename($file[$i][$i]->getClientOriginalName(), '.'.$file[$i][$i]->getClientOriginalExtension()) . uniqid() . 'media' . '.' . $name;
+
 					$file[$i][$i]->move(public_path('clients/gallery'), $realName);
-					$media[] = ['media' => $realName, 'ext' => $name,'domain' => $request->domain];
+					
+					$media[] = [
+						'media' => $realName, 
+						'ext' => $name,
+						'domain' => $request->domain,
+						"created_at" =>  Carbon::now(),
+			            "updated_at" => Carbon::now(), 
+					        ];
 				}
 			}
 			\DB::table('media')->insert($media);
