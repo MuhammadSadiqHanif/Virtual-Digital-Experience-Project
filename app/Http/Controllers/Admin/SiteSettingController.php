@@ -53,7 +53,6 @@ class SiteSettingController extends Controller
 	{
         $request->validate([
 			'company_name' => 'required',
-			'admins' => 'required',
 			'company_url' => 'required',
 			'domain' => 'required',
 			'logo' => 'required',
@@ -96,7 +95,9 @@ class SiteSettingController extends Controller
 			'is_private' => $request->has('is_private') && $request->is_private == 'on' ? 1 : 0,
 		]);
 
-		$site->users()->sync($request->admins);
+		if ($request->has('admins')) {
+			$site->users()->sync($request->admins);			
+		}
 
 		return redirect()->to('/admin/clients')->with('success', 'New Client Added Successfully you can test it @
         <a target="_blank" href="https://'.$request->domain.'.'.'benefitstour.com" class="alert-link">Domain</a>');

@@ -3,6 +3,7 @@
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <link href="{{ asset('backend/assets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" 
 type="text/css" />
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 @livewireStyles
 @endpush
 @section('content')
@@ -119,7 +120,7 @@ type="text/css" />
                           <hr>
                           <form action="{{ url('admin/site-topics/'.$details->id.'/video/default') }}" method="POST" role="form" id="video-default-image-form">
                             @csrf
-                            <legend>No Video's yet? Set a default Image!</legend>
+                            <legend>Set a default Video Thumbnail!</legend>
                             <div class="form-group">
                               <label for="">Image</label>
                               <input type="text" class="form-control" id="video-default-image" 
@@ -157,6 +158,12 @@ type="text/css" />
                     <div class="col-lg-12">
                       @include('backend.includes.form_errors')
                       @include('backend.includes.alert')
+                      
+                      <div class="alert alert-danger pdf-error-alert" style="display: none;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Sorry!</strong> Only Pdf Allowed here!
+                      </div>
+
                       <div class="card">
                         <div class="card-body">
                           <button type="button" style="margin-bottom: 15px;" name="add" id="add-pdf" class="btn btn-success waves-effect waves-light">Add +</button>
@@ -180,8 +187,9 @@ type="text/css" />
                                   <td>
                                     <input type="text" name="pdf[link][]" 
                                       value="{{ $pdf->link }}" 
-                                      placeholder="Select From Gallery" class="form-control"/>
+                                      placeholder="Select From Gallery" class="form-control pdf-field"/>
                                     <span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span>
+                                    <span x-text="pdf"></span>
                                   </td>
                                   <td>
                                     <input type="text" name="pdf[title][]" 
@@ -199,7 +207,7 @@ type="text/css" />
                                 @endif
                               </tbody>
                             </table>
-                            <button type="submit" class="btn btn-warning waves-effect waves-light">
+                            <button type="submit" class="btn btn-warning waves-effect waves-light pdf-submit-btn">
                             <i class="bx bx-check-double font-size-16 align-middle mr-2"></i> Submit
                             </button>   
                           </form>
@@ -208,7 +216,7 @@ type="text/css" />
                           <hr>
                           <form action="{{ url('admin/site-topics/'.$details->id.'/pdf/default') }}" method="POST" role="form" id="video-default-pdf-form">
                             @csrf
-                            <legend>No Pdf's yet? Set a default Image!</legend>
+                            <legend>Set a default Pdf Thumbnail!</legend>
                             <div class="form-group">
                               <label for="">Image</label>
                               <input type="text" class="form-control" id="video-default-pdf" 
@@ -301,7 +309,7 @@ type="text/css" />
                             @csrf
                             
                             <div class="form-group">
-                              <label for="">ChatBot Image</label>
+                              <label for="">Set a default Chatbot Thumbnail!</label>
                               <input type="text" class="form-control" id="" 
                               name="chatbot"
                               required="required"
@@ -370,6 +378,7 @@ type="text/css" />
      $(document).on('click','.galleryMedia',function(){
        
        $(objectHandler).prevAll("input[type=text]").val($(this).attr('lsrc').replace(/.*\/\/[^\/]*/, ''));
+       $(objectHandler).prevAll("input[type=text]").change();
        $('.bs-example-modal-xl').modal('hide');
      });
   
@@ -436,7 +445,7 @@ function dynamic_field_pdf(number)
 {
    
   html = '<tr>'; 
-  html += '<td><input type="text" name="pdf[link][]" value="" placeholder="Select from gallery" class="form-control" required /><span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span></td>';
+  html += '<td><input type="text" name="pdf[link][]" value="" placeholder="Select from gallery" class="form-control pdf-field" required /><span class="galleryOpenFetch" style="cursor:pointer;color:red;" data-toggle="modal" data-target=".bs-example-modal-xl">Gallery</span></td>';
   html += '<td><input type="text" name="pdf[title][]" value="" placeholder="Title" class="form-control" required /></td>';
     
   if(number > 1)
@@ -466,6 +475,22 @@ function dynamic_field_pdf(number)
 $('#delete-default-pdf-video').click(function(){
   $('#video-default-pdf').val('');
   $('#video-default-pdf-form')[0].submit();
+});
+
+$(document).on('change','.pdf-field',function(){
+  var string = $(this).val();
+  ext =string.substring(string.lastIndexOf('.'));
+  if(ext != '.pdf')
+  {
+    $(this).val('');
+    $('.pdf-submit-btn').attr('disabled',true);
+    $('.pdf-error-alert').css('display','block');
+  }
+  else
+  {
+    $('.pdf-submit-btn').attr('disabled',false);
+    $('.pdf-error-alert').hide();
+  }
 });
 
 // text part

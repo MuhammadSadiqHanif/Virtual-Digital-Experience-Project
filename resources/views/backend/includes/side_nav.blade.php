@@ -44,7 +44,7 @@
                 <li>
                     <a href="{{ route('clients.index') }}" class=" waves-effect">
                         <i class="bx bx-user"></i>
-                        <span>User's Setting</span>
+                        <span>User's</span>
                     </a>
                 </li>
                 

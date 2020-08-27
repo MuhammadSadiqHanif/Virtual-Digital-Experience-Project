@@ -64,7 +64,7 @@
                             @forelse($sites as $site)
                             <tr>
                                 <th><img class="rounded-circle avatar-sm" src="{{ asset('clients/logos/'.$site->logo) }}" alt=""></th>
-                                <td>{{ replaceHttps($site->domain) }}</td>
+                                <td><a target="_blank" href="https://{{ replaceHttps($site->domain) }}">{{ replaceHttps($site->domain) }}</a></td>
                                 <td>{{ $site->allowed_domain }}</td>
                                 <td>
                                     <div class="btn-group btn-group-example mb-3" role="group">
