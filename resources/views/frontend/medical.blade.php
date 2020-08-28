@@ -12,7 +12,7 @@
         });
     });
 
-   
+
 </script>
 @endpush
 
@@ -45,7 +45,6 @@
         <img class="plant2" src="{{ asset('frontend/images/medical/Asset1@2x.png') }}" alt="">
         <div class="pass-div web-medical">
 
-            <img id="passport" class="passport animate__animated animate__zoomIn animate__delay-1s" src="{{ asset('frontend/images/medical/Asset3@2x.png') }}" alt="">
             <div id="position1" class="position1 animate__animated animate__fadeInLeftBig animate__delay-1s">
                 <div onclick="lady()" id="lady" class="lady ">
                     <div id="textbox" class="textbox" style="background-image:url({{ asset('frontend/images/medical/Asset8@2x.png') }}) ">
@@ -125,6 +124,9 @@
 
 
                 </div>
+            </div>
+            <div style="position:absolute!important;" class="passport-div" id="passport-div">
+                <img id="passport" class="passport animate__animated animate__zoomIn animate__delay-1s" src="{{ asset('frontend/images/medical/Asset3@2x.png') }}" alt="">
             </div>
 
             <!--
@@ -214,7 +216,7 @@
                     <img src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
                 </div>
             </div>
-            
+
                 <i class="fa fa-caret-right" aria-hidden="true" onclick="plusPdfSlides(1)"></i>
         </div> -->
                         <div class="pdfIndicator">

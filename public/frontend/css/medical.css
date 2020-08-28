@@ -13,6 +13,10 @@
     align-items: center;
     justify-content: center;
 }
+.passport-div{
+    top: 75%;
+    left: 100%;
+}
 .medTitle img {
     width: 55px;
 }
@@ -101,7 +105,7 @@
     left: 13% !important;
     transform: translate(-13%, -76%) !important;
 }
-    
+
 
 .plant2 {
     height: 140px;
@@ -109,12 +113,12 @@
     top: 77% !important;
     left: 65% !important;
     transform: translate(-65%, -77%) !important;
-   
+
 }
 .passport {
     width: 50px;
     position: absolute;
-    top: 71%;
+    /*top: 71%;*/
     right: 10px;
     z-index: 999999;
 }
@@ -129,7 +133,7 @@
     left: 50%;
     /* zoom: 85%; */
     transform: translate(-50%, -56%);
- 
+
 }
 :root {
     --animate-duration: 800ms;
@@ -194,7 +198,7 @@
     width: 344px;
     box-shadow: 0 8px 6px -6px rgb(99, 98, 98);
     top: 20px;
-    left: 50px;
+    /*left: 50px;*/
     border-radius: 30px;
     /* display: flex;
     align-items: center; */
@@ -360,7 +364,7 @@
         width: 372px;
         box-shadow: 0 8px 6px -6px rgb(99, 98, 98);
         top: 20px;
-        left: 73px;
+        /*left: 73px;*/
         border-radius: 30px;
         padding: 0px 6px;
         /* color: #0077c1; */
@@ -419,10 +423,10 @@
     .sb-chat {
         top: 77% !important;
         left: 53% !important;
-    
+
     }
     .ladyexpnd .chatBotdiv {
-       
+
         height: 53vh !important;
     }
 
@@ -500,13 +504,13 @@
         left: 145px;
     }
 }
-/* 
+/*
 @media screen and (max-width:1115px) and (min-width:1026px){
-    
+
     @media screen and (min-width: 1025px) {
-        
+
     }
-} 
+}
 */
 @media screen and (max-width: 1024px) and (min-width: 769px) {
     .medicalinner {
@@ -555,7 +559,7 @@
     }
 
     .passport {
-        top: 82%;
+        /*top: 82%;*/
     }
     .videoModal {
         top: 60% !important;
@@ -568,7 +572,7 @@
         left: 55% !important;
     }
     .pdfModal{
-        top: 143px !important; 
+        top: 143px !important;
     /* zoom: 70% !important; */
     }
 }
@@ -589,8 +593,8 @@
     transform: translate(-100px,100%);
    } */
    .medTitle {
-    
-    top: 6% !important; 
+
+    top: 6% !important;
 }
    .pass-div{
     height: 100vh;
@@ -616,7 +620,7 @@
     }
     .passport {
         position: absolute !important;
-        top: 76%;
+        /*top: 76%;*/
     }
     /* .slider {
         background-color: white;
@@ -695,7 +699,7 @@
     margin-top: 40px; */
     }
     .slider {
-        left: 10px;
+        /*left: 10px;*/
     }
     .position3 {
         position: relative;
@@ -776,25 +780,30 @@
     .medTitle{
         top:7%;
     }
-    
+    .passport-div{
+        top: 104%;
+    }
     .web-medical {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         top: 52% !important;
-        
+
     }
     .position1 {
         margin-top: 50px;
+        max-width: 100%;
     }
     .position2 {
         margin-top: 50px;
+        max-width: 100%;
     }
     .position3 {
         position: initial;
         top: auto;
         margin-top: 180px;
+        max-width: 100%;
     }
     .position3 .videoSlider {
         /* position: initial; */
@@ -809,10 +818,12 @@
         height: 1700px;
     }
     .passport {
-        top: 110%;
+        /*top: 106%;*/
+        /*margin-top: -45px;*/
     }
     .slider {
         left: 0px;
+        padding: 0px;
     }
 
     .video img {
@@ -842,7 +853,7 @@
         display: flex !important;
         align-items: center;
         justify-content: center;
-        
+
     }
     #videoModalpic img{
         width: 100%;
@@ -862,18 +873,19 @@
         font-weight: bold;
         z-index: 11;
         max-height: 210px;
-    
+
     }
-    
+
     /* .videoplayback {
-        position: relative !important; 
+        position: relative !important;
         right: 0px !important;
         background: #4a7cab !important;
         display: flex;
-    
+
         color: white !important;
         font-weight: bold !important;
         z-index: 11 !important;
+        
         top: 320px !important;
         width: 630px !important;
     } */
@@ -1054,7 +1066,7 @@
     z-index: 99999;
 }
 .pdfPic {
- 
+
     width: 37%;
     display: flex;
     align-items: center;
@@ -1074,7 +1086,7 @@
     flex-direction: column;
     height: 190px;
 
-    
+
 }
 .pdfIcons{
     display: flex;
@@ -1082,7 +1094,7 @@
     justify-content: center;
     margin-top: 1%;
     margin-right: 2%;
-    
+
 
 
 }
@@ -1109,7 +1121,7 @@
     opacity: 1;
 }
 .active{
-    opacity: 1 !important; 
+    opacity: 1 !important;
     background-color: transparent;
 
 }
@@ -1175,7 +1187,7 @@ width: 100%;
     color: white;
     font-weight: bold;
     z-index: 11;
-    left: 13%;
+    left: 10%;
     border-radius: 20px;
     max-height: 230px;
     /* overflow-y: scroll; */
@@ -1252,14 +1264,14 @@ width: 100%;
     transition: 0.7s;
 }
 .sb-chat>.sb-body {
-   
+
     right: 3px !important;
     bottom: 60px  !important;
 
 
 }
 .sb-chat-btn{
-    
+
     bottom: 0px !important;
 }
 
