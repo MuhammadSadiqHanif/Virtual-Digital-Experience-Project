@@ -27,10 +27,10 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <!-- <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/> -->
 
-        
-        
+
+
         @stack('css')
-        
+
     </head>
 
     <body onunload = "console.log('goodBye');">
@@ -40,14 +40,19 @@
                 <div class="logoImg">
                     <img src="{{ asset('frontend/images/Asset 14@2x.png') }}" alt="">
                 </div>
-                
+{{--                <span--}}
+                <div style="color: #043673;border-right: 2px solid #043673;line-height: 1!important;height: 30px;margin-left: 10px"></div>
+                <div style="margin-left: 15px;">
+                    <p style="color: #0094ff;line-height: 0.9;margin-bottom: -0.2px;font-size: 16px">VIRTUAL</p>
+                    <h1 style="color: #043673;font-size: 18px;line-height: 0.9;margin-top: -0.2px">OPEN ENROLLMENT</h1>
+                </div>
             </div>
             <div class="icons">
-                
+
                 <div class="hide">
                     <i style="font-size:30px; color: #043673;" class="fa fa-question-circle-o" aria-hidden="true"></i>
                 </div>
-                
+
                 <div onclick="dropDownToggle()">
                     <i style="font-size:30px; color: #043673;" class="fa fa-bars"></i>
                     <div id="drop" class="dropDown">
@@ -66,17 +71,17 @@
                             <a href="{{ route('login') }}" style="text-decoration: none;color:black;"><p>Dashboard</p></a>
                         </div>
                         @endguest
-                        
+
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </nav>
-    
+
    @yield('content')
    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-   
+
 </body>
 <script src="{{ asset('frontend/js/app.js') }}"></script>
 <script src="https://support.mybenefitsappchat.com/supportboard/js/min/jquery.min.js"></script>

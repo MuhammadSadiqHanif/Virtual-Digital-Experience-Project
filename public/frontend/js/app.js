@@ -449,8 +449,7 @@ function service() {
     var x = window.matchMedia("(max-width: 600px)")
 
     if (x.matches) {
-
-        document.getElementById('medicalinner').style.height = "1000px"
+        document.getElementById('medicalinner').style.height = "100vh"
         document.getElementById('medicalScreen').style.height = "1000px"
       document.getElementById('passport-div').style.top = "75%"
     }

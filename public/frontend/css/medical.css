@@ -885,7 +885,7 @@
         color: white !important;
         font-weight: bold !important;
         z-index: 11 !important;
-        
+
         top: 320px !important;
         width: 630px !important;
     } */
@@ -899,8 +899,10 @@
     .pdfPic{
         min-width: 470px;
         max-width: 472px !important;
-        margin-top: 140px;
-
+        align-items: start!important;
+        justify-content: left!important;
+        margin-top: 53px;
+        display: block!important;
     }
     .pdfslider{
         left: -17px !important;
@@ -926,7 +928,8 @@
         height: 450px !important;
     }
     .ladyexpnd{
-        top: auto !important;
+        /*top: auto !important;*/
+        top: 70%!important;
     }
 
 }
@@ -1066,14 +1069,12 @@
     z-index: 99999;
 }
 .pdfPic {
-
     width: 37%;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
-.pdfPic img {
+.pdfPic-img {
     width: 100%;
 }
 .pdfslider{
@@ -1266,7 +1267,7 @@ width: 100%;
 .sb-chat>.sb-body {
 
     right: 3px !important;
-    bottom: 60px  !important;
+    bottom: 60px;
 
 
 }
@@ -1292,4 +1293,38 @@ width: 100%;
       padding: 2%;
       position: relative;
       text-align: center;
+      margin-top: 0px;
   }
+@media screen and (max-width: 600px){
+    .sb-chat {
+        width: 351px;
+        top: 32%!important;
+        left: 3%!important;
+        bottom: 800px!important;
+        position: relative!important;
+    }
+    .slider-div{
+        width: 350px!important;
+        margin-left: 50px!important;
+    }
+    .pdf-img{
+        width: 350px!important;
+       margin-bottom: 20px;
+        margin-left: 50px!important;
+    }
+}
+
+@media (max-width: 425px){
+    .sb-chat.sb-active .sb-body {
+        display: flex;
+        max-height: 500px!important;
+        right: 0;
+        left: 0;
+    }
+}
+.slider-div{
+    display:flex!important;border: 20px solid #0077c1!important;padding-top: 10px!important;width: 450px;padding-bottom: 10px!important;padding-right: 50px!important;overflow-x: scroll!important;
+}
+.pdf-img{
+    width: 450px;height: 500px!important;
+}

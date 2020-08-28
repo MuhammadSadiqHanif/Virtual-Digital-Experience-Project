@@ -174,27 +174,36 @@
 
         </div>
     </div> -->
-                <div class="pdfPic">
-                    <img src="{{ asset('frontend/images/medical/Asset 1@2x.png') }}" alt="">
+                <div class="pdfPic row">
+                    <div class="col-md-6">
+                        <img src="{{ asset('frontend/images/medical/flipbook.png') }}" alt="" class="pdf-img">
+85
+                    </div>
+{{--                    <div id="flipCon">--}}
 
-                    <div class="pdfslider_change">
+{{--                    </div>--}}
+                    <div class="pdfslider_change col-md-6">
                         <div class="main">
-
-                            <div class="slider slider-nav">
+                            <div class="slider slider-nav slick-initialized slick-slider slick-dotted slider-div">
                                 <div>
-                                    <img class="sliderImage" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                                    <p style="font-size: 12px;margin-left: 20px;color: #3498db;font-weight: bold">Highlights</p>
+                                    <img class="sliderImage pdfPic-img" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
                                 </div>
                                 <div>
-                                    <img class="sliderImage" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                                    <p style="font-size: 12px;margin-left: 20px;color: #3498db;font-weight: bold">Highlights</p>
+                                    <img class="sliderImage pdfPic-img" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
                                 </div>
                                 <div>
-                                    <img class="sliderImage" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                                    <p style="font-size: 12px;margin-left: 20px;color: #3498db;font-weight: bold">Highlights</p>
+                                    <img class="sliderImage pdfPic-img" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
                                 </div>
                                 <div>
-                                    <img class="sliderImage" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                                    <p style="font-size: 12px;margin-left: 20px;color: #3498db;font-weight: bold">Highlights</p>
+                                    <img class="sliderImage pdfPic-img" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
                                 </div>
                                 <div>
-                                    <img class="sliderImage" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
+                                    <p style="font-size: 12px;margin-left: 20px;color: #3498db;font-weight: bold">Highlights</p>
+                                    <img class="sliderImage pdfPic-img" src="{{ asset('frontend/images/medical/pdficon.png') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -219,13 +228,13 @@
 
                 <i class="fa fa-caret-right" aria-hidden="true" onclick="plusPdfSlides(1)"></i>
         </div> -->
-                        <div class="pdfIndicator">
-                            <i class="Pdfdot fa fa-circle active" aria-hidden="true" onclick="currentPdfSlide(1)"></i>
-                            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(2)"></i>
-                            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(3)"></i>
-                            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(4)"></i>
+{{--                        <div class="pdfIndicator">--}}
+{{--                            <i class="Pdfdot fa fa-circle active" aria-hidden="true" onclick="currentPdfSlide(1)"></i>--}}
+{{--                            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(2)"></i>--}}
+{{--                            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(3)"></i>--}}
+{{--                            <i class="Pdfdot fa fa-circle" aria-hidden="true" onclick="currentPdfSlide(4)"></i>--}}
 
-                        </div>
+{{--                        </div>--}}
 
                     </div>
 
