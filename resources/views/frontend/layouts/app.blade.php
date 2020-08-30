@@ -13,22 +13,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"
         integrity="sha512-fHXRw0CXruAoINU11+hgqYvY/PcsOWzmj0QmcSOtjlJcqITbPyypc8cYpidjPurWpCnlB8VKfRwx6PIpASCUkQ=="
         crossorigin="anonymous"></script>
-    <script src="{{ asset('frontend/js/jquery-3.5.1.js') }}"></script>
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
         integrity="sha512-kb1CHTNhoLzinkElTgWn246D6pX22xj8jFNKsDmVwIQo+px7n1yjJUZraVuR/ou6Kmgea4vZXZeUDbqKtXkEMg=="
         crossorigin="anonymous" />
-        <!-- For SLick Slider -->
-        <!-- <link rel="stylesheet" type="text/css" href="./slick/slick/slick.css" /> -->
-        <link rel="stylesheet" href="{{ asset('frontend/plugin/slick/slick.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/plugin/slick/slick-theme.css') }}">
-
-        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        <!-- <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/> -->
-
-
-
+       
         @stack('css')
 
     </head>
@@ -40,7 +30,6 @@
                 <div class="logoImg">
                     <img src="{{ asset('frontend/images/Asset 14@2x.png') }}" alt="">
                 </div>
-{{--                <span--}}
                 <div style="color: #043673;border-right: 2px solid #043673;line-height: 1!important;height: 30px;margin-left: 10px"></div>
                 <div style="margin-left: 15px;">
                     <p style="color: #0094ff;line-height: 0.9;margin-bottom: -0.2px;font-size: 16px">VIRTUAL</p>
@@ -80,13 +69,11 @@
     </nav>
 
    @yield('content')
-   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
 </body>
 <script src="{{ asset('frontend/js/app.js') }}"></script>
-<script src="https://support.mybenefitsappchat.com/supportboard/js/min/jquery.min.js"></script>
-<script src="https://support.mybenefitsappchat.com/supportboard/js/init.js"></script>
-<script src="https://support.mybenefitsappchat.com/supportboard/js/api.js?v=4"></script>
-<script src="{{ asset('frontend/plugin/flipbook.js') }}"></script>
-<script src="{{ asset('frontend/plugin/slick/slick.min.js') }}"></script>
+
+
+@stack('js')
 </html>

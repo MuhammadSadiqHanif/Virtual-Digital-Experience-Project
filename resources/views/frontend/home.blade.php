@@ -1,5 +1,9 @@
 @extends('frontend.layouts.app')
+@push('css')
 
+
+
+@endpush
 @section('content')
 <div class="center">
 
@@ -130,4 +134,10 @@
             </a>
     </div>
 </div>
-    @endsection
+@push('js')
+<script src="{{ asset('frontend/js/jquery-3.5.1.js') }}"></script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+@endpush
+@endsection
