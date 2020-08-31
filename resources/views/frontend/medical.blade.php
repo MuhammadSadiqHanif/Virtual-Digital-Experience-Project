@@ -26,7 +26,6 @@
         <div class="medTitle">
             <div id="titleDiv" class="titleDive">
                 <img src="{{asset('frontend/images/medical/medicalIcon.png')}}" alt="">
-                <!-- <i class="fas fa-plus-circle"></i> -->
                 <h6>MEDICAL</h6>
             </div>
         </div>
@@ -121,7 +120,6 @@
             <div id="pdfModal" class="pdfModal">
                 <div class="pdfPic row">
                     <div class="col-md-6">
-                        {{-- <img src="{{ asset('frontend/images/medical/flipbook.png') }}" alt="" class="pdf-img"> --}}
                         <div id="flipCon">
 
                         </div>
@@ -157,8 +155,7 @@
 
                 </div>
             </div>
-            <!-- {{-- filpbook here --}}
-        {{-- flipobook end here --}} -->
+            <!-- filpbook here  flipobook end here  -->
 
 
             <div id="videoModal" class="videoModal">
@@ -166,7 +163,7 @@
                 <div id="videoModalpic">
                     <img src="{{ asset('frontend/images/medical/Asset6@2x.png') }}" alt="">
                     <button onclick="videobutton()" id="videobutton" class="fa fa-play-circle"> </button>
-                    <!-- <iframe id="videoplay" class="videoplay" src="https://player.vimeo.com/video/116690342?color=ffffff&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
+            
 
                     <iframe id="videoplay" class="videoplay" src="https://player.vimeo.com/video/35636533" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
@@ -200,7 +197,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <button id='backbutton' onclick="back()" class='backbutton'><i class="fas fa-arrow-left"></i></button> -->
             </div>
 
             <div id="ladyexpnd" class="ladyexpnd">
